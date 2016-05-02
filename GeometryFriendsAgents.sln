@@ -11,6 +11,7 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "GeometryFriends", "Geometry
 		Executable = GeometryFriendsGame\Release\GeometryFriends.exe
 		RemoteMachine = GOOBYPLIZ
 		StartingDirectory = GeometryFriendsGame\Release
+		Arguments = 
 		Environment = Default
 		LaunchingEngine = 00000000-0000-0000-0000-000000000000
 		UseLegacyDebugEngines = No

@@ -80,6 +80,8 @@ namespace GeometryFriendsAgents
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
         const string NEURAL_NETWORK_FILE = "circle_neural_network.xml";
         GeometryFriendsExperiment _experiment;
+
+        System.IO.StreamWriter name;
         
         public CircleAgent()
         {
@@ -138,51 +140,43 @@ namespace GeometryFriendsAgents
             //IBlackBox _b;
             */
 
-            
-            AllocConsole();
+            //console
+            //AllocConsole();
+
 
             rnd = new Random();
             Linear l = new Linear();
             SteepenedSigmoid ss = new SteepenedSigmoid();
-            Neuron n1 = new Neuron(0, NodeType.Bias, ss, null);
-            nodes.Add(n1);
-            Neuron n2 = new Neuron(1, NodeType.Input, ss, null);
-            nodes.Add(n2);
-            Neuron n3 = new Neuron(0, NodeType.Input, ss, null);
-            nodes.Add(n3);
-            Neuron n4 = new Neuron(2, NodeType.Output, ss, null);
-            nodes.Add(n4);
-            Neuron n5 = new Neuron(3, NodeType.Output, ss, null);
-            nodes.Add(n5);
-            Neuron n6 = new Neuron(4, NodeType.Output, ss, null);
-            nodes.Add(n6);
+            uint id = 0;
+            
+            Neuron n = new Neuron(id, NodeType.Bias, ss, null);
+            nodes.Add(n);
+
+            for(uint i = 0; i < 26; i++, id++)
+            {
+                n = new Neuron(id, NodeType.Input, ss, null);
+                nodes.Add(n);
+            }
+
+            for (uint i = 0; i < 4; i++, id++)
+            {
+                n = new Neuron(id, NodeType.Output, ss, null);
+                nodes.Add(n);
+            }
 
             List<Connection> connections = new List<Connection>();
 
-            double d1 = rnd.NextDouble();
-            double d2 = rnd.NextDouble();
-            double d3 = rnd.NextDouble();
-            double d4 = rnd.NextDouble();
-            double d5 = rnd.NextDouble();
-            double d6 = rnd.NextDouble();
+            for(int i = 1; i < 27; i++)
+            {
+                for(int k = 27; k < 31; k++)
+                {
+                    Connection cn = new Connection(nodes[i], nodes[k], rnd.NextDouble());
+                    connections.Add(cn);
+                }
+            }
 
-            Console.WriteLine(d1 + " " + d2 + " " + d3 + " " + d4 + " " + d5 + " " + d6);
-
-            Connection cn1 = new Connection(n2, n4, d1);
-            connections.Add(cn1);
-            Connection cn2 = new Connection(n2, n5, d2);
-            connections.Add(cn2);
-            Connection cn3 = new Connection(n2, n6, d3);
-            connections.Add(cn3);
-            Connection cn4 = new Connection(n3, n4, d4);
-            connections.Add(cn4);
-            Connection cn5 = new Connection(n3, n5, d5);
-            connections.Add(cn5);
-            Connection cn6 = new Connection(n3, n6, d6);
-            connections.Add(cn6);
-
-
-            nn = new CyclicNetwork(nodes, connections, 2, 3, 2);
+            nn = new CyclicNetwork(nodes, connections, 26, 4, 2);
+            
 
             /*
             // Save the best genome to file
@@ -204,6 +198,7 @@ namespace GeometryFriendsAgents
             possibleMoves.Add(Moves.ROLL_LEFT);
             possibleMoves.Add(Moves.ROLL_RIGHT);
             possibleMoves.Add(Moves.JUMP);
+            possibleMoves.Add(Moves.GROW);
 
             //history keeping
             uncaughtCollectibles = new List<CollectibleRepresentation>();
@@ -288,15 +283,53 @@ namespace GeometryFriendsAgents
             */
             int index = 40;
             double score = -1000000.0;
+            int id = 0;
+            float area_width = area.Width;
+            float area_height = area.Height;
 
-            nn.InputSignalArray[0] = NormalizeValue(uncaughtCollectibles[0].X, 1280.0f);
-            nn.InputSignalArray[1] = NormalizeValue(uncaughtCollectibles[0].Y, 800.0f);
+            foreach (ObstacleRepresentation ob_re in obstaclesInfo)
+            {
+                nn.InputSignalArray[id] = NormalizeValue(ob_re.X, area_width);
+                id++;
+                nn.InputSignalArray[id] = NormalizeValue(ob_re.Y, area_height);
+                id++;
+                nn.InputSignalArray[id] = NormalizeValue(ob_re.Width, area_width);
+                id++;
+                nn.InputSignalArray[id] = NormalizeValue(ob_re.Height, area_height);
+                id++;
+            }
+
+            //for oscar
+            nn.InputSignalArray[id] = NormalizeValue(circleInfo.X, area_width);
+            id++;
+            nn.InputSignalArray[id] = NormalizeValue(circleInfo.Y, area_height);
+            id++;
+            nn.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityX, 15.0f); //mark
+            id++;
+            nn.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityY, area_height); //mark
+            id++;
+
+            /*
+            name = new StreamWriter("C:/Users/Embajador/shit.txt", true);
+
+            name.WriteLine("Velocity Y = " + circleInfo.VelocityY);
+            name.WriteLine("Velocity X = " + circleInfo.VelocityX);
+
+            name.Close();*/
+            DebugSensorsInfo();
+            //just chilling oscar
+
+            Console.WriteLine("banana martin");
+
+            nn.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].X, area.Width);
+            id++;
+            nn.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].Y, area.Height);
             nn.Activate();
 
-            double a = nn.InputSignalArray[0];
-            double b = nn.InputSignalArray[1];
+            //double a = nn.InputSignalArray[0];
+            //double b = nn.InputSignalArray[1];
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 double actual_score = nn.OutputSignalArray[i];
 
