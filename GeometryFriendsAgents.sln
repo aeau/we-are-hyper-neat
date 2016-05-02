@@ -8,9 +8,9 @@ EndProject
 Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "GeometryFriends", "GeometryFriendsGame\Release\GeometryFriends.exe", "{CCBB2A05-5B93-44F0-AB94-3336B53472EB}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\GeometryFriendsGame\Release\GeometryFriends.exe
+		Executable = GeometryFriendsGame\Release\GeometryFriends.exe
 		RemoteMachine = GOOBYPLIZ
-		StartingDirectory = C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\GeometryFriendsGame\Release
+		StartingDirectory = GeometryFriendsGame\Release
 		Environment = Default
 		LaunchingEngine = 00000000-0000-0000-0000-000000000000
 		UseLegacyDebugEngines = No
