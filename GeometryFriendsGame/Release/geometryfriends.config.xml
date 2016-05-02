@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <PopulationSize>150</PopulationSize>
+  <SpecieCount>10</SpecieCount>
+  <Activation>
+    <Scheme>FixedIters</Scheme>
+    <Iters>2</Iters>
+  </Activation>
+  <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
+  <ComplexityThreshold>50</ComplexityThreshold>
+  <Description>
+    GeometryFriends Evolution - The goal is to create an optimal circle player.
+    Individuals are evaluated for how many collectables they can pick in 10 games.
+
+    Score = Number of collectables collected.
+
+    Fitness is the sum of the scores.
+  </Description>
+ 
+</Config>
