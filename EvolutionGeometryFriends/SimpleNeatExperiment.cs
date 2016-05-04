@@ -37,7 +37,7 @@ using SharpNeat.DistanceMetrics;
 using SharpNeat.SpeciationStrategies;
 using System.Xml;
 
-namespace GeometryFriendsAgents
+namespace EvolutionGeometryFriends
 {
     /// <summary>
     /// Helper class that hides most of the details of setting up an experiment.

@@ -1,0 +1,5 @@
+C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\EvolutionGeometryFriends\bin\Release\EvolutionGeometryFriends.exe.config
+C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\EvolutionGeometryFriends\bin\Release\EvolutionGeometryFriends.exe
+C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\EvolutionGeometryFriends\bin\Release\EvolutionGeometryFriends.pdb
+C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.exe
+C:\Users\Embajador\Documents\Visual Studio 2013\Projects\a-life-competition-c#\GeometryFriendsAgents\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.pdb

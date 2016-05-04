@@ -14,7 +14,7 @@ using SharpNeat.Genomes.Neat;
 using SharpNeat.Network;
 using SharpNeat.SpeciationStrategies;
 
-namespace GeometryFriendsAgents
+namespace EvolutionGeometryFriends
 {
     class GeometryFriendsEvaluator :  IPhenomeEvaluator<IBlackBox>
     {

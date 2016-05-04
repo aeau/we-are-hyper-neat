@@ -79,7 +79,6 @@ namespace GeometryFriendsAgents
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
         const string NEURAL_NETWORK_FILE = "circle_neural_network.xml";
-        GeometryFriendsExperiment _experiment;
 
         System.IO.StreamWriter name;
         

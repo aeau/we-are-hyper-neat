@@ -19,6 +19,8 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "GeometryFriends", "Geometry
 		AttachLaunchAction = No
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvolutionGeometryFriends", "EvolutionGeometryFriends\EvolutionGeometryFriends.csproj", "{60F225A4-18FC-4037-A060-79F4B5B8C338}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,16 @@ Global
 		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|x86.ActiveCfg = Debug|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

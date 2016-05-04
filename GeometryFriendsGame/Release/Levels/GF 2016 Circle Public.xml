@@ -81,7 +81,10 @@
     </YellowObstacles>
     <GreenElevators />
     <OrangeElevators />
-	<TimeLimit value="55" />
+    <TimeLimit value="55" />
+    <HighScores>
+      <HighScore name="RandPredictorCircle" value="55" />
+    </HighScores>
   </Level3>
   <Level4>
     <Description />
