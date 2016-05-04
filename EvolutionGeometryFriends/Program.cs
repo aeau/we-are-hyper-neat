@@ -11,6 +11,8 @@ namespace EvolutionGeometryFriends
     {
         static void Main(string[] args)
         {
+            log4net.Config.XmlConfigurator.Configure();
+            Log4NetController.Log("TEST", Log4NetController.LogLevel.Debug);
             try
             {
                 string arguments = @"--no-rendering --speed 75 -st 0 3 -a Agents/GeometryFriendsAgents.dll";
