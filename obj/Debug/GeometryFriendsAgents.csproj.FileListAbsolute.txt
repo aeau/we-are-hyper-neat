@@ -9,3 +9,16 @@ C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.dll
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.pdb
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\Redzen.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\GeometryFriendsAgents.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\GeometryFriendsAgents.pdb
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\EvolutionGeometryFriends.exe
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\log4net.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\SharpNeatDomains.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\SharpNeatLib.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\Redzen.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\EvolutionGeometryFriends.pdb
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\log4net.xml
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\SharpNeatLib.xml
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.csprojResolveAssemblyReference.cache
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.dll
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.pdb
