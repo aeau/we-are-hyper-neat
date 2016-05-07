@@ -12,6 +12,5 @@ C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\bin\Release\SharpNeatLib.dll
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\bin\Release\log4net.xml
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\bin\Release\SharpNeatLib.xml
-C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.csprojResolveAssemblyReference.cache
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.exe
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.pdb

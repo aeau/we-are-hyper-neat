@@ -32,6 +32,7 @@ using GeometryFriends.AI.Debug;
 using GeometryFriends.AI.Perceptions.Information;
 
 using System.Runtime.InteropServices;
+using EvolutionGeometryFriends;
 
 namespace GeometryFriendsAgents
 {
@@ -88,7 +89,8 @@ namespace GeometryFriendsAgents
         
         public CircleAgent()
         {
-
+            //log4net.Config.XmlConfigurator.Configure();
+            //Log4NetController.Log("Value from Program: " , Log4NetController.LogLevel.Debug);
             NeatGenome genome = null;
 
             NeatGenomeParameters _neatGenomeParams = new NeatGenomeParameters();
@@ -134,7 +136,7 @@ namespace GeometryFriendsAgents
             var phenome = genomeDecoder.Decode(genome);
 
             // Set the NEAT player's brain to the newly loaded neural network.
-            Brain = (FastAcyclicNetwork)phenome;
+            Brain = phenome;
 
             //Change flag if agent is not to be used
             implementedAgent = true;
@@ -289,10 +291,10 @@ namespace GeometryFriendsAgents
                 }
             }
             currentAction = possibleMoves[index];
-            double dist = Distance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
+            //double dist = Distance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
             name = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
-            name.WriteLine(uncaughtCollectibles.Count + ";" + dist);
-            name.Close();
+            //name.WriteLine(uncaughtCollectibles.Count + ";" + dist);
+            //name.Close();
         }
 
         public float NormalizeValue(float value, float max)
@@ -310,6 +312,7 @@ namespace GeometryFriendsAgents
         //implements abstract circle interface: GeometryFriends agents manager gets the current action intended to be actuated in the enviroment for this agent
         public override Moves GetAction()
         {
+            RandomAction();
             return currentAction;
         }
 

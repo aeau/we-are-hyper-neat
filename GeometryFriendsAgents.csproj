@@ -63,6 +63,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleAgent.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="EvolutionGeometryFriends\EvolutionGeometryFriends.csproj">
+      <Project>{60f225a4-18fc-4037-a060-79f4b5b8c338}</Project>
+      <Name>EvolutionGeometryFriends</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

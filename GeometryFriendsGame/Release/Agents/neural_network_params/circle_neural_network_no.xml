@@ -37,10 +37,10 @@
         <Node type="out" id="29" />
       </Nodes>
       <Connections>
-        <Con id="62" src="10" tgt="29" wght="0.13497098349034786" />
-        <Con id="79" src="16" tgt="28" wght="-2.778046375606209" />
-        <Con id="89" src="19" tgt="29" wght="1.4785026689060032" />
-        <Con id="92" src="20" tgt="29" wght="4.321123817935586" />
+        <Con id="35" src="1" tgt="29" wght="4.5174441626295447" />
+        <Con id="49" src="6" tgt="28" wght="-4.7365728113800287" />
+        <Con id="57" src="9" tgt="27" wght="-0.99033408099785447" />
+        <Con id="91" src="20" tgt="28" wght="0.50361905246973038" />
       </Connections>
     </Network>
   </Networks>

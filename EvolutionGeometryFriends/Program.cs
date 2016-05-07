@@ -19,10 +19,11 @@ using SharpNeat.EvolutionAlgorithms.ComplexityRegulation;
 using SharpNeat.Genomes.HyperNeat;
 using SharpNeat.Network;
 using SharpNeat.SpeciationStrategies;
+using System.IO;
 
 namespace EvolutionGeometryFriends
 {
-    class Program
+    public class Program
     {
 
         protected CyclicNetwork neural_network;
@@ -33,31 +34,30 @@ namespace EvolutionGeometryFriends
         List<Neuron> nodes = new List<Neuron>();
         List<Connection> connections = new List<Connection>();
 
+        public static int current_index;
+
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
         const string NEURAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/circle_neural_network.xml";
 
         static void Main(string[] args)
         {
-            Program main_program = new Program(26,3);
-            main_program.CreateNeuralNetwork();
-            main_program.SaveNeuralNetwork();
+            //Program main_program = new Program(26,3);
+            //main_program.CreateNeuralNetwork();
+            //main_program.SaveNeuralNetwork();
+
+            current_index = 37;
 
             log4net.Config.XmlConfigurator.Configure();
-            Log4NetController.Log("TEST", Log4NetController.LogLevel.Debug);
+            //Log4NetController.Log("TEST", Log4NetController.LogLevel.Debug);
 
             try
             {
-                string arguments = "--speed 75 -st 0 3 -a " + Environment.CurrentDirectory + "/Agents/GeometryFriendsAgents.dll";
-                string filename = Environment.CurrentDirectory + 
-                                    "/../../../GeometryFriendsGame/Release/GeometryFriends.exe";
-
-                //Process.Start("http://google.com/search?q=" + "cat pictures");
+                string filename = Environment.CurrentDirectory +
+                                    "/../../../GeometryFriendsGame/Release/gflink";
 
                 Process firstProc = new Process();
                 firstProc.StartInfo.FileName = filename;
-                firstProc.StartInfo.Arguments = arguments;
-                firstProc.EnableRaisingEvents = true;
                 firstProc.Start();
 
                 firstProc.WaitForExit();
