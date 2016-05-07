@@ -1,0 +1,10 @@
+syntax: glob
+
+*.sdf
+*.suo
+*.user
+*.opensdf
+
+syntax: regexp
+
+GeometryFriendsGame/Release/gflink
