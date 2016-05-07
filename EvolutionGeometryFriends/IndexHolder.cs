@@ -8,6 +8,6 @@ namespace EvolutionGeometryFriends
 {
     public static class IndexHolder
     {
-        public static int current_index;
+        public static int current_index = 10;
     }
 }

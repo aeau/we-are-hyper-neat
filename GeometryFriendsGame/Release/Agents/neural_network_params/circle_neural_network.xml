@@ -37,10 +37,50 @@
         <Node type="out" id="29" />
       </Nodes>
       <Connections>
-        <Con id="62" src="10" tgt="29" wght="0.13497098349034786" />
-        <Con id="79" src="16" tgt="28" wght="-2.778046375606209" />
-        <Con id="89" src="19" tgt="29" wght="1.4785026689060032" />
-        <Con id="92" src="20" tgt="29" wght="4.321123817935586" />
+        <Con id="39" src="3" tgt="27" wght="-1.5508952201344073" />
+        <Con id="46" src="5" tgt="28" wght="1.9537022616714239" />
+        <Con id="68" src="12" tgt="29" wght="-1.7858633282594383" />
+        <Con id="81" src="17" tgt="27" wght="-0.17800336005166173" />
+      </Connections>
+    </Network>
+    <Network id="1" birthGen="0" fitness="0">
+      <Nodes>
+        <Node type="bias" id="0" />
+        <Node type="in" id="1" />
+        <Node type="in" id="2" />
+        <Node type="in" id="3" />
+        <Node type="in" id="4" />
+        <Node type="in" id="5" />
+        <Node type="in" id="6" />
+        <Node type="in" id="7" />
+        <Node type="in" id="8" />
+        <Node type="in" id="9" />
+        <Node type="in" id="10" />
+        <Node type="in" id="11" />
+        <Node type="in" id="12" />
+        <Node type="in" id="13" />
+        <Node type="in" id="14" />
+        <Node type="in" id="15" />
+        <Node type="in" id="16" />
+        <Node type="in" id="17" />
+        <Node type="in" id="18" />
+        <Node type="in" id="19" />
+        <Node type="in" id="20" />
+        <Node type="in" id="21" />
+        <Node type="in" id="22" />
+        <Node type="in" id="23" />
+        <Node type="in" id="24" />
+        <Node type="in" id="25" />
+        <Node type="in" id="26" />
+        <Node type="out" id="27" />
+        <Node type="out" id="28" />
+        <Node type="out" id="29" />
+      </Nodes>
+      <Connections>
+        <Con id="35" src="1" tgt="29" wght="-1.8457589508034289" />
+        <Con id="49" src="6" tgt="28" wght="-1.3842626032419503" />
+        <Con id="85" src="18" tgt="28" wght="0.084765234496444464" />
+        <Con id="97" src="22" tgt="28" wght="-3.8810083782300353" />
       </Connections>
     </Network>
   </Networks>

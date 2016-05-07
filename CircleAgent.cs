@@ -82,16 +82,24 @@ namespace GeometryFriendsAgents
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
         const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/circle_neural_network.xml";
         const string NEURAL_NETWORK_CONFIG = "/geometryfriends.config.xml";
+        const string INDEX_FILE_PATH = "/Agents/neural_network_params/index_file.txt";
         const string FITNESS_FILE = "/fitness.txt";
 
 
-        System.IO.StreamWriter name;
+        System.IO.StreamWriter writer;
+        int index_id;
+        //System.IO.StreamReader reader;
+
         
         public CircleAgent()
         {
-           
-            NeatGenome genome = null;
 
+            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + INDEX_FILE_PATH))
+            {
+                index_id = Int32.Parse(sr.ReadLine());
+            }
+
+            NeatGenome genome = null;
             NeatGenomeParameters _neatGenomeParams = new NeatGenomeParameters();
             _neatGenomeParams.AddConnectionMutationProbability = 0.1;
             _neatGenomeParams.AddNodeMutationProbability = 0.01;
@@ -104,7 +112,7 @@ namespace GeometryFriendsAgents
             try
             {
                 using (XmlReader xr = XmlReader.Create(Environment.CurrentDirectory + NEURAL_NETWORK_FILE))
-                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[0]; // this is the index to change
+                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[index_id]; // this is the index to change
             }
             catch (Exception e1)
             {
@@ -365,9 +373,15 @@ namespace GeometryFriendsAgents
                                 (float)(10.0 * normalized_distance) + 
                                 normalized_time;
 
-            name = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
-            name.WriteLine(weighted_sum);
-            name.Close();
+            writer = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true);
+            writer.WriteLine(weighted_sum);
+            writer.Close();
+
+            index_id++;
+
+            writer = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
+            writer.WriteLine(index_id);
+            writer.Close();
         }
 
         //implements abstract circle interface: gets the debug information that is to be visually represented by the agents manager

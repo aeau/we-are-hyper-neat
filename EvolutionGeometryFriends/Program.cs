@@ -29,6 +29,7 @@ namespace EvolutionGeometryFriends
         protected CyclicNetwork neural_network;
         protected NeatGenomeFactory genome_factory;
         protected NeatGenome genome;
+        protected List<NeatGenome> genome_list = new List<NeatGenome>();
         private Random rnd;
 
         List<Neuron> nodes = new List<Neuron>();
@@ -39,15 +40,20 @@ namespace EvolutionGeometryFriends
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
         const string NEURAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/circle_neural_network.xml";
+        const string FITNESS_FILE = "/../../../GeometryFriendsGame/Release/fitness.txt";
+        System.IO.StreamReader reader;
+        System.IO.StreamWriter writer;
 
         static void Main(string[] args)
         {
-            //Program main_program = new Program(26,3);
-            //main_program.CreateNeuralNetwork();
-            //main_program.SaveNeuralNetwork();
+            string INDEX_FILE_PATH = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/index_file.txt";
+            System.IO.StreamWriter index_file;
+
+            Program main_program = new Program(26,3);
+            main_program.CreateNeuralNetwork();
+            main_program.SaveNeuralNetwork();
 
             current_index = 37;
-
             log4net.Config.XmlConfigurator.Configure();
             //Log4NetController.Log("TEST", Log4NetController.LogLevel.Debug);
 
@@ -56,12 +62,26 @@ namespace EvolutionGeometryFriends
                 string filename = Environment.CurrentDirectory +
                                     "/../../../GeometryFriendsGame/Release/gflink";
 
+                
                 Process firstProc = new Process();
                 firstProc.StartInfo.FileName = filename;
                 firstProc.Start();
-
                 firstProc.WaitForExit();
 
+                index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
+                index_file.WriteLine("0");
+                index_file.Close();
+
+                using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
+                {
+                    while (sr.Peek() >= 0)
+                    {
+                        Console.WriteLine(sr.ReadLine());
+                    }
+                }
+
+                //System.IO.File.WriteAllText(Environment.CurrentDirectory + FITNESS_FILE, string.Empty);
+                
                 //You may want to perform different actions depending on the exit code.
                 Console.WriteLine("First process exited: " + firstProc.ExitCode);
                 Console.ReadLine();
@@ -87,14 +107,15 @@ namespace EvolutionGeometryFriends
 
         public void CreateNeuralNetwork()
         {
-            genome = genome_factory.CreateGenome(0); 
+            //genome = genome_factory.CreateGenome(0);
+            genome_list = genome_factory.CreateGenomeList(500, 0);
         }
 
         public void SaveNeuralNetwork()
         {
             string filename = Environment.CurrentDirectory + NEURAL_NETWORK_FILE;
             var doc = NeatGenomeXmlIO.SaveComplete(
-                                     new List<NeatGenome>() { genome },
+                                     genome_list,
                                      false);
 
             doc.Save(filename);
