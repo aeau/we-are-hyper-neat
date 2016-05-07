@@ -89,8 +89,7 @@ namespace GeometryFriendsAgents
         
         public CircleAgent()
         {
-            //log4net.Config.XmlConfigurator.Configure();
-            //Log4NetController.Log("Value from Program: " , Log4NetController.LogLevel.Debug);
+           
             NeatGenome genome = null;
 
             NeatGenomeParameters _neatGenomeParams = new NeatGenomeParameters();
@@ -105,7 +104,7 @@ namespace GeometryFriendsAgents
             try
             {
                 using (XmlReader xr = XmlReader.Create(Environment.CurrentDirectory + NEURAL_NETWORK_FILE))
-                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[0];
+                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[0]; // this is the index to change
             }
             catch (Exception e1)
             {
@@ -238,6 +237,7 @@ namespace GeometryFriendsAgents
             float area_width = area.Width;
             float area_height = area.Height;
 
+            //Feed input neuron with each obstacle
             foreach (ObstacleRepresentation ob_re in obstaclesInfo)
             {
                 Brain.InputSignalArray[id] = NormalizeValue(ob_re.X, area_width);
@@ -250,7 +250,7 @@ namespace GeometryFriendsAgents
                 id++;
             }
 
-            //for oscar
+            //Feed input neurons with agent information
             Brain.InputSignalArray[id] = NormalizeValue(circleInfo.X, area_width);
             id++;
             Brain.InputSignalArray[id] = NormalizeValue(circleInfo.Y, area_height);
@@ -260,41 +260,29 @@ namespace GeometryFriendsAgents
             Brain.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityY, area_height); //mark
             id++;
 
-            /*
-            name = new StreamWriter("C:/Users/Embajador/shit.txt", true);
-
-            name.WriteLine("Velocity Y = " + circleInfo.VelocityY);
-            name.WriteLine("Velocity X = " + circleInfo.VelocityX);
-
-            name.Close();*/
-            DebugSensorsInfo();
-            //just chilling oscar
-
-            //Console.WriteLine("banana martin");
-
+            //Feed input neurons with first uncaught collectible information
             Brain.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].X, area.Width);
             id++;
             Brain.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].Y, area.Height);
+            
+            //Evaluate neural network
             Brain.Activate();
 
-            //double a = nn.InputSignalArray[0];
-            //double b = nn.InputSignalArray[1];
-
+            //Get most excited output neuron
             for (int i = 0; i < 3; i++)
             {
-                double actual_score = Brain.OutputSignalArray[i];
+                double current_score = Brain.OutputSignalArray[i];
 
-                if (actual_score > score)
+                if (current_score > score)
                 {
-                    score = actual_score;
+                    score = current_score;
                     index = i;
                 }
             }
+
+            //Select action with output neuron
             currentAction = possibleMoves[index];
-            //double dist = Distance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
-            name = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
-            //name.WriteLine(uncaughtCollectibles.Count + ";" + dist);
-            //name.Close();
+
         }
 
         public float NormalizeValue(float value, float max)
@@ -302,11 +290,23 @@ namespace GeometryFriendsAgents
             return value/(max);
         }
 
+        public double NormalizeValue(double value, double max)
+        {
+            return value / (max);
+        }
+
         public double Distance(float x1, float y1, float x2, float y2)
         {
             double dist = (Math.Abs(x2 - x1)) + (Math.Abs(y2 - y1));
             dist = Math.Sqrt(dist);
             return dist;
+        }
+
+        public double NormalizedDistance(float x1, float y1, float x2, float y2)
+        {
+            double dist = (Math.Abs(x2 - x1)) + (Math.Abs(y2 - y1));
+            dist = Math.Sqrt(dist);
+            return NormalizeValue(dist, Math.Sqrt(Math.Pow(area.Width, 2.0) + Math.Pow(area.Height, 2.0)));
         }
 
         //implements abstract circle interface: GeometryFriends agents manager gets the current action intended to be actuated in the enviroment for this agent
@@ -357,8 +357,16 @@ namespace GeometryFriendsAgents
         {
             Console.WriteLine("CIRCLE - Collectibles caught = {0}, Time elapsed - {1}", collectiblesCaught, timeElapsed);
 
+            float normalized_collectibles = NormalizeValue((float)collectiblesCaught, (float)numbersInfo.CollectiblesCount);
+            double normalized_distance = NormalizedDistance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
+            float normalized_time = NormalizeValue((float)timeElapsed, 115.0f);
+
+            float weighted_sum = (100.0f * normalized_collectibles) + 
+                                (float)(10.0 * normalized_distance) + 
+                                normalized_time;
+
             name = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
-            name.WriteLine(collectiblesCaught + "," + timeElapsed);
+            name.WriteLine(weighted_sum);
             name.Close();
         }
 
