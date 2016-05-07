@@ -15,3 +15,4 @@ C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Debug\EvolutionGeometryFriends.csprojResolveAssemblyReference.cache
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Debug\EvolutionGeometryFriends.exe
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Debug\EvolutionGeometryFriends.pdb
+C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\bin\Debug\Redzen.dll

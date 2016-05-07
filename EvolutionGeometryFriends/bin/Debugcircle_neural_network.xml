@@ -1,0 +1,47 @@
+<Root>
+  <ActivationFunctions>
+    <Fn id="0" name="SteepenedSigmoid" prob="1" />
+  </ActivationFunctions>
+  <Networks>
+    <Network id="0" birthGen="0" fitness="0">
+      <Nodes>
+        <Node type="bias" id="0" />
+        <Node type="in" id="1" />
+        <Node type="in" id="2" />
+        <Node type="in" id="3" />
+        <Node type="in" id="4" />
+        <Node type="in" id="5" />
+        <Node type="in" id="6" />
+        <Node type="in" id="7" />
+        <Node type="in" id="8" />
+        <Node type="in" id="9" />
+        <Node type="in" id="10" />
+        <Node type="in" id="11" />
+        <Node type="in" id="12" />
+        <Node type="in" id="13" />
+        <Node type="in" id="14" />
+        <Node type="in" id="15" />
+        <Node type="in" id="16" />
+        <Node type="in" id="17" />
+        <Node type="in" id="18" />
+        <Node type="in" id="19" />
+        <Node type="in" id="20" />
+        <Node type="in" id="21" />
+        <Node type="in" id="22" />
+        <Node type="in" id="23" />
+        <Node type="in" id="24" />
+        <Node type="in" id="25" />
+        <Node type="in" id="26" />
+        <Node type="out" id="27" />
+        <Node type="out" id="28" />
+        <Node type="out" id="29" />
+      </Nodes>
+      <Connections>
+        <Con id="44" src="4" tgt="29" wght="-2.2852898458950222" />
+        <Con id="64" src="11" tgt="28" wght="3.1606843252666295" />
+        <Con id="78" src="16" tgt="27" wght="2.1502324007451534" />
+        <Con id="99" src="23" tgt="27" wght="4.7104664170183241" />
+      </Connections>
+    </Network>
+  </Networks>
+</Root>

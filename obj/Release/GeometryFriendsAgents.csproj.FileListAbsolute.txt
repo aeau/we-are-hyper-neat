@@ -3,9 +3,9 @@ C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\log4net.dll
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\SharpNeatDomains.dll
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\SharpNeatLib.dll
+C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\Redzen.dll
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\log4net.xml
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\SharpNeatLib.xml
-C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.csprojResolveAssemblyReference.cache
-C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.dll
-C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Debug\GeometryFriendsAgents.pdb
-C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Agents\Redzen.dll
+C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Release\GeometryFriendsAgents.dll
+C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Release\GeometryFriendsAgents.pdb
+C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\obj\Release\GeometryFriendsAgents.csprojResolveAssemblyReference.cache

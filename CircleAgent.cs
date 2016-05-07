@@ -22,6 +22,7 @@ using SharpNeat.EvolutionAlgorithms.ComplexityRegulation;
 using SharpNeat.Genomes.HyperNeat;
 using SharpNeat.Network;
 using SharpNeat.SpeciationStrategies;
+using SharpNeat.Domains;
 
 using GeometryFriends.AI.Interfaces;
 using System.Drawing;
@@ -73,25 +74,36 @@ namespace GeometryFriendsAgents
     
         //neural network
         protected IBlackBox Brain;
-        protected CyclicNetwork nn;
+        //protected FastAcyclicNetwork Brain;
         List<Neuron> nodes = new List<Neuron>();
 
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
-        const string NEURAL_NETWORK_FILE = "circle_neural_network.xml";
+        const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/circle_neural_network.xml";
+        const string NEURAL_NETWORK_CONFIG = "/geometryfriends.config.xml";
+        const string FITNESS_FILE = "/fitness.txt";
+
 
         System.IO.StreamWriter name;
         
         public CircleAgent()
         {
-            /*
+
             NeatGenome genome = null;
+
+            NeatGenomeParameters _neatGenomeParams = new NeatGenomeParameters();
+            _neatGenomeParams.AddConnectionMutationProbability = 0.1;
+            _neatGenomeParams.AddNodeMutationProbability = 0.01;
+            _neatGenomeParams.ConnectionWeightMutationProbability = 0.89;
+            _neatGenomeParams.InitialInterconnectionsProportion = 0.05;
+
+            NeatGenomeFactory ngf = new NeatGenomeFactory(26, 3, _neatGenomeParams);
 
             // Try to load the genome from the XML document.
             try
             {
-                using (XmlReader xr = XmlReader.Create(NEURAL_NETWORK_FILE))
-                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false)[0];
+                using (XmlReader xr = XmlReader.Create(Environment.CurrentDirectory + NEURAL_NETWORK_FILE))
+                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[0];
             }
             catch (Exception e1)
             {
@@ -99,91 +111,30 @@ namespace GeometryFriendsAgents
             }
 
             // Get a genome decoder that can convert genomes to phenomes.
-            var genomeDecoder = _experiment.CreateGenomeDecoder();
+            XmlDocument config = new XmlDocument();
+            config.Load(Environment.CurrentDirectory + NEURAL_NETWORK_CONFIG);
+
+            // Get root activation element.
+            XmlNodeList nodeList = config.DocumentElement.GetElementsByTagName("Activation", "");
+            if (nodeList.Count != 1)
+            {
+                throw new ArgumentException("Missing or invalid activation XML config setting.");
+            }
+
+            XmlElement xmlActivation = nodeList[0] as XmlElement;
+            string schemeStr = XmlUtils.TryGetValueAsString(xmlActivation, "Scheme");
+
+            
+            //NetworkActivationScheme nes = ExperimentUtils.CreateActivationScheme(config.DocumentElement, "Activation");
+            NetworkActivationScheme nes = NetworkActivationScheme.CreateAcyclicScheme();
+
+            var genomeDecoder = new NeatGenomeDecoder(nes);
 
             // Decode the genome into a phenome (neural network).
             var phenome = genomeDecoder.Decode(genome);
 
             // Set the NEAT player's brain to the newly loaded neural network.
-            Brain = phenome;
-
-            Brain.InputSignalArray[0] = 0;
-            */
-            
-           
-
-            /*
-             //SharpNEAT values
-
-            // Initialise log4net (log to console).
-            XmlConfigurator.Configure(new FileInfo("log4net.properties"));
-
-            GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
-
-            //Load config XML
-            XmlDocument xmlConfig = new XmlDocument();
-            xmlConfig.Load("geometryfriends.config.xml");
-            experiment.Initialize("GeometryFriends", xmlConfig.DocumentElement);
-
-            // Create evolution algorithm and attach update event.
-            _ea = experiment.CreateEvolutionAlgorithm();
-            _ea.UpdateEvent += new EventHandler(ea_UpdateEvent);
-
-            // Start algorithm (it will run on a background thread).
-            _ea.StartContinue();
-
-            
-
-            NeatEvolutionAlgorithmParameters eaParams = new NeatEvolutionAlgorithmParameters();
-            //Brain = new 
-            //IBlackBox _b;
-            */
-
-            //console
-            //AllocConsole();
-
-
-            rnd = new Random();
-            Linear l = new Linear();
-            SteepenedSigmoid ss = new SteepenedSigmoid();
-            uint id = 0;
-            
-            Neuron n = new Neuron(id, NodeType.Bias, ss, null);
-            nodes.Add(n);
-
-            for(uint i = 0; i < 26; i++, id++)
-            {
-                n = new Neuron(id, NodeType.Input, ss, null);
-                nodes.Add(n);
-            }
-
-            for (uint i = 0; i < 4; i++, id++)
-            {
-                n = new Neuron(id, NodeType.Output, ss, null);
-                nodes.Add(n);
-            }
-
-            List<Connection> connections = new List<Connection>();
-
-            for(int i = 1; i < 27; i++)
-            {
-                for(int k = 27; k < 31; k++)
-                {
-                    Connection cn = new Connection(nodes[i], nodes[k], rnd.NextDouble());
-                    connections.Add(cn);
-                }
-            }
-
-            nn = new CyclicNetwork(nodes, connections, 26, 4, 2);
-            
-
-            /*
-            // Save the best genome to file
-            var doc = NeatGenomeXmlIO.SaveComplete(
-                                     new List<NeatGenome>() { _ea.CurrentChampGenome },
-                                     false);
-            doc.Save(NEURAL_NETWORK_FILE);
-            */
+            Brain = (FastAcyclicNetwork)phenome;
 
             //Change flag if agent is not to be used
             implementedAgent = true;
@@ -197,7 +148,6 @@ namespace GeometryFriendsAgents
             possibleMoves.Add(Moves.ROLL_LEFT);
             possibleMoves.Add(Moves.ROLL_RIGHT);
             possibleMoves.Add(Moves.JUMP);
-            possibleMoves.Add(Moves.GROW);
 
             //history keeping
             uncaughtCollectibles = new List<CollectibleRepresentation>();
@@ -288,24 +238,24 @@ namespace GeometryFriendsAgents
 
             foreach (ObstacleRepresentation ob_re in obstaclesInfo)
             {
-                nn.InputSignalArray[id] = NormalizeValue(ob_re.X, area_width);
+                Brain.InputSignalArray[id] = NormalizeValue(ob_re.X, area_width);
                 id++;
-                nn.InputSignalArray[id] = NormalizeValue(ob_re.Y, area_height);
+                Brain.InputSignalArray[id] = NormalizeValue(ob_re.Y, area_height);
                 id++;
-                nn.InputSignalArray[id] = NormalizeValue(ob_re.Width, area_width);
+                Brain.InputSignalArray[id] = NormalizeValue(ob_re.Width, area_width);
                 id++;
-                nn.InputSignalArray[id] = NormalizeValue(ob_re.Height, area_height);
+                Brain.InputSignalArray[id] = NormalizeValue(ob_re.Height, area_height);
                 id++;
             }
 
             //for oscar
-            nn.InputSignalArray[id] = NormalizeValue(circleInfo.X, area_width);
+            Brain.InputSignalArray[id] = NormalizeValue(circleInfo.X, area_width);
             id++;
-            nn.InputSignalArray[id] = NormalizeValue(circleInfo.Y, area_height);
+            Brain.InputSignalArray[id] = NormalizeValue(circleInfo.Y, area_height);
             id++;
-            nn.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityX, 15.0f); //mark
+            Brain.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityX, 15.0f); //mark
             id++;
-            nn.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityY, area_height); //mark
+            Brain.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityY, area_height); //mark
             id++;
 
             /*
@@ -318,19 +268,19 @@ namespace GeometryFriendsAgents
             DebugSensorsInfo();
             //just chilling oscar
 
-            Console.WriteLine("banana martin");
+            //Console.WriteLine("banana martin");
 
-            nn.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].X, area.Width);
+            Brain.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].X, area.Width);
             id++;
-            nn.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].Y, area.Height);
-            nn.Activate();
+            Brain.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].Y, area.Height);
+            Brain.Activate();
 
             //double a = nn.InputSignalArray[0];
             //double b = nn.InputSignalArray[1];
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                double actual_score = nn.OutputSignalArray[i];
+                double actual_score = Brain.OutputSignalArray[i];
 
                 if (actual_score > score)
                 {
@@ -339,6 +289,10 @@ namespace GeometryFriendsAgents
                 }
             }
             currentAction = possibleMoves[index];
+            double dist = Distance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
+            name = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
+            name.WriteLine(uncaughtCollectibles.Count + ";" + dist);
+            name.Close();
         }
 
         public float NormalizeValue(float value, float max)
@@ -346,102 +300,23 @@ namespace GeometryFriendsAgents
             return value/(max);
         }
 
+        public double Distance(float x1, float y1, float x2, float y2)
+        {
+            double dist = (Math.Abs(x2 - x1)) + (Math.Abs(y2 - y1));
+            dist = Math.Sqrt(dist);
+            return dist;
+        }
+
         //implements abstract circle interface: GeometryFriends agents manager gets the current action intended to be actuated in the enviroment for this agent
         public override Moves GetAction()
         {
-            
-
             return currentAction;
         }
 
         //implements abstract circle interface: updates the agent state logic and predictions
         public override void Update(TimeSpan elapsedGameTime)
         {
-            //Every second one new action is choosen
-            if (lastMoveTime == 60)
-                lastMoveTime = 0;
-
-            if ((lastMoveTime) <= (DateTime.Now.Second) && (lastMoveTime < 60))
-            {
-                if (!(DateTime.Now.Second == 59))
-                {
-                    RandomAction();
-                    lastMoveTime = lastMoveTime + 1;
-                    //DebugSensorsInfo();                    
-                }
-                else
-                    lastMoveTime = 60;
-            }
-
-            //check if any collectible was caught
-            lock (remaining)
-            {
-                if (remaining.Count > 0)
-                {
-                    List<CollectibleRepresentation> toRemove = new List<CollectibleRepresentation>();
-                    foreach (CollectibleRepresentation item in uncaughtCollectibles)
-                    {
-                        if (!remaining.Contains(item))
-                        {
-                            caughtCollectibles.Add(item);
-                            toRemove.Add(item);
-                        }
-                    }
-                    foreach (CollectibleRepresentation item in toRemove)
-                    {
-                        uncaughtCollectibles.Remove(item);
-                    }
-                }
-            }
-
-            //predict what will happen to the agent given the current state and current action
-            if (predictor != null) //predictions are only possible where the agents manager provided
-            {
-                /*
-                 * 1) simulator can only be properly used when the Circle and Rectangle characters are ready, this must be ensured for smooth simulation
-                 * 2) in this implementation we only wish to simulate a future state when whe have a fresh simulator instance, i.e. the generated debug information is empty
-                */
-                if (predictor.CharactersReady() && predictor.SimulationHistoryDebugInformation.Count == 0)
-                {
-                    List<CollectibleRepresentation> simCaughtCollectibles = new List<CollectibleRepresentation>();
-                    //keep a local reference to the simulator so that it can be updated even whilst we are performing simulations
-                    ActionSimulator toSim = predictor;
-
-                    //prepare the desired debug information (to observe this information during the game press F1)
-                    toSim.DebugInfo = true;
-                    //you can also select the type of debug information generated by the simulator to circle only, rectangle only or both as it is set by default
-                    //toSim.DebugInfoSelected = ActionSimulator.DebugInfoMode.Circle;
-
-                    //setup the current circle action in the simulator
-                    toSim.AddInstruction(currentAction);
-
-                    //register collectibles that are caught during simulation
-                    toSim.SimulatorCollectedEvent += delegate(Object o, CollectibleRepresentation col) { simCaughtCollectibles.Add(col); };
-
-                    //simulate 2 seconds (predict what will happen 2 seconds ahead)
-                    toSim.Update(2);
-
-                    //prepare all the debug information to be passed to the agents manager
-                    List<DebugInformation> newDebugInfo = new List<DebugInformation>();
-                    //clear any previously passed debug information (information passed to the manager is cumulative unless cleared in this way)
-                    newDebugInfo.Add(DebugInformationFactory.CreateClearDebugInfo());
-                    //add all the simulator generated debug information about circle/rectangle predicted paths
-                    newDebugInfo.AddRange(toSim.SimulationHistoryDebugInformation);
-                    //create additional debug information to visualize collectibles that have been predicted to be caught by the simulator
-                    foreach (CollectibleRepresentation item in simCaughtCollectibles)
-                    {
-                        newDebugInfo.Add(DebugInformationFactory.CreateCircleDebugInfo(new PointF(item.X - debugCircleSize / 2, item.Y - debugCircleSize / 2), debugCircleSize, GeometryFriends.XNAStub.Color.Red));
-                        newDebugInfo.Add(DebugInformationFactory.CreateTextDebugInfo(new PointF(item.X, item.Y), "Predicted catch!", GeometryFriends.XNAStub.Color.White));
-                    }
-                    //create additional debug information to visualize collectibles that have already been caught by the agent
-                    foreach (CollectibleRepresentation item in caughtCollectibles)
-                    {
-                        newDebugInfo.Add(DebugInformationFactory.CreateCircleDebugInfo(new PointF(item.X - debugCircleSize / 2, item.Y - debugCircleSize / 2), debugCircleSize, GeometryFriends.XNAStub.Color.GreenYellow));
-                    }
-                    //set all the debug information to be read by the agents manager
-                    debugInfo = newDebugInfo.ToArray();
-                }
-            }
+           RandomAction();
         }
 
         //typically used console debugging used in previous implementations of GeometryFriends
@@ -478,6 +353,10 @@ namespace GeometryFriendsAgents
         public override void EndGame(int collectiblesCaught, int timeElapsed)
         {
             Console.WriteLine("CIRCLE - Collectibles caught = {0}, Time elapsed - {1}", collectiblesCaught, timeElapsed);
+
+            name = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
+            name.WriteLine(collectiblesCaught + "," + timeElapsed);
+            name.Close();
         }
 
         //implements abstract circle interface: gets the debug information that is to be visually represented by the agents manager

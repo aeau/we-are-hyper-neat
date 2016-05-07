@@ -35,6 +35,9 @@
     <Reference Include="log4net">
       <HintPath>..\GeometryFriendsGame\Release\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Redzen">
+      <HintPath>..\GeometryFriendsGame\Release\Redzen.dll</HintPath>
+    </Reference>
     <Reference Include="SharpNeatDomains">
       <HintPath>..\GeometryFriendsGame\Release\SharpNeatDomains.dll</HintPath>
     </Reference>
