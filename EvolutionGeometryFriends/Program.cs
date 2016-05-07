@@ -48,7 +48,7 @@ namespace EvolutionGeometryFriends
 
             try
             {
-                string arguments = "--speed 75 -st 0 3 -a Agents/GeometryFriendsAgents.dll";
+                string arguments = "--speed 75 -st 0 3 -a " + Environment.CurrentDirectory + "/Agents/GeometryFriendsAgents.dll";
                 string filename = Environment.CurrentDirectory + 
                                     "/../../../GeometryFriendsGame/Release/GeometryFriends.exe";
 
