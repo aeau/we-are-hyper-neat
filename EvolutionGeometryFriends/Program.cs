@@ -54,23 +54,20 @@ namespace EvolutionGeometryFriends
             main_program.SaveNeuralNetwork();
 
             current_index = 37;
-            log4net.Config.XmlConfigurator.Configure();
-            //Log4NetController.Log("TEST", Log4NetController.LogLevel.Debug);
 
             try
             {
                 string filename = Environment.CurrentDirectory +
                                     "/../../../GeometryFriendsGame/Release/gflink";
 
-                
+                index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
+                index_file.WriteLine("0");
+                index_file.Close();
+
                 Process firstProc = new Process();
                 firstProc.StartInfo.FileName = filename;
                 firstProc.Start();
                 firstProc.WaitForExit();
-
-                index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
-                index_file.WriteLine("0");
-                index_file.Close();
 
                 using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
                 {
@@ -108,7 +105,7 @@ namespace EvolutionGeometryFriends
         public void CreateNeuralNetwork()
         {
             //genome = genome_factory.CreateGenome(0);
-            genome_list = genome_factory.CreateGenomeList(500, 0);
+            genome_list = genome_factory.CreateGenomeList(100, 0);
         }
 
         public void SaveNeuralNetwork()
