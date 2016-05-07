@@ -43,6 +43,9 @@ namespace EvolutionGeometryFriends
             main_program.CreateNeuralNetwork();
             main_program.SaveNeuralNetwork();
 
+            log4net.Config.XmlConfigurator.Configure();
+            Log4NetController.Log("TEST", Log4NetController.LogLevel.Debug);
+
             try
             {
                 string arguments = "--speed 75 -st 0 3 -a Agents/GeometryFriendsAgents.dll";
