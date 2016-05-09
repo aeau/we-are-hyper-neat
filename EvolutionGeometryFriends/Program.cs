@@ -47,6 +47,7 @@ namespace EvolutionGeometryFriends
         //SHARPNEAT Objects
         const string NEURAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/circle_neural_network.xml";
         const string CIRCLE_CHAMPION_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/circle_champion.xml";
+        const string EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/gflink";
 
         const string FITNESS_FILE = "/../../../GeometryFriendsGame/Release/fitness.txt";
         System.IO.StreamReader reader;
@@ -76,6 +77,7 @@ namespace EvolutionGeometryFriends
 
             Console.WriteLine("genome count = " + _gfea._genomeList.Count);
 
+            PerformProcess();
             _gfea.FirstEvaluation();
             _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
  
@@ -83,8 +85,7 @@ namespace EvolutionGeometryFriends
 
 
             
-            string INDEX_FILE_PATH = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/index_file.txt";
-            System.IO.StreamWriter index_file;
+            
 
             //Program main_program = new Program(26,3);
             //main_program.CreateNeuralNetwork();
@@ -93,42 +94,16 @@ namespace EvolutionGeometryFriends
             try
             {
                 //We need to be able to change the the argument of the simulations.
-                string filename = Environment.CurrentDirectory +
-                                    "/../../../GeometryFriendsGame/Release/gflink";
+                
 
                 SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
 
                 for (int i = 0; i < 5; i++)
                 {
-                    index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
-                    index_file.WriteLine("0");
-                    index_file.Close();
-
-                    //We start the Game
-                    Process firstProc = new Process();
-                    firstProc.StartInfo.FileName = filename;
-                    firstProc.Start();
-                    firstProc.WaitForExit();
-
-                    if (fitness_values != null)
-                        fitness_values.Clear();
-
-                    using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            Console.WriteLine(sr.ReadLine());
-                            fitness_values.Add(Double.Parse(sr.ReadLine()));
-                        }
-                    }
-
+                    PerformProcess();
                     _gfea.Evaluate();
                     _gfea.CreateOffsprings();
                     SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
-
-                    System.IO.File.WriteAllText(Environment.CurrentDirectory + FITNESS_FILE, string.Empty);
-
                 }
                 
                 //You may want to perform different actions depending on the exit code.
@@ -140,6 +115,38 @@ namespace EvolutionGeometryFriends
                 Console.WriteLine("An error occurred!!!: " + ex.Message);
                 return;
             }
+        }
+
+        static void PerformProcess()
+        {
+            string INDEX_FILE_PATH = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/index_file.txt";
+            System.IO.StreamWriter index_file;
+
+            index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
+            index_file.WriteLine("0");
+            index_file.Close();
+
+            //We start the Game
+            Process firstProc = new Process();
+            firstProc.StartInfo.FileName = Environment.CurrentDirectory + EXECUTABLE_FILENAME;
+            firstProc.Start();
+            firstProc.WaitForExit();
+
+            if (fitness_values != null)
+                fitness_values.Clear();
+
+            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(sr.ReadLine());
+                    fitness_values.Add(Double.Parse(sr.ReadLine()));
+                }
+            }
+
+            System.IO.File.WriteAllText(Environment.CurrentDirectory + FITNESS_FILE, string.Empty);
+
         }
 
         static void ea_UpdateEvent(object sender, EventArgs e)

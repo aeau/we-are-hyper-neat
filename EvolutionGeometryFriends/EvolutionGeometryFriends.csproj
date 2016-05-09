@@ -62,7 +62,6 @@
     <Compile Include="Log4NetController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleNeatExperiment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

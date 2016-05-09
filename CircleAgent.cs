@@ -373,7 +373,7 @@ namespace GeometryFriendsAgents
                                 (float)(10.0 * normalized_distance) + 
                                 normalized_time;
 
-            writer = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false);
+            writer = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true);
             writer.WriteLine(weighted_sum);
             writer.Close();
 
