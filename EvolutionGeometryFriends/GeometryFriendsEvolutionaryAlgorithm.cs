@@ -28,7 +28,7 @@ namespace EvolutionGeometryFriends
         protected IGenomeFactory<TGenome> _genomeFactory;
         public List<TGenome> _genomeList;
 
-        protected List<TGenome> offspringList;
+        public List<TGenome> offspringList;
         protected int _populationSize;
         protected TGenome _currentBestGenome;
 
@@ -397,8 +397,9 @@ namespace EvolutionGeometryFriends
             SpecieStats[] specieStatsArr = CalcSpecieStats(out offspringCount);
 
             // Create offspring.
-            if(offspringList != null)
+            if (offspringList != null)
                 offspringList.Clear();
+
             offspringList = CreateOffspring(specieStatsArr, offspringCount);
 
             // Rebuild _genomeList. It will now contain just the elite genomes.
@@ -407,7 +408,36 @@ namespace EvolutionGeometryFriends
             // Append offspring genomes to the elite genomes in _genomeList. We do this before calling the
             // _genomeListEvaluator.Evaluate because some evaluation schemes re-evaluate the elite genomes 
             // (otherwise we could just evaluate offspringList).
-            _genomeList.AddRange(offspringList);
+
+            if(offspringList.Count < _populationSize)
+            {
+                int parentsToKeep = _populationSize - offspringList.Count;
+                int parentsToRemove = _genomeList.Count - parentsToKeep;
+                // Sort by fitness andd remove the weaakest parents
+                _genomeList = _genomeList.OrderByDescending(g => g.EvaluationInfo.Fitness).ToList();
+                _genomeList.RemoveRange(parentsToKeep, parentsToRemove);
+                // Add offspring
+                _genomeList.AddRange(offspringList);
+            }
+            else if (offspringList.Count == _populationSize)
+            {
+                _genomeList.Clear();
+                _genomeList.AddRange(offspringList);
+                Console.WriteLine("WARNING: offspringList.Count == _populationSize");
+            }
+            else // offspringList.Count > _populationSize
+            {
+                _genomeList.Clear();
+                Random rng = new Random();
+                // Take _populationSize random individuals from the offspring list
+                for (int i = 0; i < _populationSize; ++i)
+                {
+                    int rnd = rng.Next(0, offspringList.Count);
+                    _genomeList.Add(offspringList[rnd]);
+                    offspringList.RemoveAt(rnd);
+                }
+                Console.WriteLine("WARNING: offspringList.Count > _populationSize");
+            }
         }
 
         public void FirstEvaluation()

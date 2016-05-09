@@ -80,7 +80,7 @@ namespace GeometryFriendsAgents
 
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
-        const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/current_circle_network.xml";
+        const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/circle_neural_network.xml";
         const string NEURAL_NETWORK_CONFIG = "/geometryfriends.config.xml";
         const string INDEX_FILE_PATH = "/Agents/neural_network_params/index_file.txt";
         const string FITNESS_FILE = "/fitness.txt";
@@ -112,7 +112,7 @@ namespace GeometryFriendsAgents
             try
             {
                 using (XmlReader xr = XmlReader.Create(Environment.CurrentDirectory + NEURAL_NETWORK_FILE))
-                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[0]; // this is the index to change
+                    genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[index_id]; // this is the index to change
             }
             catch (Exception e1)
             {

@@ -1,5 +1,5 @@
 <Config>
-  <PopulationSize>10</PopulationSize>
+  <PopulationSize>50</PopulationSize>
   <SpecieCount>10</SpecieCount>
   <Activation>
 	<Scheme>Acyclic</Scheme>
@@ -8,13 +8,13 @@
   <ComplexityThreshold>50</ComplexityThreshold>
   <Description>
     GeometryFriends Evolution - The goal is to create an optimal circle player.
-    Individuals are evaluated for how many collectables they can pick in 10 games.
+    Individuals are evaluated for how many collectables they can pick in a game.
 
     Score/fitness = weighted sum of collectables collected + distance to target collectable + elapsed time.
 	
-	100 * normalized(collectable colledted);
-	10  * normalized(distance to target collectable);
-	1   * normalized(elapsed time);
+	  100 * normalized(collectable colledted);
+	  10  * normalized(distance to target collectable);
+	  1   * normalized(elapsed time);
 
   </Description>
  

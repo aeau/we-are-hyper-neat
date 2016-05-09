@@ -30,8 +30,8 @@ namespace EvolutionGeometryFriends
 
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
         static GeometryFriendsEvolutionaryAlgorithm<NeatGenome> _gfea;
+
         public static List<double> fitness_values = new List<double>();
-        public static int fitness_counter = 0;
 
         protected CyclicNetwork neural_network;
         protected NeatGenomeFactory genome_factory;
@@ -73,6 +73,9 @@ namespace EvolutionGeometryFriends
             //_ea.StartContinue();
 
             _gfea = experiment.CreateGFEvolutionAlgorithm();
+
+            Console.WriteLine("genome count = " + _gfea._genomeList.Count);
+
             _gfea.FirstEvaluation();
             _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
  
@@ -87,8 +90,6 @@ namespace EvolutionGeometryFriends
             //main_program.CreateNeuralNetwork();
             //main_program.SaveNeuralNetwork();
 
-            current_index = 37;
-
             try
             {
                 //We need to be able to change the the argument of the simulations.
@@ -102,9 +103,7 @@ namespace EvolutionGeometryFriends
                     index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
                     index_file.WriteLine("0");
                     index_file.Close();
-                    fitness_counter = 0;
 
-                    /*
                     //We start the Game
                     Process firstProc = new Process();
                     firstProc.StartInfo.FileName = filename;
@@ -129,13 +128,7 @@ namespace EvolutionGeometryFriends
                     SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
 
                     System.IO.File.WriteAllText(Environment.CurrentDirectory + FITNESS_FILE, string.Empty);
-                    //Console.ReadLine();
-                    */
 
-                    _gfea.CreateOffsprings();
-                    _gfea.Evaluate();
-
-                    SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
                 }
                 
                 //You may want to perform different actions depending on the exit code.
