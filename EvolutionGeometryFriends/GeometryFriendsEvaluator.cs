@@ -19,7 +19,7 @@ using System.IO;
 
 namespace EvolutionGeometryFriends
 {
-    class GeometryFriendsEvaluator :  IPhenomeEvaluator<IBlackBox>
+    public class GeometryFriendsEvaluator :  IPhenomeEvaluator<IBlackBox>
     {
         private ulong _evalCount;
         private bool _stopConditionSatisfied;
@@ -49,6 +49,15 @@ namespace EvolutionGeometryFriends
         {
             get { return _stopConditionSatisfied; }
         }
+
+        public FitnessInfo Evaluate(int index)
+        {
+            FitnessInfo fi = new FitnessInfo(Program.fitness_values[index], Program.fitness_values[index]);
+            _evalCount++;
+
+            return fi;
+        }
+
 
         /// <summary>
         /// Evaluate the provided IBlackBox against the random tic-tac-toe player and return its fitness score.

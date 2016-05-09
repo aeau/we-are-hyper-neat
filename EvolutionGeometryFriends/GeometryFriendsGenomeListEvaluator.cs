@@ -15,12 +15,10 @@ namespace EvolutionGeometryFriends
     {
         readonly EvaluationMethod _evaluationMethod;
         readonly IGenomeDecoder<TGenome, TPhenome> _genomeDecoder;
-        readonly IPhenomeEvaluator<TPhenome> _phenomeEvaluator;
+        readonly GeometryFriendsEvaluator _phenomeEvaluator;
         readonly bool _enablePhenomeCaching;
 
         delegate void EvaluationMethod(IList<TGenome> genomeList);
-
-        const string ACTUAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/current_circle_network.xml";
 
         #region Constructor
 
@@ -29,7 +27,7 @@ namespace EvolutionGeometryFriends
         /// Phenome caching is enabled by default.
         /// </summary>
         public GeometryFriendsGenomeListEvaluator(IGenomeDecoder<TGenome, TPhenome> genomeDecoder,
-                                         IPhenomeEvaluator<TPhenome> phenomeEvaluator)
+                                         GeometryFriendsEvaluator phenomeEvaluator)
         {
             _genomeDecoder = genomeDecoder;
             _phenomeEvaluator = phenomeEvaluator;
@@ -41,7 +39,7 @@ namespace EvolutionGeometryFriends
         /// Construct with the provided IGenomeDecoder, IPhenomeEvaluator and enablePhenomeCaching flag.
         /// </summary>
         public GeometryFriendsGenomeListEvaluator(IGenomeDecoder<TGenome, TPhenome> genomeDecoder,
-                                         IPhenomeEvaluator<TPhenome> phenomeEvaluator,
+                                         GeometryFriendsEvaluator phenomeEvaluator,
                                          bool enablePhenomeCaching)
         {
             _genomeDecoder = genomeDecoder;
@@ -103,6 +101,7 @@ namespace EvolutionGeometryFriends
 
         private void Evaluate_NonCaching(IList<TGenome> genomeList)
         {
+            int index = 0;
             // Decode and evaluate each genome in turn.
             foreach (TGenome genome in genomeList)
             {
@@ -114,15 +113,17 @@ namespace EvolutionGeometryFriends
                 }
                 else
                 {
-                    FitnessInfo fitnessInfo = _phenomeEvaluator.Evaluate(phenome);
+                    FitnessInfo fitnessInfo = _phenomeEvaluator.Evaluate(index);
                     genome.EvaluationInfo.SetFitness(fitnessInfo._fitness);
                     genome.EvaluationInfo.AuxFitnessArr = fitnessInfo._auxFitnessArr;
                 }
+                index++;
             }
         }
 
         private void Evaluate_Caching(IList<TGenome> genomeList)
         {
+            int index = 0;
             // Decode and evaluate each genome in turn.
             foreach (TGenome genome in genomeList)
             {
@@ -140,22 +141,12 @@ namespace EvolutionGeometryFriends
                 }
                 else
                 {
-                    SaveNeuralNetwork(genome as NeatGenome);
-                    FitnessInfo fitnessInfo = _phenomeEvaluator.Evaluate(phenome);
+                    FitnessInfo fitnessInfo = _phenomeEvaluator.Evaluate(index);
                     genome.EvaluationInfo.SetFitness(fitnessInfo._fitness);
                     genome.EvaluationInfo.AuxFitnessArr = fitnessInfo._auxFitnessArr;
                 }
+                index++;
             }
-        }
-
-        public void SaveNeuralNetwork(NeatGenome ng)
-        {
-            string filename = Environment.CurrentDirectory + ACTUAL_NETWORK_FILE;
-            var doc = NeatGenomeXmlIO.SaveComplete(
-                                     new List<NeatGenome>() { ng },
-                                     false);
-
-            doc.Save(filename);
         }
 
         #endregion
