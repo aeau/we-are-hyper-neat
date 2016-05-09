@@ -7,5 +7,5 @@ syntax: glob
 
 syntax: regexp
 
-GeometryFriendsGame/Release/
+GeometryFriendsGame/Release/gflink.lnk
 Debug/
