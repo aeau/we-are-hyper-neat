@@ -115,7 +115,8 @@ namespace EvolutionGeometryFriends
             _name = name;
             _populationSize = XmlUtils.GetValueAsInt(xmlConfig, "PopulationSize");
             _specieCount = XmlUtils.GetValueAsInt(xmlConfig, "SpecieCount");
-            _activationScheme = ExperimentUtils.CreateActivationScheme(xmlConfig, "Activation");
+            //_activationScheme = ExperimentUtils.CreateActivationScheme(xmlConfig, "Activation"); //Don't work.
+            _activationScheme = NetworkActivationScheme.CreateAcyclicScheme();
             _complexityRegulationStr = XmlUtils.TryGetValueAsString(xmlConfig, "ComplexityRegulationStrategy");
             _complexityThreshold = XmlUtils.TryGetValueAsInt(xmlConfig, "ComplexityThreshold");
             _description = XmlUtils.TryGetValueAsString(xmlConfig, "Description");
@@ -207,6 +208,66 @@ namespace EvolutionGeometryFriends
             // Wrap the list evaluator in a 'selective' evaulator that will only evaluate new genomes. That is, we skip re-evaluating any genomes
             // that were in the population in previous generations (elite genomes). This is determiend by examining each genome2's evaluation info object.
             if(!EvaluateParents)
+                genomeListEvaluator = new SelectiveGenomeListEvaluator<NeatGenome>(genomeListEvaluator,
+                                         SelectiveGenomeListEvaluator<NeatGenome>.CreatePredicate_OnceOnly());
+
+            // Initialize the evolution algorithm.
+            ea.Initialize(genomeListEvaluator, genomeFactory, genomeList);
+
+            // Finished. Return the evolution algorithm
+            return ea;
+        }
+
+        public GeometryFriendsEvolutionaryAlgorithm<NeatGenome> CreateGFEvolutionAlgorithm()
+        {
+            return CreateGFEvolutionAlgorithm(DefaultPopulationSize);
+        }
+
+        /// <summary>
+        /// Create and return a NeatEvolutionAlgorithm object ready for running the NEAT algorithm/search. Various sub-parts
+        /// of the algorithm are also constructed and connected up.
+        /// This overload accepts a population size parameter that specifies how many genomes to create in an initial randomly
+        /// generated population.
+        /// </summary>
+        public GeometryFriendsEvolutionaryAlgorithm<NeatGenome> CreateGFEvolutionAlgorithm(int populationSize)
+        {
+            // Create a genome2 factory with our neat genome2 parameters object and the appropriate number of input and output neuron genes.
+            IGenomeFactory<NeatGenome> genomeFactory = CreateGenomeFactory();
+
+            // Create an initial population of randomly generated genomes.
+            List<NeatGenome> genomeList = genomeFactory.CreateGenomeList(populationSize, 0);
+
+            // Create evolution algorithm.
+            return CreateGFEvolutionAlgorithm(genomeFactory, genomeList);
+        }
+
+        /// <summary>
+        /// Create and return a NeatEvolutionAlgorithm object ready for running the NEAT algorithm/search. Various sub-parts
+        /// of the algorithm are also constructed and connected up.
+        /// This overload accepts a pre-built genome2 population and their associated/parent genome2 factory.
+        /// </summary>
+        public GeometryFriendsEvolutionaryAlgorithm<NeatGenome> CreateGFEvolutionAlgorithm(IGenomeFactory<NeatGenome> genomeFactory, List<NeatGenome> genomeList)
+        {
+            // Create distance metric. Mismatched genes have a fixed distance of 10; for matched genes the distance is their weigth difference.
+            IDistanceMetric distanceMetric = new ManhattanDistanceMetric(1.0, 0.0, 10.0);
+            ISpeciationStrategy<NeatGenome> speciationStrategy = new ParallelKMeansClusteringStrategy<NeatGenome>(distanceMetric, _parallelOptions);
+
+            // Create complexity regulation strategy.
+            IComplexityRegulationStrategy complexityRegulationStrategy = ExperimentUtils.CreateComplexityRegulationStrategy(_complexityRegulationStr, _complexityThreshold);
+
+            // Create the evolution algorithm.
+            GeometryFriendsEvolutionaryAlgorithm<NeatGenome> ea = new GeometryFriendsEvolutionaryAlgorithm<NeatGenome>(_eaParams, speciationStrategy, complexityRegulationStrategy);
+
+            // Create genome2 decoder.
+            IGenomeDecoder<NeatGenome, IBlackBox> genomeDecoder = new NeatGenomeDecoder(_activationScheme);
+
+            // Create a genome2 list evaluator. This packages up the genome2 decoder with the genome2 evaluator.
+            //IGenomeListEvaluator<NeatGenome> genomeListEvaluator = new SerialGenomeListEvaluator<NeatGenome, IBlackBox>(genomeDecoder, PhenomeEvaluator);
+            IGenomeListEvaluator<NeatGenome> genomeListEvaluator = new GeometryFriendsGenomeListEvaluator<NeatGenome, IBlackBox>(genomeDecoder, PhenomeEvaluator);
+
+            // Wrap the list evaluator in a 'selective' evaulator that will only evaluate new genomes. That is, we skip re-evaluating any genomes
+            // that were in the population in previous generations (elite genomes). This is determiend by examining each genome2's evaluation info object.
+            if (!EvaluateParents)
                 genomeListEvaluator = new SelectiveGenomeListEvaluator<NeatGenome>(genomeListEvaluator,
                                          SelectiveGenomeListEvaluator<NeatGenome>.CreatePredicate_OnceOnly());
 

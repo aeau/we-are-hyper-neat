@@ -34,7 +34,7 @@ namespace EvolutionGeometryFriends
         /// </summary>
         public override int InputCount
         {
-            get { return 9; }
+            get { return 26; }
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace EvolutionGeometryFriends
         /// </summary>
         public override int OutputCount
         {
-            get { return 9; }
+            get { return 3; }
         }
 
         /// <summary>

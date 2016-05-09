@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
+
 using SharpNeat.Phenomes;
 using SharpNeat.Core;
 using SharpNeat.Decoders;
@@ -13,6 +15,7 @@ using SharpNeat.Genomes.HyperNeat;
 using SharpNeat.Genomes.Neat;
 using SharpNeat.Network;
 using SharpNeat.SpeciationStrategies;
+using System.IO;
 
 namespace EvolutionGeometryFriends
 {
@@ -20,6 +23,12 @@ namespace EvolutionGeometryFriends
     {
         private ulong _evalCount;
         private bool _stopConditionSatisfied;
+
+        string filename = Environment.CurrentDirectory +
+                                    "/../../../GeometryFriendsGame/Release/gflink";
+
+        const string FITNESS_FILE = "/../../../GeometryFriendsGame/Release/fitness.txt";
+        const string ACTUAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/current_circle_network.xml";
 
         #region IPhenomeEvaluator<IBlackBox> Members
 
@@ -50,68 +59,47 @@ namespace EvolutionGeometryFriends
         /// </summary>
         public FitnessInfo Evaluate(IBlackBox box)
         {
-            return new FitnessInfo();
-            /*
-            double fitness = 0;
-            SquareTypes winner;
-            OptimalPlayer optimalPlayer = new OptimalPlayer(SquareTypes.O);
-            RandomPlayer randomPlayer = new RandomPlayer();
-            NeatPlayer neatPlayer = new NeatPlayer(box, SquareTypes.X);
+            double fitness;
+            //SaveNeuralNetwork(box);
 
+            //We run the game with the neural network
+            Process firstProc = new Process();
+            firstProc.StartInfo.FileName = filename;
+            firstProc.Start();
+            firstProc.WaitForExit();
 
-            // Play 50 games as X against a random player
-            for (int i = 0; i < 50; i++)
+            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
             {
-                // Compete the two players against each other.
-                winner = TicTacToeGame.PlayGameToEnd(neatPlayer, randomPlayer);
-
-                // Update the fitness score of the network
-                fitness += getScore(winner, neatPlayer.SquareType);
+                fitness = Double.Parse(sr.ReadLine());
             }
 
-            // Play 50 games as O against a random player
-            neatPlayer.SquareType = SquareTypes.O;
-            for (int i = 0; i < 50; i++)
-            {
-                // Compete the two players against each other.
-                winner = TicTacToeGame.PlayGameToEnd(randomPlayer, neatPlayer);
-
-                // Update the fitness score of the network
-                fitness += getScore(winner, neatPlayer.SquareType);
-            }
-
-            // Play 1 game as X against an optimal player
-            neatPlayer.SquareType = SquareTypes.X;
-            optimalPlayer.SquareType = SquareTypes.O;
-
-            // Compete the two players against each other.
-            winner = TicTacToeGame.PlayGameToEnd(neatPlayer, optimalPlayer);
-
-            // Update the fitness score of the network
-            fitness += getScore(winner, neatPlayer.SquareType);
-
-
-            // Play 1 game as O against an optimal player
-            neatPlayer.SquareType = SquareTypes.O;
-            optimalPlayer.SquareType = SquareTypes.X;
-
-            // Compete the two players against each other.
-            winner = TicTacToeGame.PlayGameToEnd(optimalPlayer, neatPlayer);
-
-            // Update the fitness score of the network
-            fitness += getScore(winner, neatPlayer.SquareType);
-
-            // Update the evaluation counter.
-            _evalCount++;
-
-            // If the network plays perfectly, it will beat the random player
-            // and draw the optimal player.
-            if (fitness >= 1002)
-                _stopConditionSatisfied = true;
-
-            // Return the fitness score
+            Console.WriteLine("fitness is: " + fitness);
             return new FitnessInfo(fitness, fitness);
-             * */
+
+
+            /*
+            if( Program.fitness_counter >= Program.fitness_values.Count)
+            {
+                _evalCount++;
+                return new FitnessInfo(0.0, 0.0);                
+            }
+
+            FitnessInfo fi = new FitnessInfo(Program.fitness_values[Program.fitness_counter], Program.fitness_values[Program.fitness_counter]);
+            _evalCount++;
+            Program.fitness_counter++;
+
+            return fi;
+            */
+        }
+
+        public void SaveNeuralNetwork(IBlackBox brain)
+        {
+            string filename = Environment.CurrentDirectory + ACTUAL_NETWORK_FILE;
+            var doc = NeatGenomeXmlIO.SaveComplete(
+                                     new List<NeatGenome>() { (NeatGenome)brain},
+                                     false);
+
+            doc.Save(filename);
         }
 
         /*
