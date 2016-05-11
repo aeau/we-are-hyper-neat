@@ -12,7 +12,10 @@ using System.Windows.Forms;
 using EvolutionGeometryFriends.Properties;
 
 namespace EvolutionGeometryFriends {
-    public partial class ApplicationForm : Form {
+    public partial class ApplicationForm : Form
+    {
+
+        public static ApplicationForm Instance;
 
         private int levelIndex = 0;
         public int LevelIndex {
@@ -90,6 +93,7 @@ namespace EvolutionGeometryFriends {
 
         public ApplicationForm() {
             InitializeComponent();
+            Instance = this;
         }
 
         private void LoadProject(string path) {
@@ -139,6 +143,7 @@ namespace EvolutionGeometryFriends {
         private void button_RunIndividual_Click(object sender, EventArgs e) {
 
         }
+
 
     }
 }
