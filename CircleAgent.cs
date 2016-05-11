@@ -80,7 +80,7 @@ namespace GeometryFriendsAgents
 
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
-        const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/circle_neural_network.xml";
+        const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/circle_champion.xml";
         const string NEURAL_NETWORK_CONFIG = "/geometryfriends.config.xml";
         const string INDEX_FILE_PATH = "/Agents/neural_network_params/index_file.txt";
         const string FITNESS_FILE = "/fitness.txt";
@@ -119,6 +119,7 @@ namespace GeometryFriendsAgents
                 return;
             }
 
+            /*
             // Get a genome decoder that can convert genomes to phenomes.
             XmlDocument config = new XmlDocument();
             config.Load(Environment.CurrentDirectory + NEURAL_NETWORK_CONFIG);
@@ -132,7 +133,7 @@ namespace GeometryFriendsAgents
 
             XmlElement xmlActivation = nodeList[0] as XmlElement;
             string schemeStr = XmlUtils.TryGetValueAsString(xmlActivation, "Scheme");
-
+            */
             
             //NetworkActivationScheme nes = ExperimentUtils.CreateActivationScheme(config.DocumentElement, "Activation");
             NetworkActivationScheme nes = NetworkActivationScheme.CreateAcyclicScheme();
@@ -392,7 +393,7 @@ namespace GeometryFriendsAgents
 
             using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
             {
-                sw.WriteLine(index_id);
+                sw.Write(index_id);
             }
         }
 

@@ -95,6 +95,8 @@ namespace EvolutionGeometryFriends
                 Console.WriteLine("You must write 'false' for evolution");
 
             }
+
+            Console.ReadLine();
         }
 
         static void RunProgram()
@@ -102,7 +104,7 @@ namespace EvolutionGeometryFriends
             //We clean the data that will be written and read by the agent.
             using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
             {
-                sw.WriteLine("0");
+                sw.Write("0");
             }
 
             using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false))
@@ -123,7 +125,7 @@ namespace EvolutionGeometryFriends
             //We clean the data that will be written and read by the agent.
             using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
             {
-                sw.WriteLine("0");
+                sw.Write("0");
             }
 
             using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE,false))
