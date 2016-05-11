@@ -5,7 +5,7 @@
 	<Scheme>Acyclic</Scheme>
   </Activation>
   <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
-  <ComplexityThreshold>50</ComplexityThreshold>
+  <ComplexityThreshold>10</ComplexityThreshold>
   <Description>
     GeometryFriends Evolution - The goal is to create an optimal circle player.
     Individuals are evaluated for how many collectables they can pick in a game.

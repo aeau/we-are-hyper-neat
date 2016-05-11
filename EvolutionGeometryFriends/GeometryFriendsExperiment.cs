@@ -71,7 +71,7 @@ namespace EvolutionGeometryFriends
         /// </summary>
         public bool EvaluateParents
         {
-            get { return false; }
+            get { return true; }
         }
 
 

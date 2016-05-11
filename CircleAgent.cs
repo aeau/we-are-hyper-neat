@@ -367,21 +367,33 @@ namespace GeometryFriendsAgents
 
             float normalized_collectibles = NormalizeValue((float)collectiblesCaught, (float)numbersInfo.CollectiblesCount);
             double normalized_distance = NormalizedDistance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
-            float normalized_time = NormalizeValue((float)timeElapsed, 115.0f);
+            float normalized_time = NormalizeValue((float)timeElapsed, 55.0f);
 
             float weighted_sum = (100.0f * normalized_collectibles) + 
                                 (float)(10.0 * normalized_distance) + 
                                 normalized_time;
 
-            writer = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true);
-            writer.WriteLine(weighted_sum);
-            writer.Close();
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true))
+            {
+                sw.WriteLine(weighted_sum);
+            }
+
+            /*
+            //Debug purpouse
+            writer.WriteLine("Collectibles caught: " + collectiblesCaught + ", Collectibles count: " + numbersInfo.CollectiblesCount);
+            writer.WriteLine("Normalized colleectables: " + normalized_collectibles);
+            writer.WriteLine("X: " + circleInfo.X + ", Y: " + circleInfo.Y + ", X2: " + uncaughtCollectibles[0].X + ", Y2: " + uncaughtCollectibles[0].Y);
+            writer.WriteLine("Normalized distance: " + normalized_distance);
+            writer.WriteLine("Time: " + timeElapsed + ", Normalized time: " + normalized_time);
+            writer.WriteLine();
+             */
 
             index_id++;
 
-            writer = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
-            writer.WriteLine(index_id);
-            writer.Close();
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
+            {
+                sw.WriteLine(index_id);
+            }
         }
 
         //implements abstract circle interface: gets the debug information that is to be visually represented by the agents manager

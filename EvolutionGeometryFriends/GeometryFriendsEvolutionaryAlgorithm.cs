@@ -388,7 +388,23 @@ namespace EvolutionGeometryFriends
 
         #region Evolution Algorithm Main Method [PerformOneGeneration]
 
-        public void CreateOffsprings()
+        public void FirstEvaluation()
+        {
+            // Evaluate the genomes.
+            _genomeListEvaluator.Evaluate(_genomeList);
+
+            // Speciate the genomes.
+            _specieList = _speciationStrategy.InitializeSpeciation(_genomeList, _eaParams.SpecieCount);
+            Debug.Assert(!TestForEmptySpecies(_specieList), "Speciation resulted in one or more empty species.");
+
+            // Sort the genomes in each specie fittest first, secondary sort youngest first.
+            SortSpecieGenomes();
+
+            // Store ref to best genome.
+            UpdateBestGenome();
+        }
+
+        public void PerformGeneration()
         {
             _currentGeneration++;
 
@@ -409,7 +425,7 @@ namespace EvolutionGeometryFriends
             // _genomeListEvaluator.Evaluate because some evaluation schemes re-evaluate the elite genomes 
             // (otherwise we could just evaluate offspringList).
 
-            if(offspringList.Count < _populationSize)
+            if (offspringList.Count < _populationSize)
             {
                 int parentsToKeep = _populationSize - offspringList.Count;
                 int parentsToRemove = _genomeList.Count - parentsToKeep;
@@ -438,29 +454,7 @@ namespace EvolutionGeometryFriends
                 }
                 Console.WriteLine("WARNING: offspringList.Count > _populationSize");
             }
-        }
 
-        public void FirstEvaluation()
-        {
-            // Evaluate the genomes.
-            _genomeListEvaluator.Evaluate(_genomeList);
-
-            // Speciate the genomes.
-            _specieList = _speciationStrategy.InitializeSpeciation(_genomeList, _eaParams.SpecieCount);
-            Debug.Assert(!TestForEmptySpecies(_specieList), "Speciation resulted in one or more empty species.");
-
-            // Sort the genomes in each specie fittest first, secondary sort youngest first.
-            SortSpecieGenomes();
-
-            // Store ref to best genome.
-            UpdateBestGenome();
-        }
-
-        public void Evaluate()
-        {
-
-            int offspringCount;
-            SpecieStats[] specieStatsArr = CalcSpecieStats(out offspringCount);
             // Trim species back to their elite genomes.
             bool emptySpeciesFlag = TrimSpeciesBackToElite(specieStatsArr);
 

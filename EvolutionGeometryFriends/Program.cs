@@ -22,43 +22,28 @@ using SharpNeat.SpeciationStrategies;
 using System.IO;
 using System.Xml;
 using log4net.Config;
+using System.Threading;
 
 namespace EvolutionGeometryFriends
 {
     public class Program
     {
 
-        static NeatEvolutionAlgorithm<NeatGenome> _ea;
         static GeometryFriendsEvolutionaryAlgorithm<NeatGenome> _gfea;
-
         public static List<double> fitness_values = new List<double>();
-
-        protected CyclicNetwork neural_network;
-        protected NeatGenomeFactory genome_factory;
-        protected NeatGenome genome;
-        protected List<NeatGenome> genome_list = new List<NeatGenome>();
-        private Random rnd;
-
-        List<Neuron> nodes = new List<Neuron>();
-        List<Connection> connections = new List<Connection>();
-
-        public static int current_index;
 
         //SHARPNEAT Objects
         const string NEURAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/circle_neural_network.xml";
         const string CIRCLE_CHAMPION_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/circle_champion.xml";
-        const string EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/gflink";
-
+        const string SIMULATION_EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/gflink";
+        const string SIMPLE_EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/gflink_simple";
+        const string INDEX_FILE_PATH = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/index_file.txt";
         const string FITNESS_FILE = "/../../../GeometryFriendsGame/Release/fitness.txt";
-        System.IO.StreamReader reader;
-        System.IO.StreamWriter writer;
 
         static void Main(string[] args)
         {
             // Initialise log4net (log to console).
             XmlConfigurator.Configure(new FileInfo(Environment.CurrentDirectory + "/../../../lib/log4net.properties"));
-
-            //log4net.Config.XmlConfigurator.Configure();
 
             //We set up the experiment & the evolutionary algorithm.
             GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
@@ -69,66 +54,86 @@ namespace EvolutionGeometryFriends
 
             experiment.Initialize("GeometryFriends", xml_config.DocumentElement);
 
-            //_ea = experiment.CreateEvolutionAlgorithm();
-            //_ea.UpdateEvent += new EventHandler(ea_UpdateEvent);
-            //_ea.StartContinue();
-
-            _gfea = experiment.CreateGFEvolutionAlgorithm();
-
-            Console.WriteLine("genome count = " + _gfea._genomeList.Count);
-
-            PerformProcess();
-            _gfea.FirstEvaluation();
-            _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
- 
-            //_gfea.PerformOneStep();
-
-
-            
-            
-
-            //Program main_program = new Program(26,3);
-            //main_program.CreateNeuralNetwork();
-            //main_program.SaveNeuralNetwork();
-
-            try
+            if(args.Length > 1 && args[1].Equals("true"))
             {
-                //We need to be able to change the the argument of the simulations.
-                
-
+                RunProgram();
+            }
+            else if (args.Length > 1 && args[1].Equals("false"))
+            {
+                _gfea = experiment.CreateGFEvolutionAlgorithm();
+                _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
                 SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
 
-                for (int i = 0; i < 5; i++)
-                {
-                    PerformProcess();
-                    _gfea.Evaluate();
-                    _gfea.CreateOffsprings();
-                    SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
-                }
-                
-                //You may want to perform different actions depending on the exit code.
-                Console.ReadLine();
+                PerformEvolutionProcess();
+                _gfea.FirstEvaluation();
 
+                try
+                {
+                    //We need to be able to change the the argument of the simulations.
+
+                    for (int i = 0; i < int.Parse(args[0]); i++)
+                    {
+                        PerformEvolutionProcess();
+                        _gfea.PerformGeneration();
+                        SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
+                        Thread.Sleep(1000);
+                    }
+
+                    //You may want to perform different actions depending on the exit code.
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred!!!: " + ex.Message);
+                    return;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("An error occurred!!!: " + ex.Message);
-                return;
+                Console.WriteLine("You mistoke nig");
+                Console.WriteLine("You must write 'true' for executing the game with the champion");
+                Console.WriteLine("You must write 'false' for evolution");
+
             }
         }
 
-        static void PerformProcess()
+        static void RunProgram()
         {
-            string INDEX_FILE_PATH = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/index_file.txt";
-            System.IO.StreamWriter index_file;
+            //We clean the data that will be written and read by the agent.
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
+            {
+                sw.WriteLine("0");
+            }
 
-            index_file = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false);
-            index_file.WriteLine("0");
-            index_file.Close();
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false))
+            {
+                sw.Write("");
+            }
 
             //We start the Game
             Process firstProc = new Process();
-            firstProc.StartInfo.FileName = Environment.CurrentDirectory + EXECUTABLE_FILENAME;
+            firstProc.StartInfo.FileName = Environment.CurrentDirectory + SIMPLE_EXECUTABLE_FILENAME;
+            firstProc.Start();
+            firstProc.WaitForExit();
+        }
+
+        static void PerformEvolutionProcess()
+        {
+
+            //We clean the data that will be written and read by the agent.
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
+            {
+                sw.WriteLine("0");
+            }
+
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE,false))
+            {
+                sw.Write("");
+            }
+
+            //We start the Game
+            Process firstProc = new Process();
+            firstProc.StartInfo.FileName = Environment.CurrentDirectory + SIMULATION_EXECUTABLE_FILENAME;
             firstProc.Start();
             firstProc.WaitForExit();
 
@@ -140,12 +145,10 @@ namespace EvolutionGeometryFriends
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(sr.ReadLine());
-                    fitness_values.Add(Double.Parse(sr.ReadLine()));
+                    Console.WriteLine(line);
+                    fitness_values.Add(Double.Parse(line));
                 }
             }
-
-            System.IO.File.WriteAllText(Environment.CurrentDirectory + FITNESS_FILE, string.Empty);
 
         }
 
@@ -168,34 +171,5 @@ namespace EvolutionGeometryFriends
             doc.Save(filename);
         }
 
-
-
-        public Program(int input_count, int output_count)
-        {
-            GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
-            XmlDocument xml_config = new XmlDocument();
-
-            xml_config.Load(Environment.CurrentDirectory +
-                                    "/../../../lib/geometryfriends.config.xml");
-            experiment.Initialize("GeometryFriends", xml_config.DocumentElement);
-
-            NeatGenomeParameters _neatGenomeParams = new NeatGenomeParameters();
-            _neatGenomeParams.AddConnectionMutationProbability = 0.1;
-            _neatGenomeParams.AddNodeMutationProbability = 0.01;
-            _neatGenomeParams.ConnectionWeightMutationProbability = 0.89;
-            _neatGenomeParams.InitialInterconnectionsProportion = 0.05;
-
-            genome_factory = new NeatGenomeFactory(input_count, output_count, _neatGenomeParams);
-        }
-
-        public void CreateNeuralNetwork()
-        {
-            //genome = genome_factory.CreateGenome(0);
-            genome_list = genome_factory.CreateGenomeList(100, 0);
-        }
-
-
-
-        
     }
 }
