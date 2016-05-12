@@ -391,7 +391,7 @@ namespace GeometryFriendsAgents
 
             float weighted_sum = (100.0f * normalized_collectibles) + 
                                 (float)(10.0 * normalized_distance) + 
-                                normalized_time;
+                                 (1.0f - normalized_time);
 
             try
             {
