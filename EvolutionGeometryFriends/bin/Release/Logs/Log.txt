@@ -19936,3 +19936,511 @@
 [2016/05/12-18:38:08]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
 [2016/05/12-18:38:08]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
 [2016/05/12-18:38:08]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+----------------NEW LOG SESSION----------------
+[2016/05/12-18:56:28]WiimoteInput not found.
+[2016/05/12-18:56:28]The dll file specified does not exist or the specified path is incorrect.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\gameFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/menuFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/titleFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/subtitleFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:28]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:28]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:28]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:28]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:30]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:30]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:30]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:30]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:30]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:30]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:30]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:30]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:30]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:30]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:32]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:32]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:32]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:32]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:32]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:32]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:32]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:32]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:32]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:32]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:36]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:36]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:36]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:36]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:36]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:36]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:36]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:36]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:36]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:36]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:38]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:38]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:38]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:38]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:38]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:38]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:38]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:38]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:38]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:38]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:42]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:42]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:42]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:42]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:42]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:42]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:42]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:42]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:42]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:42]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:44]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:44]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:44]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:44]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:44]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:44]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:44]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:44]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:44]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:44]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:51]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:51]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:51]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:51]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:51]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:51]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:52]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:52]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:52]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:52]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:52]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:52]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:52]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:52]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:52]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:52]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:55]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:55]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:55]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:55]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:55]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:55]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:56]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:56:56]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:56:56]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:56]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:56]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:56]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:56:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:56:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:00]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:00]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:00]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:00]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:00]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:00]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:00]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:00]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:00]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:00]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:02]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:02]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:02]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:02]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:02]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:02]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:02]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:02]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:02]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:02]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:03]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:03]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:03]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:03]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:03]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:03]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:05]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:05]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:05]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:05]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:05]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:05]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:05]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:05]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:05]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:05]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:07]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:07]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:07]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:07]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:07]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:07]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:07]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:07]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:07]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:07]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:09]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:09]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:09]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:09]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:13]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:13]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:13]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:13]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:13]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:13]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:13]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:13]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:13]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:13]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:17]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:17]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:17]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:17]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:17]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:17]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:17]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:17]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:17]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:17]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:19]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:19]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:19]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:19]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:19]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:19]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:19]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:19]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:19]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:19]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+----------------NEW LOG SESSION----------------
+[2016/05/12-18:57:23]WiimoteInput not found.
+[2016/05/12-18:57:23]The dll file specified does not exist or the specified path is incorrect.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\gameFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/menuFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/titleFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/subtitleFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:23]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:24]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:24]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:24]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:24]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:24]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:24]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:24]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:24]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:26]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:26]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:26]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:26]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:26]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:26]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:26]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:26]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:26]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:26]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:28]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:28]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:28]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:28]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:28]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:28]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:31]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:31]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:31]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:31]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:31]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:31]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:31]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:31]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:31]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:31]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:33]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:33]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:33]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:33]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:33]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:33]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:33]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:33]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:33]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:33]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:37]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:37]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:37]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:37]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:37]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:37]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:37]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:37]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:37]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:37]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:38]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:38]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:38]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:38]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:38]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:38]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:39]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:39]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:39]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:39]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:45]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:45]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:45]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:45]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:45]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:45]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:45]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:45]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:45]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:45]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:47]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:47]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:47]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:47]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:47]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:47]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:47]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:47]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:47]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:47]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:49]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:49]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:49]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:49]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:49]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:49]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:49]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:49]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:51]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:51]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:51]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:51]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:51]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:51]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:54]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:54]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:54]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:54]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:54]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:54]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:54]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:54]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:54]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:54]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:56]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:56]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:56]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:56]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:56]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:56]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:56]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:58]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:58]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:58]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:58]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:58]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:58]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:58]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:58]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:58]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:58]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:59]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:57:59]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:57:59]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:59]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:59]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:59]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:57:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:57:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:01]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:58:01]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:58:01]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:01]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:01]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:01]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:01]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:01]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:01]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:01]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:03]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:58:03]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:58:03]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:03]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:03]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:03]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:03]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:06]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:58:06]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:58:06]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:06]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:06]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:06]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:06]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:06]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:06]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:06]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:10]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:58:10]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:58:10]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:10]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:10]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:10]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:10]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:10]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:10]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:10]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:12]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-18:58:12]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-18:58:12]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:12]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:12]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:12]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:12]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:12]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-18:58:12]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-18:58:12]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+----------------NEW LOG SESSION----------------
+[2016/05/12-19:42:49]WiimoteInput not found.
+[2016/05/12-19:42:49]The dll file specified does not exist or the specified path is incorrect.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\gameFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/menuFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/titleFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/subtitleFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:42:49]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:49]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:49]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:49]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:50]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:50]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:50]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:50]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:51]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:51]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:42:51]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:51]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:51]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:51]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:51]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:55]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:55]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:42:55]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:55]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:55]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:55]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:55]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:57]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:57]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:42:57]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:57]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:57]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:57]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:57]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:57]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:57]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:57]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:59]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:42:59]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:42:59]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:59]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:59]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:59]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:42:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:42:59]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+----------------NEW LOG SESSION----------------
+[2016/05/12-19:46:09]WiimoteInput not found.
+[2016/05/12-19:46:09]The dll file specified does not exist or the specified path is incorrect.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\gameFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/menuFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/titleFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/subtitleFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\frameRateCounterFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Fonts\diagnosticFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: No font style found in spritefont resource: C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content/Fonts/detailsFont.spritefont - using regular font style.
+[2016/05/12-19:46:09]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:46:09]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:46:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:46:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:46:09]WARN: AgentsManager: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:46:09]WARN: AgentsManager:No geometry found in the simulator that was representative of the rectangle character.
+[2016/05/12-19:46:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the circle character.
+[2016/05/12-19:46:09]WARN: ActionSimulator: No geometry found in the simulator that was representative of the rectangle character.

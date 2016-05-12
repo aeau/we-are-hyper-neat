@@ -57,6 +57,9 @@ namespace EvolutionGeometryFriends
 
         static void Main(string[] args)
         {
+            ApplicationForm af = new ApplicationForm();
+            af.ShowDialog();
+            
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
 
