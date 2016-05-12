@@ -158,7 +158,7 @@ namespace GeometryFriendsAgents
             */
             
             //NetworkActivationScheme nes = ExperimentUtils.CreateActivationScheme(config.DocumentElement, "Activation");
-            NetworkActivationScheme nes = NetworkActivationScheme.CreateAcyclicScheme();
+            NetworkActivationScheme nes = NetworkActivationScheme.CreateCyclicFixedTimestepsScheme(2);
 
             var genomeDecoder = new NeatGenomeDecoder(nes);
 

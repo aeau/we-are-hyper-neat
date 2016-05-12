@@ -123,15 +123,28 @@ namespace EvolutionGeometryFriends
             _populationSize = XmlUtils.GetValueAsInt(xmlConfig, "PopulationSize");
             _specieCount = XmlUtils.GetValueAsInt(xmlConfig, "SpecieCount");
             //_activationScheme = ExperimentUtils.CreateActivationScheme(xmlConfig, "Activation"); //Don't work.
-            _activationScheme = NetworkActivationScheme.CreateAcyclicScheme();
+            //_activationScheme = NetworkActivationScheme.CreateAcyclicScheme();
+            _activationScheme = NetworkActivationScheme.CreateCyclicFixedTimestepsScheme(2);
             _complexityRegulationStr = XmlUtils.TryGetValueAsString(xmlConfig, "ComplexityRegulationStrategy");
             _complexityThreshold = XmlUtils.TryGetValueAsInt(xmlConfig, "ComplexityThreshold");
             _description = XmlUtils.TryGetValueAsString(xmlConfig, "Description");
             _parallelOptions = ExperimentUtils.ReadParallelOptions(xmlConfig);
 
+            //Change this parameters for different results.
             _eaParams = new NeatEvolutionAlgorithmParameters();
             _eaParams.SpecieCount = _specieCount;
+            _eaParams.SelectionProportion = 0.7;
+            _eaParams.ElitismProportion = 0.3;
+            _eaParams.OffspringAsexualProportion = 0.4;
+            _eaParams.OffspringSexualProportion = 0.6;
+            _eaParams.InterspeciesMatingProportion = 0.2;
+
+            //
             _neatGenomeParams = new NeatGenomeParameters();
+            _neatGenomeParams.AddConnectionMutationProbability = 0.3;
+            _neatGenomeParams.AddNodeMutationProbability = 0.3;
+            _neatGenomeParams.ConnectionWeightMutationProbability = 0.4;
+            _neatGenomeParams.InitialInterconnectionsProportion = 0.05;
         }
 
         /// <summary>
