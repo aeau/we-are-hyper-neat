@@ -1,0 +1,44 @@
+
+12/05/2016 13:29:00
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.IO.IOException: El proceso no puede obtener acceso al archivo 'C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Sound\down.wav' porque estß siendo utilizado en otro proceso.
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   en System.IO.File.Open(String path, FileMode mode)
+   en GeometryFriends.XNAStub.OpenALSoundPlayer..ctor(String soundFilePath) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\OpenALSoundPlayer.cs:lÝnea 42
+   en GeometryFriends.XNAStub.SoundEffectInstance..ctor(String pathToSoundFile) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\SoundEffectInstance.cs:lÝnea 30
+   en GeometryFriends.XNAStub.SoundEffectInstanceFactory.CreateSoundEffectInstance(String soundFilePath) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\SoundEffectInstanceFactory.cs:lÝnea 8
+   en GeometryFriends.XNAStub.SoundEffect.CreateInstance() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\SoundEffect.cs:lÝnea 36
+   en GeometryFriends.Levels.Level.LoadContent() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 273
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 154
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 168
+   en GeometryFriends.Engine.Update(GameTime gameTime) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 251
+   en GeometryFriends.XNAStub.Game.Tick() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 307
+   en GeometryFriends.XNAStub.Game.Run() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 252
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()
+
+12/05/2016 14:06:17
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.IO.IOException: El proceso no puede obtener acceso al archivo 'C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\GeometryFriendsGame\Release\Content\Sound\victoryMusic.wav' porque estß siendo utilizado en otro proceso.
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   en System.IO.File.Open(String path, FileMode mode)
+   en GeometryFriends.XNAStub.OpenALSoundPlayer..ctor(String soundFilePath) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\OpenALSoundPlayer.cs:lÝnea 42
+   en GeometryFriends.XNAStub.SoundEffectInstance..ctor(String pathToSoundFile) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\SoundEffectInstance.cs:lÝnea 30
+   en GeometryFriends.XNAStub.SoundEffectInstanceFactory.CreateSoundEffectInstance(String soundFilePath) en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\SoundEffectInstanceFactory.cs:lÝnea 8
+   en GeometryFriends.XNAStub.SoundEffect.CreateInstance() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\SoundEffect.cs:lÝnea 36
+   en GeometryFriends.ScreenSystem.ScreenManager.LoadContent() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 223
+   en GeometryFriends.XNAStub.DrawableGameComponent.Initialize() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\DrawableGameComponent.cs:lÝnea 74
+   en GeometryFriends.ScreenSystem.ScreenManager.Initialize() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 195
+   en GeometryFriends.XNAStub.Game.Initialize() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 149
+   en GeometryFriends.XNAStub.Game.Run() en c:\Users\gdgp\Documents\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 245
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()

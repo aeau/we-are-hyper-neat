@@ -38,12 +38,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="53" src="5" tgt="29" wght="3.757469467818737" />
-        <Con id="58" src="6" tgt="30" wght="1.5250808955170214" />
-        <Con id="62" src="7" tgt="30" wght="-3.8905419921502471" />
-        <Con id="89" src="14" tgt="29" wght="4.2853180877864361" />
-        <Con id="114" src="20" tgt="30" wght="-0.16904062358662486" />
-        <Con id="128" src="24" tgt="28" wght="-2.1800589025951922" />
+        <Con id="37" src="1" tgt="29" wght="2.0942852506414056" />
+        <Con id="38" src="1" tgt="30" wght="4.4890740793198347" />
+        <Con id="80" src="12" tgt="28" wght="0.9173363191075623" />
+        <Con id="86" src="13" tgt="30" wght="4.0516183315776289" />
+        <Con id="125" src="23" tgt="29" wght="-3.2696168753318489" />
       </Connections>
     </Network>
     <Network id="1" birthGen="0" fitness="0">
@@ -81,11 +80,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="43" src="3" tgt="27" wght="-2.3090473632328212" />
-        <Con id="51" src="5" tgt="27" wght="-2.37619781633839" />
-        <Con id="84" src="13" tgt="28" wght="-2.065449976362288" />
-        <Con id="88" src="14" tgt="28" wght="-2.9679189529269934" />
-        <Con id="134" src="25" tgt="30" wght="-4.187953642103821" />
+        <Con id="38" src="1" tgt="30" wght="0.89324613800272346" />
+        <Con id="55" src="6" tgt="27" wght="-1.1865953472442925" />
+        <Con id="62" src="7" tgt="30" wght="3.1283413572236896" />
+        <Con id="116" src="21" tgt="28" wght="-3.0401409487240016" />
+        <Con id="130" src="24" tgt="30" wght="-2.0565160806290805" />
       </Connections>
     </Network>
     <Network id="2" birthGen="0" fitness="0">
@@ -123,12 +122,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="38" src="1" tgt="30" wght="4.6814544382505119" />
-        <Con id="52" src="5" tgt="28" wght="4.8189871315844357" />
-        <Con id="67" src="9" tgt="27" wght="1.0815314296633005" />
-        <Con id="95" src="16" tgt="27" wght="-4.22020336613059" />
-        <Con id="126" src="23" tgt="30" wght="-1.7733432236127555" />
-        <Con id="138" src="26" tgt="30" wght="-4.8029620829038322" />
+        <Con id="46" src="3" tgt="30" wght="4.9374049948528409" />
+        <Con id="62" src="7" tgt="30" wght="3.6064559011720121" />
+        <Con id="66" src="8" tgt="30" wght="3.5364910494536161" />
+        <Con id="90" src="14" tgt="30" wght="-3.7197812693193555" />
+        <Con id="118" src="21" tgt="30" wght="-1.189963526558131" />
       </Connections>
     </Network>
     <Network id="3" birthGen="0" fitness="0">
@@ -166,11 +164,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="49" src="4" tgt="29" wght="-2.4480453133583069" />
-        <Con id="60" src="7" tgt="28" wght="-4.1295242006890476" />
-        <Con id="68" src="9" tgt="28" wght="-0.35575006157159805" />
-        <Con id="116" src="21" tgt="28" wght="0.81029480788856745" />
-        <Con id="124" src="23" tgt="28" wght="2.1853955229744315" />
+        <Con id="31" src="0" tgt="27" wght="-2.2561287297867239" />
+        <Con id="102" src="17" tgt="30" wght="3.4571065637283027" />
+        <Con id="127" src="24" tgt="27" wght="-4.0315731172449887" />
+        <Con id="128" src="24" tgt="28" wght="1.5115995751693845" />
+        <Con id="129" src="24" tgt="29" wght="-0.47307887114584446" />
       </Connections>
     </Network>
     <Network id="4" birthGen="0" fitness="0">
@@ -208,12 +206,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="61" src="7" tgt="29" wght="1.3448327500373125" />
-        <Con id="63" src="8" tgt="27" wght="0.60020192991942167" />
-        <Con id="83" src="13" tgt="27" wght="2.060043930541724" />
-        <Con id="95" src="16" tgt="27" wght="-3.5614082426764071" />
-        <Con id="111" src="20" tgt="27" wght="2.8023267048411071" />
-        <Con id="112" src="20" tgt="28" wght="4.0743724605999887" />
+        <Con id="51" src="5" tgt="27" wght="-4.8714568722061813" />
+        <Con id="53" src="5" tgt="29" wght="2.5362590164877474" />
+        <Con id="78" src="11" tgt="30" wght="-1.3849110738374293" />
+        <Con id="93" src="15" tgt="29" wght="-4.0660006436519325" />
+        <Con id="133" src="25" tgt="29" wght="4.0815653535537422" />
+        <Con id="134" src="25" tgt="30" wght="0.86491400143131614" />
       </Connections>
     </Network>
     <Network id="5" birthGen="0" fitness="0">
@@ -251,12 +249,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="31" src="0" tgt="27" wght="-3.9977598935365677" />
-        <Con id="32" src="0" tgt="28" wght="-4.102921630255878" />
-        <Con id="41" src="2" tgt="29" wght="3.6429386492818594" />
-        <Con id="42" src="2" tgt="30" wght="3.5003742482513189" />
-        <Con id="62" src="7" tgt="30" wght="4.72700119484216" />
-        <Con id="71" src="10" tgt="27" wght="2.3453343333676457" />
+        <Con id="40" src="2" tgt="28" wght="3.0507353553548455" />
+        <Con id="71" src="10" tgt="27" wght="-2.7030239184387028" />
+        <Con id="90" src="14" tgt="30" wght="2.2927127406001091" />
+        <Con id="117" src="21" tgt="29" wght="1.7035189527086914" />
+        <Con id="123" src="23" tgt="27" wght="2.0109291584230959" />
       </Connections>
     </Network>
     <Network id="6" birthGen="0" fitness="0">
@@ -294,12 +291,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="99" src="17" tgt="27" wght="2.2866557934321463" />
-        <Con id="100" src="17" tgt="28" wght="-2.3211084026843309" />
-        <Con id="107" src="19" tgt="27" wght="0.5591711075976491" />
-        <Con id="109" src="19" tgt="29" wght="1.8464758177287877" />
-        <Con id="114" src="20" tgt="30" wght="-2.1819293615408242" />
-        <Con id="129" src="24" tgt="29" wght="0.83839909406378865" />
+        <Con id="65" src="8" tgt="29" wght="-3.6562304431572556" />
+        <Con id="89" src="14" tgt="29" wght="3.5785022564232349" />
+        <Con id="105" src="18" tgt="29" wght="0.099143136758357286" />
+        <Con id="119" src="22" tgt="27" wght="-2.7456593466922641" />
+        <Con id="125" src="23" tgt="29" wght="1.6884287539869547" />
       </Connections>
     </Network>
     <Network id="7" birthGen="0" fitness="0">
@@ -337,11 +333,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="44" src="3" tgt="28" wght="-4.76760933175683" />
-        <Con id="53" src="5" tgt="29" wght="0.22858775919303298" />
-        <Con id="72" src="10" tgt="28" wght="3.8251919788308442" />
-        <Con id="80" src="12" tgt="28" wght="-0.60787054011598229" />
-        <Con id="126" src="23" tgt="30" wght="3.8632909185253084" />
+        <Con id="42" src="2" tgt="30" wght="3.3863160107284784" />
+        <Con id="65" src="8" tgt="29" wght="4.189165816642344" />
+        <Con id="68" src="9" tgt="28" wght="-1.0913524380885065" />
+        <Con id="94" src="15" tgt="30" wght="-1.1430472624488175" />
+        <Con id="101" src="17" tgt="29" wght="-3.2848205324262381" />
+        <Con id="122" src="22" tgt="30" wght="-3.1197335780598223" />
       </Connections>
     </Network>
     <Network id="8" birthGen="0" fitness="0">
@@ -379,11 +376,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="63" src="8" tgt="27" wght="4.9118133820593357" />
-        <Con id="65" src="8" tgt="29" wght="-1.0339819360524416" />
-        <Con id="74" src="10" tgt="30" wght="-4.3124109948985279" />
-        <Con id="86" src="13" tgt="30" wght="-3.8936381042003632" />
-        <Con id="96" src="16" tgt="28" wght="4.3661447777412832" />
+        <Con id="42" src="2" tgt="30" wght="4.3149010604247451" />
+        <Con id="44" src="3" tgt="28" wght="-0.16922120004892349" />
+        <Con id="71" src="10" tgt="27" wght="3.9389703026972711" />
+        <Con id="72" src="10" tgt="28" wght="-2.8079073852859437" />
+        <Con id="111" src="20" tgt="27" wght="3.32319064065814" />
+        <Con id="115" src="21" tgt="27" wght="-4.4833148829638958" />
       </Connections>
     </Network>
     <Network id="9" birthGen="0" fitness="0">
@@ -421,11 +419,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="71" src="10" tgt="27" wght="3.0869417521171272" />
-        <Con id="77" src="11" tgt="29" wght="-2.9155009309761226" />
-        <Con id="96" src="16" tgt="28" wght="0.370945546310395" />
-        <Con id="99" src="17" tgt="27" wght="-3.8803278072737157" />
-        <Con id="100" src="17" tgt="28" wght="-0.541245024651289" />
+        <Con id="46" src="3" tgt="30" wght="-1.2036598823033273" />
+        <Con id="64" src="8" tgt="28" wght="0.76696994947269559" />
+        <Con id="103" src="18" tgt="27" wght="3.8033091765828431" />
+        <Con id="104" src="18" tgt="28" wght="-3.3319112216122448" />
+        <Con id="133" src="25" tgt="29" wght="0.26081776013597846" />
       </Connections>
     </Network>
     <Network id="10" birthGen="0" fitness="0">
@@ -463,11 +461,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="73" src="10" tgt="29" wght="-4.992960172239691" />
-        <Con id="101" src="17" tgt="29" wght="-2.8309498610906303" />
-        <Con id="118" src="21" tgt="30" wght="-1.8922411161474884" />
-        <Con id="120" src="22" tgt="28" wght="-2.9707709304057062" />
-        <Con id="129" src="24" tgt="29" wght="0.15290758572518826" />
+        <Con id="44" src="3" tgt="28" wght="-1.4514095126651228" />
+        <Con id="56" src="6" tgt="28" wght="-4.7374799661338329" />
+        <Con id="74" src="10" tgt="30" wght="0.83765908842906356" />
+        <Con id="82" src="12" tgt="30" wght="-2.3919180897064507" />
+        <Con id="96" src="16" tgt="28" wght="-1.7829921352677047" />
       </Connections>
     </Network>
     <Network id="11" birthGen="0" fitness="0">
@@ -505,11 +503,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="36" src="1" tgt="28" wght="-1.2958938092924655" />
-        <Con id="49" src="4" tgt="29" wght="4.8425694718025625" />
-        <Con id="67" src="9" tgt="27" wght="4.0489080525003374" />
-        <Con id="78" src="11" tgt="30" wght="-3.0799948493950069" />
-        <Con id="110" src="19" tgt="30" wght="-0.97508547361940145" />
+        <Con id="41" src="2" tgt="29" wght="-4.8907182598486543" />
+        <Con id="54" src="5" tgt="30" wght="2.20649661263451" />
+        <Con id="57" src="6" tgt="29" wght="-0.1895400881767273" />
+        <Con id="64" src="8" tgt="28" wght="-4.0612666634842753" />
+        <Con id="76" src="11" tgt="28" wght="4.1094639385119081" />
+        <Con id="110" src="19" tgt="30" wght="-4.5260250801220536" />
       </Connections>
     </Network>
     <Network id="12" birthGen="0" fitness="0">
@@ -547,11 +546,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="43" src="3" tgt="27" wght="2.9199424246326089" />
-        <Con id="85" src="13" tgt="29" wght="1.8162676435895264" />
-        <Con id="109" src="19" tgt="29" wght="-1.0389499692246318" />
-        <Con id="117" src="21" tgt="29" wght="2.3578626126982272" />
-        <Con id="128" src="24" tgt="28" wght="4.1166458325460553" />
+        <Con id="39" src="2" tgt="27" wght="-4.6252981899306178" />
+        <Con id="57" src="6" tgt="29" wght="-2.1661875885911286" />
+        <Con id="81" src="12" tgt="29" wght="-3.2195367058739066" />
+        <Con id="104" src="18" tgt="28" wght="-2.7965670637786388" />
+        <Con id="114" src="20" tgt="30" wght="0.866523792501539" />
+        <Con id="122" src="22" tgt="30" wght="3.4538567322306335" />
       </Connections>
     </Network>
     <Network id="13" birthGen="0" fitness="0">
@@ -589,11 +589,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="57" src="6" tgt="29" wght="-0.989947491325438" />
-        <Con id="92" src="15" tgt="28" wght="2.6053300779312849" />
-        <Con id="99" src="17" tgt="27" wght="-4.8075018101371825" />
-        <Con id="127" src="24" tgt="27" wght="2.0811536279506981" />
-        <Con id="135" src="26" tgt="27" wght="1.2549708946608007" />
+        <Con id="42" src="2" tgt="30" wght="-2.7266808482818305" />
+        <Con id="57" src="6" tgt="29" wght="-3.5385858709923923" />
+        <Con id="96" src="16" tgt="28" wght="-4.5955376257188618" />
+        <Con id="110" src="19" tgt="30" wght="1.5834519430063665" />
+        <Con id="122" src="22" tgt="30" wght="1.3923125481233" />
+        <Con id="124" src="23" tgt="28" wght="2.6168419071473181" />
       </Connections>
     </Network>
     <Network id="14" birthGen="0" fitness="0">
@@ -631,11 +632,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="48" src="4" tgt="28" wght="1.7063137795776129" />
-        <Con id="83" src="13" tgt="27" wght="4.8122003930620849" />
-        <Con id="101" src="17" tgt="29" wght="-0.6039632367901504" />
-        <Con id="109" src="19" tgt="29" wght="3.5972833028063178" />
-        <Con id="130" src="24" tgt="30" wght="-4.1496394830755889" />
+        <Con id="33" src="0" tgt="29" wght="-2.8058941941708326" />
+        <Con id="87" src="14" tgt="27" wght="0.22582698846235871" />
+        <Con id="98" src="16" tgt="30" wght="1.5006231004372239" />
+        <Con id="128" src="24" tgt="28" wght="0.77725799288600683" />
+        <Con id="136" src="26" tgt="28" wght="-2.5035238754935563" />
       </Connections>
     </Network>
     <Network id="15" birthGen="0" fitness="0">
@@ -673,12 +674,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="47" src="4" tgt="27" wght="-0.15683854930102825" />
-        <Con id="78" src="11" tgt="30" wght="-2.2129726852290332" />
-        <Con id="103" src="18" tgt="27" wght="-1.0787770966999233" />
-        <Con id="109" src="19" tgt="29" wght="-4.9269407382234931" />
-        <Con id="112" src="20" tgt="28" wght="4.2107280227355659" />
-        <Con id="113" src="20" tgt="29" wght="2.4407126195728779" />
+        <Con id="43" src="3" tgt="27" wght="0.34666666761040688" />
+        <Con id="55" src="6" tgt="27" wght="2.4686735775321722" />
+        <Con id="69" src="9" tgt="29" wght="2.6296393107622862" />
+        <Con id="77" src="11" tgt="29" wght="2.5079599604941905" />
+        <Con id="97" src="16" tgt="29" wght="1.3403395493514836" />
+        <Con id="106" src="18" tgt="30" wght="4.8532260907813907" />
       </Connections>
     </Network>
     <Network id="16" birthGen="0" fitness="0">
@@ -716,11 +717,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="60" src="7" tgt="28" wght="-1.2416074518114328" />
-        <Con id="94" src="15" tgt="30" wght="-0.92051283223554492" />
-        <Con id="97" src="16" tgt="29" wght="-2.7696761768311262" />
-        <Con id="114" src="20" tgt="30" wght="-4.092037898954004" />
-        <Con id="121" src="22" tgt="29" wght="-4.0319491270929575" />
+        <Con id="36" src="1" tgt="28" wght="4.3144904053770006" />
+        <Con id="66" src="8" tgt="30" wght="3.7547913589514792" />
+        <Con id="96" src="16" tgt="28" wght="3.2263808837160468" />
+        <Con id="102" src="17" tgt="30" wght="0.17007119953632355" />
+        <Con id="136" src="26" tgt="28" wght="-3.2896356633864343" />
+        <Con id="137" src="26" tgt="29" wght="4.44610427133739" />
       </Connections>
     </Network>
     <Network id="17" birthGen="0" fitness="0">
@@ -758,12 +760,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="41" src="2" tgt="29" wght="-2.5746453530155122" />
-        <Con id="52" src="5" tgt="28" wght="3.3141332981176674" />
-        <Con id="82" src="12" tgt="30" wght="2.6912616612389684" />
-        <Con id="89" src="14" tgt="29" wght="-4.5080730132758617" />
-        <Con id="130" src="24" tgt="30" wght="-3.490171127486974" />
-        <Con id="138" src="26" tgt="30" wght="4.4145804713480175" />
+        <Con id="31" src="0" tgt="27" wght="-0.4507507523521781" />
+        <Con id="41" src="2" tgt="29" wght="-2.4055049265734851" />
+        <Con id="47" src="4" tgt="27" wght="3.8609702815301716" />
+        <Con id="112" src="20" tgt="28" wght="2.1574745350517333" />
+        <Con id="118" src="21" tgt="30" wght="-3.9481755252927542" />
+        <Con id="129" src="24" tgt="29" wght="1.0733750858344138" />
       </Connections>
     </Network>
     <Network id="18" birthGen="0" fitness="0">
@@ -801,12 +803,12 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="71" src="10" tgt="27" wght="-3.2537212432362139" />
-        <Con id="92" src="15" tgt="28" wght="2.7091473969630897" />
-        <Con id="113" src="20" tgt="29" wght="-2.7078809379599988" />
-        <Con id="114" src="20" tgt="30" wght="1.61743997130543" />
-        <Con id="118" src="21" tgt="30" wght="4.4770159805193543" />
-        <Con id="131" src="25" tgt="27" wght="-2.4226970272138715" />
+        <Con id="40" src="2" tgt="28" wght="3.1053107301704586" />
+        <Con id="48" src="4" tgt="28" wght="4.2878171568736434" />
+        <Con id="89" src="14" tgt="29" wght="-2.9946247767657042" />
+        <Con id="116" src="21" tgt="28" wght="4.8147054645232856" />
+        <Con id="125" src="23" tgt="29" wght="2.6557338703423738" />
+        <Con id="126" src="23" tgt="30" wght="-4.5544543373398483" />
       </Connections>
     </Network>
     <Network id="19" birthGen="0" fitness="0">
@@ -844,11 +846,11 @@
         <Node type="out" id="30" />
       </Nodes>
       <Connections>
-        <Con id="32" src="0" tgt="28" wght="2.0681134634651244" />
-        <Con id="36" src="1" tgt="28" wght="-2.8221870446577668" />
-        <Con id="37" src="1" tgt="29" wght="4.9758318020030856" />
-        <Con id="39" src="2" tgt="27" wght="-3.6696588899940252" />
-        <Con id="41" src="2" tgt="29" wght="1.6029519960284233" />
+        <Con id="32" src="0" tgt="28" wght="-4.0865835594013333" />
+        <Con id="72" src="10" tgt="28" wght="1.6618921980261803" />
+        <Con id="91" src="15" tgt="27" wght="-1.8824337236583233" />
+        <Con id="97" src="16" tgt="29" wght="4.7612811648286879" />
+        <Con id="135" src="26" tgt="27" wght="3.7658447469584644" />
       </Connections>
     </Network>
   </Networks>

@@ -33,6 +33,7 @@ using GeometryFriends.AI.Perceptions.Information;
 
 using System.Runtime.InteropServices;
 using EvolutionGeometryFriends;
+using System.Windows.Forms;
 
 namespace GeometryFriendsAgents
 {
@@ -80,23 +81,43 @@ namespace GeometryFriendsAgents
 
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
-        const string NEURAL_NETWORK_FILE = "/Agents/neural_network_params/circle_champion.xml";
-        const string NEURAL_NETWORK_CONFIG = "/geometryfriends.config.xml";
-        const string INDEX_FILE_PATH = "/Agents/neural_network_params/index_file.txt";
-        const string FITNESS_FILE = "/fitness.txt";
+        const string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
+        const string NEURAL_NETWORK_CONFIG = "/../../../neural_network_params/geometryfriends.config.xml";
+        const string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
+        const string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
 
 
         System.IO.StreamWriter writer;
         int index_id;
         //System.IO.StreamReader reader;
 
+        //Unhandled exceptions
+        AppDomain currentDomain;
+
+        static void MyHandler(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            MessageBox.Show("MyHandler caught : " + e.Message);
+            Console.WriteLine("MyHandler caught : " + e.Message);
+        }
         
         public CircleAgent()
         {
+          
+            currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
 
-            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + INDEX_FILE_PATH))
+            try
             {
-                index_id = Int32.Parse(sr.ReadLine());
+                using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + INDEX_FILE_PATH))
+                {
+                    index_id = Int32.Parse(sr.ReadLine());
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when reading index value" + e.Message);
+                throw new Exception("Problem when reading index value", e);
             }
 
             NeatGenome genome = null;
@@ -106,7 +127,7 @@ namespace GeometryFriendsAgents
             _neatGenomeParams.ConnectionWeightMutationProbability = 0.89;
             _neatGenomeParams.InitialInterconnectionsProportion = 0.05;
 
-            NeatGenomeFactory ngf = new NeatGenomeFactory(26, 3, _neatGenomeParams);
+            NeatGenomeFactory ngf = new NeatGenomeFactory(26, 4, _neatGenomeParams);
 
             // Try to load the genome from the XML document.
             try
@@ -114,9 +135,10 @@ namespace GeometryFriendsAgents
                 using (XmlReader xr = XmlReader.Create(Environment.CurrentDirectory + NEURAL_NETWORK_FILE))
                     genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[index_id]; // this is the index to change
             }
-            catch (Exception e1)
+            catch (Exception e)
             {
-                return;
+                MessageBox.Show("Problem when reading the network from the list" + e.Message);
+                throw new Exception("Problem when reading the network from the list", e);
             }
 
             /*
@@ -155,6 +177,7 @@ namespace GeometryFriendsAgents
 
             //prepare the possible moves  
             possibleMoves = new List<Moves>();
+            possibleMoves.Add(Moves.NO_ACTION);
             possibleMoves.Add(Moves.ROLL_LEFT);
             possibleMoves.Add(Moves.ROLL_RIGHT);
             possibleMoves.Add(Moves.JUMP);
@@ -163,19 +186,6 @@ namespace GeometryFriendsAgents
             uncaughtCollectibles = new List<CollectibleRepresentation>();
             caughtCollectibles = new List<CollectibleRepresentation>();
             remaining = new List<CollectibleRepresentation>();
-        }
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
-        static void ea_UpdateEvent(object sender, EventArgs e)
-        {
-            Console.WriteLine(string.Format("gen={0:N0} bestFitness={1:N6}", _ea.CurrentGeneration, _ea.Statistics._maxFitness));
-
-            // Save the best genome to file
-            var doc = NeatGenomeXmlIO.SaveComplete(new List<NeatGenome>() { _ea.CurrentChampGenome }, false);
-            doc.Save(NEURAL_NETWORK_FILE);
         }
 
         //implements abstract circle interface: used to setup the initial information so that the agent has basic knowledge about the level
@@ -240,8 +250,8 @@ namespace GeometryFriendsAgents
              JUMP = 3
              GROW = 4
             */
-            int index = 40;
-            double score = -1000000.0;
+            int blabla = 0;
+            double score = double.MinValue;
             int id = 0;
             float area_width = area.Width;
             float area_height = area.Height;
@@ -277,20 +287,29 @@ namespace GeometryFriendsAgents
             //Evaluate neural network
             Brain.Activate();
 
-            //Get most excited output neuron
-            for (int i = 0; i < 3; i++)
+             //Get most excited output neuron
+            for (int i = 0; i < Brain.OutputSignalArray.Length; i++)
             {
                 double current_score = Brain.OutputSignalArray[i];
 
                 if (current_score > score)
                 {
                     score = current_score;
-                    index = i;
+                    blabla = i;
                 }
             }
 
-            //Select action with output neuron
-            currentAction = possibleMoves[index];
+            try
+            {
+                //Select action with output neuron
+                currentAction = possibleMoves[blabla];
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when getting the possible move from neural network" + e.Message);
+                throw new Exception("Problem when getting the possible move from neural network", e);
+            }
+            
 
         }
 
@@ -374,10 +393,19 @@ namespace GeometryFriendsAgents
                                 (float)(10.0 * normalized_distance) + 
                                 normalized_time;
 
-            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true))
+            try
             {
-                sw.WriteLine(weighted_sum);
+                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true))
+                {
+                    sw.WriteLine(weighted_sum);
+                }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when writting fitness value" + e.Message);
+                throw new Exception("Problem when writting fitness value", e);
+            }
+            
 
             /*
             //Debug purpouse
@@ -391,10 +419,22 @@ namespace GeometryFriendsAgents
 
             index_id++;
 
-            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
+            try
             {
-                sw.Write(index_id);
+                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
+                {
+                    sw.Write(index_id);
+                }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when writting index value" + e.Message);
+                throw new Exception("Problem when writting index value", e);
+            }
+
+            if(currentDomain != null)
+                currentDomain.UnhandledException -= MyHandler;
+            
         }
 
         //implements abstract circle interface: gets the debug information that is to be visually represented by the agents manager

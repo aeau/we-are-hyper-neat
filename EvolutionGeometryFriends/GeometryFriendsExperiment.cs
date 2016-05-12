@@ -59,7 +59,7 @@ namespace EvolutionGeometryFriends
         /// </summary>
         public int OutputCount
         {
-            get { return 3; }
+            get { return 4; }
         }
 
         /// <summary>
