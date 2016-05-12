@@ -390,7 +390,7 @@ namespace GeometryFriendsAgents
             float normalized_time = NormalizeValue((float)timeElapsed, 55.0f);
 
             float weighted_sum = (100.0f * normalized_collectibles) + 
-                                (float)(10.0 * normalized_distance) + 
+                                (float)(10.0 * (1.0 - normalized_distance)) + 
                                  (1.0f - normalized_time);
 
             try
