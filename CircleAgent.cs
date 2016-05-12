@@ -39,6 +39,13 @@ namespace GeometryFriendsAgents
 {
     class CircleAgent : AbstractCircleAgent
     {
+        //Const min and max velocities
+        const float MIN_VEL_X = -500.0f;
+        const float MAX_VEL_X = 500.0f;
+        const float MIN_VEL_Y = -500.0f;
+        const float MAX_VEL_y = 600.0f;
+
+
         //agent implementation specificiation
         private bool implementedAgent;
         private string agentName = "RandPredictorCircle";
@@ -73,7 +80,7 @@ namespace GeometryFriendsAgents
 
         //Area of the game screen
         private Rectangle area;
-    
+
         //neural network
         protected IBlackBox Brain;
         //protected FastAcyclicNetwork Brain;
@@ -94,16 +101,18 @@ namespace GeometryFriendsAgents
         //Unhandled exceptions
         AppDomain currentDomain;
 
+
+
         static void MyHandler(object sender, UnhandledExceptionEventArgs args)
         {
             Exception e = (Exception)args.ExceptionObject;
             MessageBox.Show("MyHandler caught : " + e.Message);
             Console.WriteLine("MyHandler caught : " + e.Message);
         }
-        
+
         public CircleAgent()
         {
-          
+
             currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
 
@@ -156,7 +165,7 @@ namespace GeometryFriendsAgents
             XmlElement xmlActivation = nodeList[0] as XmlElement;
             string schemeStr = XmlUtils.TryGetValueAsString(xmlActivation, "Scheme");
             */
-            
+
             //NetworkActivationScheme nes = ExperimentUtils.CreateActivationScheme(config.DocumentElement, "Activation");
             NetworkActivationScheme nes = NetworkActivationScheme.CreateCyclicFixedTimestepsScheme(2);
 
@@ -269,25 +278,34 @@ namespace GeometryFriendsAgents
                 id++;
             }
 
+            Brain.InputSignalArray[id] = NormalizeValue(rectanglePlatformsInfo[0].X, area_width);
+            id++;
+            Brain.InputSignalArray[id] = NormalizeValue(rectanglePlatformsInfo[0].Y, area_height);
+            id++;
+            Brain.InputSignalArray[id] = NormalizeValue(rectanglePlatformsInfo[0].Width, area_width);
+            id++;
+            Brain.InputSignalArray[id] = NormalizeValue(rectanglePlatformsInfo[0].Height, area_height);
+            id++;
+
             //Feed input neurons with agent information
             Brain.InputSignalArray[id] = NormalizeValue(circleInfo.X, area_width);
             id++;
             Brain.InputSignalArray[id] = NormalizeValue(circleInfo.Y, area_height);
             id++;
-            Brain.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityX, 15.0f); //mark
+            Brain.InputSignalArray[id] = NormalizeMinMax(circleInfo.VelocityX, MIN_VEL_X, MAX_VEL_X, 0.0f, 1.0f); //mark
             id++;
-            Brain.InputSignalArray[id] = NormalizeValue(circleInfo.VelocityY, area_height); //mark
+            Brain.InputSignalArray[id] = NormalizeMinMax(circleInfo.VelocityY, MIN_VEL_Y, MAX_VEL_y, 0.0f, 1.0f); //mark
             id++;
 
             //Feed input neurons with first uncaught collectible information
             Brain.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].X, area.Width);
             id++;
             Brain.InputSignalArray[id] = NormalizeValue(uncaughtCollectibles[0].Y, area.Height);
-            
+
             //Evaluate neural network
             Brain.Activate();
 
-             //Get most excited output neuron
+            //Get most excited output neuron
             for (int i = 0; i < Brain.OutputSignalArray.Length; i++)
             {
                 double current_score = Brain.OutputSignalArray[i];
@@ -309,13 +327,23 @@ namespace GeometryFriendsAgents
                 MessageBox.Show("Problem when getting the possible move from neural network" + e.Message);
                 throw new Exception("Problem when getting the possible move from neural network", e);
             }
-            
 
+
+        }
+
+        public float NormalizeMinMax(float value, float min, float max, float new_min, float new_max)
+        {
+            return ((value - min) / (max - min)) * (new_max - new_min) + new_min;
+        }
+
+        public double NormalizeMinMax(double value, double min, double max, double new_min, double new_max)
+        {
+            return ((value - min) / (max - min)) * (new_max - new_min) + new_min;
         }
 
         public float NormalizeValue(float value, float max)
         {
-            return value/(max);
+            return value / (max);
         }
 
         public double NormalizeValue(double value, double max)
@@ -325,16 +353,15 @@ namespace GeometryFriendsAgents
 
         public double Distance(float x1, float y1, float x2, float y2)
         {
-            double dist = (Math.Abs(x2 - x1)) + (Math.Abs(y2 - y1));
+            double dist = (Math.Pow(x2 - x1, 2.0f) + (Math.Pow(y2 - y1, 2.0f)));
             dist = Math.Sqrt(dist);
             return dist;
         }
 
         public double NormalizedDistance(float x1, float y1, float x2, float y2)
         {
-            double dist = (Math.Abs(x2 - x1)) + (Math.Abs(y2 - y1));
-            dist = Math.Sqrt(dist);
-            return NormalizeValue(dist, Math.Sqrt(Math.Pow(area.Width, 2.0) + Math.Pow(area.Height, 2.0)));
+            double dist = Distance(x1, y1, x2, y2);
+            return NormalizeMinMax(dist, 0.0, Math.Sqrt(Math.Pow(area.Width, 2.0) + Math.Pow(area.Height, 2.0)), 1.0, 0.0);
         }
 
         //implements abstract circle interface: GeometryFriends agents manager gets the current action intended to be actuated in the enviroment for this agent
@@ -347,7 +374,7 @@ namespace GeometryFriendsAgents
         //implements abstract circle interface: updates the agent state logic and predictions
         public override void Update(TimeSpan elapsedGameTime)
         {
-           RandomAction();
+            RandomAction();
         }
 
         //typically used console debugging used in previous implementations of GeometryFriends
@@ -387,12 +414,12 @@ namespace GeometryFriendsAgents
 
             float normalized_collectibles = NormalizeValue((float)collectiblesCaught, (float)numbersInfo.CollectiblesCount);
             double normalized_distance = NormalizedDistance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
+            double distance = Distance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
             float normalized_time = NormalizeValue((float)timeElapsed, 55.0f);
 
-            float weighted_sum = (100.0f * normalized_collectibles) + 
-                                (float)(10.0 * (1.0 - normalized_distance)) + 
+            float weighted_sum = (100.0f * normalized_collectibles) +
+                                (float)(10.0 * normalized_distance) +
                                  (1.0f - normalized_time);
-
             try
             {
                 using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true))
@@ -405,7 +432,7 @@ namespace GeometryFriendsAgents
                 MessageBox.Show("Problem when writting fitness value" + e.Message);
                 throw new Exception("Problem when writting fitness value", e);
             }
-            
+
 
             /*
             //Debug purpouse
@@ -432,9 +459,9 @@ namespace GeometryFriendsAgents
                 throw new Exception("Problem when writting index value", e);
             }
 
-            if(currentDomain != null)
+            if (currentDomain != null)
                 currentDomain.UnhandledException -= MyHandler;
-            
+
         }
 
         //implements abstract circle interface: gets the debug information that is to be visually represented by the agents manager
