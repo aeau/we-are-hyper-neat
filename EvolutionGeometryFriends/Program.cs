@@ -54,16 +54,16 @@ namespace EvolutionGeometryFriends
 
         static void Main(string[] args)
         {
-            SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");
-
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
+
+            SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");            
 
             // Initialise log4net (log to console).
             XmlConfigurator.Configure(new FileInfo(LOG4NET_FILE));
 
             
-
+            // Write first header for Total fitness file
             using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true))
             {
                 sw.WriteLine("Generation;MaxFitness;MeanFitness");
