@@ -38,82 +38,45 @@ namespace EvolutionGeometryFriends
 
         public static Process geometry_friends_process;
 
-        //Error file
-        const string ERROR_FILE = "/../../../error-log/error.txt";
+        
 
-        //SHARPNEAT Objects
-        const string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
-        const string CIRCLE_CHAMPION_FILE = "/../../../neural_network_params/circle_champion.xml";
-        const string SIMULATION_EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/GeometryFriends.exe";
-        const string SIMPLE_EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/gflink_simple";
-        const string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
-        const string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
-        const string TOTAL_FITNESS_FILE = "/../../../neural_network_params/full_fitness.txt";
+        // File paths        
+        static string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
+        static string CIRCLE_CHAMPION_FILE = "/../../../neural_network_params/circle_champion.xml";       
+        static string TOTAL_FITNESS_FILE = "/../../../neural_network_params/full_fitness.txt";
+        static string EA_CONFIG_FILE = "/../../../neural_network_params/geometryfriends.config.xml";
 
-
-        static void MyHandler(object sender, UnhandledExceptionEventArgs args)
-        {
-            Exception e = (Exception)args.ExceptionObject;
-            Console.WriteLine("MyHandler caught : " + e.Message);
-        }
+        static string ERROR_FILE = Environment.CurrentDirectory + "/../../../error-log/error.txt";
+        static string SIMULATION_EXECUTABLE_FILENAME = Environment.CurrentDirectory + "/../../../GeometryFriendsGame/Release/GeometryFriends.exe";
+        static string INDEX_FILE_PATH = Environment.CurrentDirectory + "/../../../neural_network_params/index_file.txt";
+        static string FITNESS_FILE = Environment.CurrentDirectory + "/../../../neural_network_params/fitness.txt";
+        static string LOG4NET_FILE = Environment.CurrentDirectory + "/../../../lib/log4net.properties";
 
         static void Main(string[] args)
         {
+            SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");
+
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
 
             // Initialise log4net (log to console).
-            XmlConfigurator.Configure(new FileInfo(Environment.CurrentDirectory + "/../../../lib/log4net.properties"));
+            XmlConfigurator.Configure(new FileInfo(LOG4NET_FILE));
 
-            //We set up the experiment & the evolutionary algorithm.
-            GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
-            XmlDocument xml_config = new XmlDocument();
+            
 
-            xml_config.Load(Environment.CurrentDirectory +
-                                    "/../../../neural_network_params/geometryfriends.config.xml");
-
-            experiment.Initialize("GeometryFriends", xml_config.DocumentElement);
-
-            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + TOTAL_FITNESS_FILE, true))
+            using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true))
             {
                 sw.WriteLine("Generation;MaxFitness;MeanFitness");
             }
 
             if(args.Length > 1 && args[1].Equals("true"))
             {
-                for (; ; )
-                {
-                    RunProgram(int.Parse(args[2]), 11);
-                }
+                RunIndividual(int.Parse(args[2]), 11);
             }
             else if (args.Length > 1 && args[1].Equals("false"))
             {
-                _gfea = experiment.CreateGFEvolutionAlgorithm();
-                _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
-                SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
 
-                PerformEvolutionProcess();
-                _gfea.FirstEvaluation();
-
-                //We need to be able to change the the argument of the simulations.
-
-                for (int i = 0; i < int.Parse(args[0]); i++)
-                {
-                    PerformEvolutionProcess();
-                    try
-                    {
-                        _gfea.PerformGeneration();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error creating offsprings & evaluating" + ex.StackTrace);
-                        throw new Exception("An error creating offsprings & evaluating", ex);
-                    }
-
-                    SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
-                    Thread.Sleep(1000);
-                }
-                
+                RunEvolution(75, int.Parse(args[0]));
                
             }
             else
@@ -127,34 +90,10 @@ namespace EvolutionGeometryFriends
             Console.ReadLine();
         }
 
-        static void RunProgram(int index, int speed_value)
+        static void RunIndividual(int index, int speed_value)
         {
             //We clean the data that will be written and read by the agent.
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
-                {
-                    sw.Write(index.ToString());
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Problem when initializing index value" + e.Message);
-                throw new Exception("Problem when initializing index value", e);
-            }
-
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false))
-                {
-                    sw.Write("");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Problem when clearing the fitness file" + e.Message);
-                throw new Exception("Problem when clearing the fitness file", e);
-            }
+            ClearFiles(index);
 
             //We start the Game
             try
@@ -163,7 +102,7 @@ namespace EvolutionGeometryFriends
                     geometry_friends_process.Close();
 
                 geometry_friends_process = new Process();
-                geometry_friends_process.StartInfo.FileName = Environment.CurrentDirectory + SIMULATION_EXECUTABLE_FILENAME;
+                geometry_friends_process.StartInfo.FileName = SIMULATION_EXECUTABLE_FILENAME;
                 // Set UseShellExecute to false for redirection.
                 geometry_friends_process.StartInfo.UseShellExecute = false;
                 geometry_friends_process.EnableRaisingEvents = true;
@@ -189,34 +128,48 @@ namespace EvolutionGeometryFriends
             
         }
 
-        static void PerformEvolutionProcess()
+        static void RunEvolution(int speed, int nGenerations)
+        {
+            //We set up the experiment & the evolutionary algorithm.
+            GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
+            XmlDocument xml_config = new XmlDocument();
+
+            xml_config.Load(EA_CONFIG_FILE);
+
+            experiment.Initialize("GeometryFriends", xml_config.DocumentElement);
+
+
+            _gfea = experiment.CreateGFEvolutionAlgorithm();
+            _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
+            SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
+
+            RunSimulation(speed, experiment.DefaultPopulationSize);
+            _gfea.FirstEvaluation();
+
+            //We need to be able to change the the argument of the simulations.
+
+            for (int i = 0; i < nGenerations; i++)
+            {
+                RunSimulation(speed, experiment.DefaultPopulationSize);
+                try
+                {
+                    _gfea.PerformGeneration();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error creating offsprings & evaluating" + ex.StackTrace);
+                    throw new Exception("An error creating offsprings & evaluating", ex);
+                }
+
+                SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
+                Thread.Sleep(1000);
+            }
+        }
+
+        static void RunSimulation(int speed, int populationSize)
         {
             //We clean the data that will be written and read by the agent.
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
-                {
-                    sw.Write("0");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Problem when initializing index value" + e.Message);
-                throw new Exception("Problem when initializing index value", e);
-            }
-
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, false))
-                {
-                    sw.Write("");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Problem when clearing the fitness file" + e.Message);
-                throw new Exception("Problem when clearing the fitness file", e);
-            }
+            ClearFiles(0);
             
 
             //We start the Game
@@ -226,11 +179,11 @@ namespace EvolutionGeometryFriends
                     geometry_friends_process.Close();
 
                 geometry_friends_process = new Process();
-                geometry_friends_process.StartInfo.FileName = Environment.CurrentDirectory + SIMULATION_EXECUTABLE_FILENAME;
+                geometry_friends_process.StartInfo.FileName = SIMULATION_EXECUTABLE_FILENAME;
                 // Set UseShellExecute to false for redirection.
                 geometry_friends_process.StartInfo.UseShellExecute = false;
                 geometry_friends_process.EnableRaisingEvents = true;
-                geometry_friends_process.StartInfo.Arguments = "--log-to-file --disable-fixed-time-step --speed 11 --simulations 20 -st 0 3 -a Agents/GeometryFriendsAgent.dll";
+                geometry_friends_process.StartInfo.Arguments = "--log-to-file --no-rendering --disable-fixed-time-step --speed " + speed + " --simulations " + populationSize + " -st 0 3 -a Agents/GeometryFriendsAgent.dll";
                 geometry_friends_process.Exited += new EventHandler(myProcess_Exited);
 
                 // Redirect the error output of the net command. 
@@ -257,9 +210,9 @@ namespace EvolutionGeometryFriends
 
             try
             {
-                using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
+                using (StreamReader sr = new StreamReader(FITNESS_FILE))
                 {
-                    using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + TOTAL_FITNESS_FILE, true))
+                    using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true))
                     {
                         sw.WriteLine(string.Format("{0:N0};{1:N6};{2:N6}", _gfea.CurrentGeneration, _gfea.Statistics._maxFitness, _gfea.Statistics._meanFitness));
                         string line;
@@ -280,6 +233,82 @@ namespace EvolutionGeometryFriends
 
         }
 
+        public static void SetProjectPath(string folderPath)
+        {
+            NEURAL_NETWORK_FILE = folderPath + "/circle_neural_network.xml";
+            CIRCLE_CHAMPION_FILE = folderPath + "/circle_champion.xml";
+            TOTAL_FITNESS_FILE = folderPath + "/full_fitness.txt";
+            EA_CONFIG_FILE = folderPath + "/geometryfriends.config.xml";
+        }
+
+
+        static void ea_UpdateEvent(object sender, EventArgs e)
+        {
+            Console.WriteLine(string.Format("gen={0:N0} bestFitness={1:N6}", _gfea.CurrentGeneration, _gfea.Statistics._maxFitness));
+
+            try
+            {
+                // Save the best genome to file
+                var doc = NeatGenomeXmlIO.SaveComplete(new List<NeatGenome>() { _gfea.CurrentChampGenome }, false);
+                doc.Save(CIRCLE_CHAMPION_FILE);
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show("Problem when saving the chamapion network" + e1.Message);
+                throw new Exception("Problem when saving the chamapion network", e1);
+            }
+
+        }
+
+        public static void SaveNeuralNetwork(List<NeatGenome> gl)
+        {
+            string filename = NEURAL_NETWORK_FILE;
+
+            try
+            {
+                var doc = NeatGenomeXmlIO.SaveComplete(
+                                    gl,
+                                    false);
+
+                doc.Save(filename);
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show("Problem when saving the complete list of genomes" + e1.Message);
+                throw new Exception("Problem when saving the complete list of genomes", e1);
+            }
+        }
+
+        private static void ClearFiles(int index)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(INDEX_FILE_PATH, false))
+                {
+                    sw.Write(index.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when initializing index value" + e.Message);
+                throw new Exception("Problem when initializing index value", e);
+            }
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(FITNESS_FILE, false))
+                {
+                    sw.Write("");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when clearing the fitness file" + e.Message);
+                throw new Exception("Problem when clearing the fitness file", e);
+            }
+        }
+
+        #region Helpers
         public static void NetErrorDataHandler(object sendingProcess,
             DataReceivedEventArgs errLine)
         {
@@ -295,7 +324,7 @@ namespace EvolutionGeometryFriends
                         // Open the file.
                         try
                         {
-                            streamError = new StreamWriter(Environment.CurrentDirectory + ERROR_FILE, true);
+                            streamError = new StreamWriter(ERROR_FILE, true);
                         }
                         catch (Exception e)
                         {
@@ -330,45 +359,11 @@ namespace EvolutionGeometryFriends
             Console.WriteLine(e.ToString());
         }
 
-        static void ea_UpdateEvent(object sender, EventArgs e)
+        static void MyHandler(object sender, UnhandledExceptionEventArgs args)
         {
-            Console.WriteLine(string.Format("gen={0:N0} bestFitness={1:N6}", _gfea.CurrentGeneration, _gfea.Statistics._maxFitness));
-
-            try
-            {
-                // Save the best genome to file
-                var doc = NeatGenomeXmlIO.SaveComplete(new List<NeatGenome>() { _gfea.CurrentChampGenome }, false);
-                doc.Save(Environment.CurrentDirectory + CIRCLE_CHAMPION_FILE);
-            }
-            catch (Exception e1)
-            {
-                MessageBox.Show("Problem when saving the chamapion network" + e1.Message);
-                throw new Exception("Problem when saving the chamapion network", e1);
-            }
-            
+            Exception e = (Exception)args.ExceptionObject;
+            Console.WriteLine("MyHandler caught : " + e.Message);
         }
-
-        public static void SaveNeuralNetwork(List<NeatGenome> gl)
-        {
-            string filename = Environment.CurrentDirectory + NEURAL_NETWORK_FILE;
-
-            try
-            {
-                var doc = NeatGenomeXmlIO.SaveComplete(
-                                    gl,
-                                    false);
-
-                doc.Save(filename);
-            }
-            catch (Exception e1)
-            {
-                MessageBox.Show("Problem when saving the complete list of genomes" + e1.Message);
-                throw new Exception("Problem when saving the complete list of genomes", e1);
-            }
-
-
-           
-        }
-
+        #endregion
     }
 }

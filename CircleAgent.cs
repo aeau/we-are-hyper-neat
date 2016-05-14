@@ -94,14 +94,15 @@ namespace GeometryFriendsAgents
 
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
-        const string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
-        const string NEURAL_NETWORK_CONFIG = "/../../../neural_network_params/geometryfriends.config.xml";
-        const string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
-        const string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
+        // File paths
+        static string PATH_CONFIG_FILE = Environment.CurrentDirectory + "/../../../neural_network_params/pathConfig.txt";
+
+        static string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
+        static string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
+        static string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
 
         System.IO.StreamWriter writer;
         int index_id;
-        //System.IO.StreamReader reader;
 
         //Unhandled exceptions
         AppDomain currentDomain;
@@ -120,9 +121,10 @@ namespace GeometryFriendsAgents
 
         public CircleAgent()
         {
-
             currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
+
+            SetupFilePaths();
 
             try
             {
@@ -190,6 +192,27 @@ namespace GeometryFriendsAgents
             uncaughtCollectibles = new List<CollectibleRepresentation>();
             caughtCollectibles = new List<CollectibleRepresentation>();
             remaining = new List<CollectibleRepresentation>();
+        }
+
+        private void SetupFilePaths() {
+            string basePath;
+            try
+            {
+                using (StreamReader sr = new StreamReader(PATH_CONFIG_FILE))
+                {
+                    basePath = sr.ReadLine();
+                    NEURAL_NETWORK_FILE = basePath + "/circle_neural_network.xml";
+                    INDEX_FILE_PATH = basePath + "/index_file.txt";
+                    FITNESS_FILE = basePath + "/fitness.txt";
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problem when reading index value" + e.Message);
+                throw new Exception("Problem when reading index value", e);
+            }
+
+            
         }
 
         //implements abstract circle interface: used to setup the initial information so that the agent has basic knowledge about the level
