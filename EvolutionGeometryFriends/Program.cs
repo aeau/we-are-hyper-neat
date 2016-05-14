@@ -48,6 +48,8 @@ namespace EvolutionGeometryFriends
         const string SIMPLE_EXECUTABLE_FILENAME = "/../../../GeometryFriendsGame/Release/gflink_simple";
         const string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
         const string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
+        const string TOTAL_FITNESS_FILE = "/../../../neural_network_params/full_fitness.txt";
+
 
         static void MyHandler(object sender, UnhandledExceptionEventArgs args)
         {
@@ -68,13 +70,21 @@ namespace EvolutionGeometryFriends
             XmlDocument xml_config = new XmlDocument();
 
             xml_config.Load(Environment.CurrentDirectory +
-                                    "/../../../lib/geometryfriends.config.xml");
+                                    "/../../../neural_network_params/geometryfriends.config.xml");
 
             experiment.Initialize("GeometryFriends", xml_config.DocumentElement);
 
+            using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + TOTAL_FITNESS_FILE, true))
+            {
+                sw.WriteLine("Generation;MaxFitness;MeanFitness");
+            }
+
             if(args.Length > 1 && args[1].Equals("true"))
             {
-                RunProgram();
+                for (; ; )
+                {
+                    RunProgram(int.Parse(args[2]), 11);
+                }
             }
             else if (args.Length > 1 && args[1].Equals("false"))
             {
@@ -117,14 +127,14 @@ namespace EvolutionGeometryFriends
             Console.ReadLine();
         }
 
-        static void RunProgram()
+        static void RunProgram(int index, int speed_value)
         {
             //We clean the data that will be written and read by the agent.
             try
             {
                 using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
                 {
-                    sw.Write("0");
+                    sw.Write(index.ToString());
                 }
             }
             catch (Exception e)
@@ -149,10 +159,27 @@ namespace EvolutionGeometryFriends
             //We start the Game
             try
             {
-                Process firstProc = new Process();
-                firstProc.StartInfo.FileName = Environment.CurrentDirectory + SIMPLE_EXECUTABLE_FILENAME;
-                firstProc.Start();
-                firstProc.WaitForExit();
+                if (geometry_friends_process != null)
+                    geometry_friends_process.Close();
+
+                geometry_friends_process = new Process();
+                geometry_friends_process.StartInfo.FileName = Environment.CurrentDirectory + SIMULATION_EXECUTABLE_FILENAME;
+                // Set UseShellExecute to false for redirection.
+                geometry_friends_process.StartInfo.UseShellExecute = false;
+                geometry_friends_process.EnableRaisingEvents = true;
+                geometry_friends_process.StartInfo.Arguments = "--log-to-file --disable-fixed-time-step --speed " + speed_value + " -st 0 3 -a Agents/GeometryFriendsAgent.dll";
+                geometry_friends_process.Exited += new EventHandler(myProcess_Exited);
+
+                // Redirect the error output of the net command. 
+                geometry_friends_process.StartInfo.RedirectStandardError = true;
+                geometry_friends_process.ErrorDataReceived += new DataReceivedEventHandler(NetErrorDataHandler);
+                geometry_friends_process.Start();
+
+                // Start the asynchronous read of the standard output stream.
+                geometry_friends_process.BeginErrorReadLine();
+                geometry_friends_process.WaitForExit();
+
+                geometry_friends_process.Close();
             }
             catch (Exception ex)
             {
@@ -203,7 +230,7 @@ namespace EvolutionGeometryFriends
                 // Set UseShellExecute to false for redirection.
                 geometry_friends_process.StartInfo.UseShellExecute = false;
                 geometry_friends_process.EnableRaisingEvents = true;
-                geometry_friends_process.StartInfo.Arguments = "--log-to-file --no-rendering --speed 75 --simulations 20 -st 0 3 -a Agents/GeometryFriendsAgent.dll";
+                geometry_friends_process.StartInfo.Arguments = "--log-to-file --disable-fixed-time-step --speed 11 --simulations 20 -st 0 3 -a Agents/GeometryFriendsAgent.dll";
                 geometry_friends_process.Exited += new EventHandler(myProcess_Exited);
 
                 // Redirect the error output of the net command. 
@@ -232,11 +259,16 @@ namespace EvolutionGeometryFriends
             {
                 using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
                 {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
+                    using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + TOTAL_FITNESS_FILE, true))
                     {
-                        Console.WriteLine(line);
-                        fitness_values.Add(Double.Parse(line));
+                        sw.WriteLine(string.Format("{0:N0};{1:N6};{2:N6}", _gfea.CurrentGeneration, _gfea.Statistics._maxFitness, _gfea.Statistics._meanFitness));
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            //sw.WriteLine(line);
+                            Console.WriteLine(line);
+                            fitness_values.Add(Double.Parse(line));
+                        }
                     }
                 }
             }

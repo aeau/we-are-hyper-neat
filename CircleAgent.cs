@@ -44,6 +44,9 @@ namespace GeometryFriendsAgents
         const float MAX_VEL_X = 500.0f;
         const float MIN_VEL_Y = -500.0f;
         const float MAX_VEL_y = 600.0f;
+        const float POSITION_OFFSET = 50.0f;
+        const float GIVENUP_TIMER = 3.0f;
+
 
 
         //agent implementation specificiation
@@ -78,6 +81,8 @@ namespace GeometryFriendsAgents
 
         private int nCollectiblesLeft;
 
+        private double time_limit;
+
         //Area of the game screen
         private Rectangle area;
 
@@ -85,6 +90,7 @@ namespace GeometryFriendsAgents
         protected IBlackBox Brain;
         //protected FastAcyclicNetwork Brain;
         List<Neuron> nodes = new List<Neuron>();
+        NeatGenome genome = null;
 
         //SHARPNEAT Objects
         static NeatEvolutionAlgorithm<NeatGenome> _ea;
@@ -93,7 +99,6 @@ namespace GeometryFriendsAgents
         const string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
         const string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
 
-
         System.IO.StreamWriter writer;
         int index_id;
         //System.IO.StreamReader reader;
@@ -101,7 +106,10 @@ namespace GeometryFriendsAgents
         //Unhandled exceptions
         AppDomain currentDomain;
 
-
+        float last_position_x;
+        float last_position_y;
+        bool given_up;
+        TimeSpan timer;
 
         static void MyHandler(object sender, UnhandledExceptionEventArgs args)
         {
@@ -129,7 +137,8 @@ namespace GeometryFriendsAgents
                 throw new Exception("Problem when reading index value", e);
             }
 
-            NeatGenome genome = null;
+
+            
             NeatGenomeParameters _neatGenomeParams = new NeatGenomeParameters();
             _neatGenomeParams.AddConnectionMutationProbability = 0.1;
             _neatGenomeParams.AddNodeMutationProbability = 0.01;
@@ -150,21 +159,7 @@ namespace GeometryFriendsAgents
                 throw new Exception("Problem when reading the network from the list", e);
             }
 
-            /*
-            // Get a genome decoder that can convert genomes to phenomes.
-            XmlDocument config = new XmlDocument();
-            config.Load(Environment.CurrentDirectory + NEURAL_NETWORK_CONFIG);
-
-            // Get root activation element.
-            XmlNodeList nodeList = config.DocumentElement.GetElementsByTagName("Activation", "");
-            if (nodeList.Count != 1)
-            {
-                throw new ArgumentException("Missing or invalid activation XML config setting.");
-            }
-
-            XmlElement xmlActivation = nodeList[0] as XmlElement;
-            string schemeStr = XmlUtils.TryGetValueAsString(xmlActivation, "Scheme");
-            */
+            //MessageBox.Show(genome.Id.ToString());
 
             //NetworkActivationScheme nes = ExperimentUtils.CreateActivationScheme(config.DocumentElement, "Activation");
             NetworkActivationScheme nes = NetworkActivationScheme.CreateCyclicFixedTimestepsScheme(2);
@@ -210,7 +205,11 @@ namespace GeometryFriendsAgents
             collectiblesInfo = colI;
             uncaughtCollectibles = new List<CollectibleRepresentation>(collectiblesInfo);
             this.area = area;
+            time_limit = timeLimit;
 
+            last_position_x = circleInfo.X;
+            last_position_y = circleInfo.Y;
+            timer = new TimeSpan();
             //DebugSensorsInfo();
         }
 
@@ -250,7 +249,7 @@ namespace GeometryFriendsAgents
         }
 
         //simple algorithm for choosing a random action for the circle agent
-        private void RandomAction()
+        private void CalculateOutput()
         {
             /*
              Circle Actions
@@ -367,14 +366,31 @@ namespace GeometryFriendsAgents
         //implements abstract circle interface: GeometryFriends agents manager gets the current action intended to be actuated in the enviroment for this agent
         public override Moves GetAction()
         {
-            RandomAction();
             return currentAction;
         }
 
         //implements abstract circle interface: updates the agent state logic and predictions
         public override void Update(TimeSpan elapsedGameTime)
         {
-            RandomAction();
+            if(circleInfo.X > last_position_x + POSITION_OFFSET ||
+                circleInfo.X < last_position_x - POSITION_OFFSET ||
+                circleInfo.Y > last_position_y + POSITION_OFFSET ||
+                circleInfo.Y < last_position_y - POSITION_OFFSET)
+            {
+                last_position_x = circleInfo.X;
+                last_position_y = circleInfo.Y;
+                timer = elapsedGameTime;
+            }
+            else
+            {
+                given_up = (timer.TotalSeconds < elapsedGameTime.TotalSeconds - GIVENUP_TIMER);
+            }
+            CalculateOutput();
+        }
+
+        public override bool HasAgentGivenUp()
+        {
+            return given_up;
         }
 
         //typically used console debugging used in previous implementations of GeometryFriends
@@ -415,11 +431,11 @@ namespace GeometryFriendsAgents
             float normalized_collectibles = NormalizeValue((float)collectiblesCaught, (float)numbersInfo.CollectiblesCount);
             double normalized_distance = NormalizedDistance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
             double distance = Distance(circleInfo.X, circleInfo.Y, uncaughtCollectibles[0].X, uncaughtCollectibles[0].Y);
-            float normalized_time = NormalizeValue((float)timeElapsed, 55.0f);
+            double normalized_time = NormalizeValue((double)timeElapsed, time_limit);
 
             float weighted_sum = (100.0f * normalized_collectibles) +
                                 (float)(10.0 * normalized_distance) +
-                                 (1.0f - normalized_time);
+                                 (float)(1.0f - normalized_time);
             try
             {
                 using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true))
@@ -433,16 +449,20 @@ namespace GeometryFriendsAgents
                 throw new Exception("Problem when writting fitness value", e);
             }
 
-
-            /*
+            String s = "";
+            
             //Debug purpouse
-            writer.WriteLine("Collectibles caught: " + collectiblesCaught + ", Collectibles count: " + numbersInfo.CollectiblesCount);
-            writer.WriteLine("Normalized colleectables: " + normalized_collectibles);
-            writer.WriteLine("X: " + circleInfo.X + ", Y: " + circleInfo.Y + ", X2: " + uncaughtCollectibles[0].X + ", Y2: " + uncaughtCollectibles[0].Y);
-            writer.WriteLine("Normalized distance: " + normalized_distance);
-            writer.WriteLine("Time: " + timeElapsed + ", Normalized time: " + normalized_time);
-            writer.WriteLine();
-             */
+            s += ("Collectibles caught: " + collectiblesCaught + ", Collectibles count: " + numbersInfo.CollectiblesCount + "\n");
+            s += ("Normalized colleectables: " + normalized_collectibles + "\n");
+            s += ("X: " + circleInfo.X + ", Y: " + circleInfo.Y + ", X2: " + uncaughtCollectibles[0].X + ", Y2: " + uncaughtCollectibles[0].Y + "\n");
+            s += ("Normalized distance: " + normalized_distance + "\n");
+            s += ("Time: " + timeElapsed + ", Normalized time: " + normalized_time + "\n");
+            s += ("TOTAL FITNESS: " + weighted_sum + "\n");
+            s += ("Index: " + index_id + "\n");
+            s += ("Network ID: " + genome.Id);
+
+            //MessageBox.Show(s);
+             
 
             index_id++;
 

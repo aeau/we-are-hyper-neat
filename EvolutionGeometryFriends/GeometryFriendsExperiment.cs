@@ -133,18 +133,15 @@ namespace EvolutionGeometryFriends
             //Change this parameters for different results.
             _eaParams = new NeatEvolutionAlgorithmParameters();
             _eaParams.SpecieCount = _specieCount;
-            _eaParams.SelectionProportion = 0.7;
-            _eaParams.ElitismProportion = 0.3;
-            _eaParams.OffspringAsexualProportion = 0.4;
-            _eaParams.OffspringSexualProportion = 0.6;
-            _eaParams.InterspeciesMatingProportion = 0.2;
 
             //
             _neatGenomeParams = new NeatGenomeParameters();
-            _neatGenomeParams.AddConnectionMutationProbability = 0.3;
-            _neatGenomeParams.AddNodeMutationProbability = 0.3;
-            _neatGenomeParams.ConnectionWeightMutationProbability = 0.4;
-            _neatGenomeParams.InitialInterconnectionsProportion = 0.05;
+           // _neatGenomeParams.ActivationFn = 
+            _neatGenomeParams.AddNodeMutationProbability = 0.1;
+            _neatGenomeParams.AddConnectionMutationProbability = 0.25;
+            _neatGenomeParams.DeleteConnectionMutationProbability = 0.2;
+
+            //_neatGenomeParams.ActivationFn = 
         }
 
         /// <summary>
