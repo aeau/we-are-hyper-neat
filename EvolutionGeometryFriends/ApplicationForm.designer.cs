@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label_status = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.individualNumber = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.individualNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationCount)).BeginInit();
             this.SuspendLayout();
@@ -167,18 +167,18 @@
             this.panel1.Size = new System.Drawing.Size(225, 34);
             this.panel1.TabIndex = 15;
             // 
-            // numericUpDown1
+            // individualNumber
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.numericUpDown1.Location = new System.Drawing.Point(432, 71);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            999,
+            this.individualNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.individualNumber.Location = new System.Drawing.Point(432, 71);
+            this.individualNumber.Maximum = new decimal(new int[] {
+            9999999,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(56, 27);
-            this.numericUpDown1.TabIndex = 16;
+            this.individualNumber.Name = "individualNumber";
+            this.individualNumber.Size = new System.Drawing.Size(56, 27);
+            this.individualNumber.TabIndex = 16;
             // 
             // label2
             // 
@@ -223,7 +223,7 @@
             // runSpeed
             // 
             this.runSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.runSpeed.Location = new System.Drawing.Point(331, 248);
+            this.runSpeed.Location = new System.Drawing.Point(480, 153);
             this.runSpeed.Maximum = new decimal(new int[] {
             75,
             0,
@@ -270,7 +270,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(333, 229);
+            this.label8.Location = new System.Drawing.Point(420, 158);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 16);
             this.label8.TabIndex = 23;
@@ -280,7 +280,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(413, 229);
+            this.label9.Location = new System.Drawing.Point(351, 253);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(123, 16);
             this.label9.TabIndex = 24;
@@ -299,7 +299,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.individualNumber);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label_loadedProject);
@@ -314,7 +314,7 @@
             this.Text = "ApplicationForm";
             this.Load += new System.EventHandler(this.ApplicationForm_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.individualNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationCount)).EndInit();
             this.ResumeLayout(false);
@@ -334,7 +334,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label_status;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown individualNumber;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;

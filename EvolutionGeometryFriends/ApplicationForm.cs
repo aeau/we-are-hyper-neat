@@ -62,7 +62,7 @@ namespace EvolutionGeometryFriends {
         }
 
         private string selectedProjectPath = "";
-        private Dictionary<int, float> tableData = new Dictionary<int, float>();
+        private List<string[]> tableData = new List<string[]>();
 
         public ApplicationForm() {
             InitializeComponent();
@@ -76,32 +76,21 @@ namespace EvolutionGeometryFriends {
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
             CurrentState = State.Stopped;
+            runSpeed.Value = 75;
         }
 
-        private void button_SelectLevel_Click(object sender, EventArgs e) {
-            SelectLevel selectLevel = new SelectLevel();
-            selectLevel.ShowDialog(this);
-        }
 
-        private void AddRow(int index, float fitness)
+        private void AddRow(string index, string fitness)
         {
             individualTable.RowCount = individualTable.RowCount + 1;
-            individualTable.Controls.Add(new Label() { Text = index.ToString() }, 0, individualTable.RowCount - 1);
-            individualTable.Controls.Add(new Label() { Text = fitness.ToString() }, 1, individualTable.RowCount - 1);
+            individualTable.Controls.Add(new Label() { Text = index }, 0, individualTable.RowCount - 1);
+            individualTable.Controls.Add(new Label() { Text = fitness }, 1, individualTable.RowCount - 1);
         }
 
         private void button_StartEvolution_Click(object sender, EventArgs e) {
-            CurrentState = State.Starting;
-            label_status.Update();
-            Thread.Sleep(2000);
-            CurrentState = State.Running;
         }
 
         private void button_StopEvolution_Click(object sender, EventArgs e) {
-            CurrentState = State.Stopping;
-            label_status.Update();
-            Thread.Sleep(2000);
-            CurrentState = State.Stopped;
         }
 
         private void button_LoadProject_Click(object sender, EventArgs e) {
@@ -111,17 +100,26 @@ namespace EvolutionGeometryFriends {
             }
         }
 
-        private void button_RunIndividual_Click(object sender, EventArgs e) {
-
+        private void button_RunIndividual_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(individualNumber.Value.ToString());
+            for (int i = 0; i < tableData.Count; i++)
+            {
+                if (tableData[i][0] == individualNumber.Value.ToString())
+                {
+                    //Program.RunIndividual(i);
+                    return;
+                }
+            }
         }
 
-        public void UpdateTable(Dictionary<int, float> tableData)
+        public void UpdateTable(List<string[]> tableData)
         {
             individualTable.Controls.Clear();
             this.tableData = tableData;
-            foreach (KeyValuePair<int, float> pair in tableData)
+            foreach (var row in tableData)
             {
-                AddRow(pair.Key, pair.Value);
+                AddRow(row[0], row[1]);
             }
         }
 
