@@ -64,6 +64,13 @@ namespace EvolutionGeometryFriends {
         private string selectedProjectPath = "";
         private List<string[]> tableData = new List<string[]>();
 
+        [STAThread]
+        public static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.Run(new ApplicationForm());
+        }
+
         public ApplicationForm() {
             InitializeComponent();
         }
@@ -88,9 +95,17 @@ namespace EvolutionGeometryFriends {
         }
 
         private void button_StartEvolution_Click(object sender, EventArgs e) {
+            CurrentState = State.Starting;
+            (new Thread(() => {
+                Program.SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");
+                Program.RunEvolution((int)runSpeed.Value, (int)nGenerations.Value);
+            })).Start();
+            CurrentState = State.Running;
         }
 
         private void button_StopEvolution_Click(object sender, EventArgs e) {
+            Program.StopEvolution();
+            CurrentState = State.Stopping;
         }
 
         private void button_LoadProject_Click(object sender, EventArgs e) {

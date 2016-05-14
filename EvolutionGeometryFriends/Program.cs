@@ -29,18 +29,18 @@ namespace EvolutionGeometryFriends
 {
     public class Program
     {
-
-        static GeometryFriendsEvolutionaryAlgorithm<NeatGenome> _gfea;
+        #region variables
+        private static GeometryFriendsEvolutionaryAlgorithm<NeatGenome> _gfea;
         public static List<double> fitness_values = new List<double>();
 
-        public static StreamWriter streamError;
-        public static bool errorsWritten = false;
+        private static StreamWriter streamError;
+        private static bool errorsWritten = false;
 
-        public static Process geometry_friends_process;
+        private static Process geometry_friends_process;
+        private static bool stop = false;
+        #endregion
 
-        
-
-        // File paths        
+        #region filePaths
         static string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
         static string CIRCLE_CHAMPION_FILE = "/../../../neural_network_params/circle_champion.xml";       
         static string TOTAL_FITNESS_FILE = "/../../../neural_network_params/full_fitness.txt";
@@ -51,46 +51,18 @@ namespace EvolutionGeometryFriends
         static string INDEX_FILE_PATH = Environment.CurrentDirectory + "/../../../neural_network_params/index_file.txt";
         static string FITNESS_FILE = Environment.CurrentDirectory + "/../../../neural_network_params/fitness.txt";
         static string LOG4NET_FILE = Environment.CurrentDirectory + "/../../../lib/log4net.properties";
+        #endregion
 
-        static void Main(string[] args)
+        
+
+        #region Interface
+
+        public static void StopEvolution()
         {
-            AppDomain currentDomain = AppDomain.CurrentDomain;
-            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
-
-            SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");            
-
-            // Initialise log4net (log to console).
-            XmlConfigurator.Configure(new FileInfo(LOG4NET_FILE));
-
-            
-            // Write first header for Total fitness file
-            using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true))
-            {
-                sw.WriteLine("Generation;MaxFitness;MeanFitness");
-            }
-
-            if(args.Length > 1 && args[1].Equals("true"))
-            {
-                RunIndividual(int.Parse(args[2]), 11);
-            }
-            else if (args.Length > 1 && args[1].Equals("false"))
-            {
-
-                RunEvolution(75, int.Parse(args[0]));
-               
-            }
-            else
-            {
-                Console.WriteLine("You mistoke nig");
-                Console.WriteLine("You must write 'true' for executing the game with the champion");
-                Console.WriteLine("You must write 'false' for evolution");
-
-            }
-
-            Console.ReadLine();
+            stop = true;
         }
 
-        static void RunIndividual(int index, int speed_value)
+        public static void RunIndividual(int index, int speed_value)
         {
             //We clean the data that will be written and read by the agent.
             ClearFiles(index);
@@ -128,13 +100,26 @@ namespace EvolutionGeometryFriends
             
         }
 
-        static void RunEvolution(int speed, int nGenerations)
-        {
+        public static void RunEvolution(int speed, int nGenerations)
+        {            
+            // Initialise log4net (log to console).
+            XmlConfigurator.Configure(new FileInfo(LOG4NET_FILE));
+
+
+            // Write first header for Total fitness file
+            using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true))
+            {
+                sw.WriteLine("Generation;MaxFitness;MeanFitness");
+            }
+
             //We set up the experiment & the evolutionary algorithm.
             GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
             XmlDocument xml_config = new XmlDocument();
 
             xml_config.Load(EA_CONFIG_FILE);
+
+            // Flag used to stop evolution press from UI
+            stop = false;
 
             experiment.Initialize("GeometryFriends", xml_config.DocumentElement);
 
@@ -150,7 +135,12 @@ namespace EvolutionGeometryFriends
 
             for (int i = 0; i < nGenerations; i++)
             {
-                RunSimulation(speed, experiment.DefaultPopulationSize);
+                // Stop the evolution if the flag is set
+                if (stop)
+                {
+                    return;
+                }
+                // Create offspring based on fitness
                 try
                 {
                     _gfea.PerformGeneration();
@@ -160,13 +150,14 @@ namespace EvolutionGeometryFriends
                     MessageBox.Show("An error creating offsprings & evaluating" + ex.StackTrace);
                     throw new Exception("An error creating offsprings & evaluating", ex);
                 }
-
+                // Update neural network configurations in xml
                 SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
-                Thread.Sleep(1000);
+                // Run game to get fitness for new population
+                RunSimulation(speed, experiment.DefaultPopulationSize);                
             }
         }
 
-        static void RunSimulation(int speed, int populationSize)
+        public static void RunSimulation(int speed, int populationSize)
         {
             //We clean the data that will be written and read by the agent.
             ClearFiles(0);
@@ -240,9 +231,9 @@ namespace EvolutionGeometryFriends
             TOTAL_FITNESS_FILE = folderPath + "/full_fitness.txt";
             EA_CONFIG_FILE = folderPath + "/geometryfriends.config.xml";
         }
-
-
-        static void ea_UpdateEvent(object sender, EventArgs e)
+        #endregion
+        #region private
+        private static void ea_UpdateEvent(object sender, EventArgs e)
         {
             Console.WriteLine(string.Format("gen={0:N0} bestFitness={1:N6}", _gfea.CurrentGeneration, _gfea.Statistics._maxFitness));
 
@@ -260,7 +251,7 @@ namespace EvolutionGeometryFriends
 
         }
 
-        public static void SaveNeuralNetwork(List<NeatGenome> gl)
+        private static void SaveNeuralNetwork(List<NeatGenome> gl)
         {
             string filename = NEURAL_NETWORK_FILE;
 
@@ -364,6 +355,7 @@ namespace EvolutionGeometryFriends
             Exception e = (Exception)args.ExceptionObject;
             Console.WriteLine("MyHandler caught : " + e.Message);
         }
+        #endregion
         #endregion
     }
 }

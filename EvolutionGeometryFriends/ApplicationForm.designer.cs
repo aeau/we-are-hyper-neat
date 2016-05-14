@@ -40,13 +40,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.runSpeed = new System.Windows.Forms.NumericUpDown();
-            this.simulationCount = new System.Windows.Forms.NumericUpDown();
+            this.nGenerations = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.individualNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simulationCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGenerations)).BeginInit();
             this.SuspendLayout();
             // 
             // individualTable
@@ -243,24 +243,24 @@
             0,
             0});
             // 
-            // simulationCount
+            // nGenerations
             // 
-            this.simulationCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.simulationCount.Location = new System.Drawing.Point(480, 248);
-            this.simulationCount.Maximum = new decimal(new int[] {
+            this.nGenerations.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.nGenerations.Location = new System.Drawing.Point(480, 248);
+            this.nGenerations.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
-            this.simulationCount.Minimum = new decimal(new int[] {
+            this.nGenerations.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.simulationCount.Name = "simulationCount";
-            this.simulationCount.Size = new System.Drawing.Size(56, 27);
-            this.simulationCount.TabIndex = 22;
-            this.simulationCount.Value = new decimal(new int[] {
+            this.nGenerations.Name = "nGenerations";
+            this.nGenerations.Size = new System.Drawing.Size(56, 27);
+            this.nGenerations.TabIndex = 22;
+            this.nGenerations.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -293,7 +293,7 @@
             this.ClientSize = new System.Drawing.Size(557, 342);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.simulationCount);
+            this.Controls.Add(this.nGenerations);
             this.Controls.Add(this.runSpeed);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -316,7 +316,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.individualNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simulationCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGenerations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +340,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown runSpeed;
-        private System.Windows.Forms.NumericUpDown simulationCount;
+        private System.Windows.Forms.NumericUpDown nGenerations;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
     }

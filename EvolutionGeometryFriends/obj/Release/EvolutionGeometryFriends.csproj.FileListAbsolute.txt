@@ -30,7 +30,7 @@ C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\bin
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\bin\Release\SharpNeatLib.xml
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.ApplicationForm.resources
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.Properties.Resources.resources
-C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.SelectLevel.resources
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.csproj.GenerateResource.Cache
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.exe
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.pdb
+C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.csprojResolveAssemblyReference.cache
