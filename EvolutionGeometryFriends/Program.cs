@@ -138,7 +138,7 @@ namespace EvolutionGeometryFriends
                 // Stop the evolution if the flag is set
                 if (stop)
                 {
-                    return;
+                    break;
                 }
                 // Create offspring based on fitness
                 try
@@ -155,6 +155,8 @@ namespace EvolutionGeometryFriends
                 // Run game to get fitness for new population
                 RunSimulation(speed, experiment.DefaultPopulationSize);                
             }
+
+         //   ApplicationForm.Instance.ChangeState();
         }
 
         public static void RunSimulation(int speed, int populationSize)

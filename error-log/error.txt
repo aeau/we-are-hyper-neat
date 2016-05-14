@@ -65,3 +65,191 @@ Excepci¾n no controlada: System.IO.IOException: El proceso no puede obtener acc
    en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    en System.Threading.ThreadHelper.ThreadStart()
+
+14/05/2016 22:24:52
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading index value ---> System.NotSupportedException: No se admite el formato proporcionado de la ruta de acceso.
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 131
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 139
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()
+
+14/05/2016 22:25:48
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading index value ---> System.IO.PathTooLongException: La ruta de acceso especificada o el nombre de archivo (o ambos) son demasiado largos. El nombre de archivo completo debe ser inferior a 260 caracteres y el nombre del directorio debe ser inferior a 248.
+   en System.IO.PathHelper.GetFullPathName()
+   en System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 131
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 139
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()
+
+14/05/2016 22:28:04
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading index value ---> System.IO.PathTooLongException: La ruta de acceso especificada o el nombre de archivo (o ambos) son demasiado largos. El nombre de archivo completo debe ser inferior a 260 caracteres y el nombre del directorio debe ser inferior a 248.
+   en System.IO.PathHelper.GetFullPathName()
+   en System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 131
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 139
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()
+
+14/05/2016 22:30:54
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading index value ---> System.IO.PathTooLongException: La ruta de acceso especificada o el nombre de archivo (o ambos) son demasiado largos. El nombre de archivo completo debe ser inferior a 260 caracteres y el nombre del directorio debe ser inferior a 248.
+   en System.IO.PathHelper.GetFullPathName()
+   en System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 131
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\oscar\Documents\Projects\we-are-hyper-neat\CircleAgent.cs:lÝnea 139
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()
+
+14/05/2016 22:33:24
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading the network from the list ---> System.IO.PathTooLongException: La ruta de acceso especificada o el nombre de archivo (o ambos) son demasiado largos. El nombre de archivo completo debe ser inferior a 260 caracteres y el nombre del directorio debe ser inferior a 248.
+   en System.IO.PathHelper.GetFullPathName()
+   en System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   en System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   en System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   en System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   en System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\CircleAgent.cs:lÝnea 150
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\CircleAgent.cs:lÝnea 161
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()
+
+14/05/2016 22:34:11
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading the network from the list ---> System.IO.PathTooLongException: La ruta de acceso especificada o el nombre de archivo (o ambos) son demasiado largos. El nombre de archivo completo debe ser inferior a 260 caracteres y el nombre del directorio debe ser inferior a 248.
+   en System.IO.PathHelper.GetFullPathName()
+   en System.IO.Path.NormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   en System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   en System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   en System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   en System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\CircleAgent.cs:lÝnea 150
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\CircleAgent.cs:lÝnea 161
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()

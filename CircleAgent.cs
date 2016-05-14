@@ -128,14 +128,14 @@ namespace GeometryFriendsAgents
 
             try
             {
-                using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + INDEX_FILE_PATH))
+                using (StreamReader sr = new StreamReader(INDEX_FILE_PATH))
                 {
                     index_id = Int32.Parse(sr.ReadLine());
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Problem when reading index value" + e.Message);
+                MessageBox.Show("1Problem when reading index value" + e.Message);
                 throw new Exception("Problem when reading index value", e);
             }
 
@@ -152,7 +152,7 @@ namespace GeometryFriendsAgents
             // Try to load the genome from the XML document.
             try
             {
-                using (XmlReader xr = XmlReader.Create(Environment.CurrentDirectory + NEURAL_NETWORK_FILE))
+                using (XmlReader xr = XmlReader.Create(NEURAL_NETWORK_FILE))
                     genome = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, ngf)[index_id]; // this is the index to change
             }
             catch (Exception e)
@@ -208,7 +208,7 @@ namespace GeometryFriendsAgents
             }
             catch (Exception e)
             {
-                MessageBox.Show("Problem when reading index value" + e.Message);
+                MessageBox.Show("2Problem when reading index value" + e.Message);
                 throw new Exception("Problem when reading index value", e);
             }
 
@@ -461,7 +461,7 @@ namespace GeometryFriendsAgents
                                  (float)(1.0f - normalized_time);
             try
             {
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + FITNESS_FILE, true))
+                using (StreamWriter sw = new StreamWriter(FITNESS_FILE, true))
                 {
                     sw.WriteLine(weighted_sum);
                 }
@@ -491,7 +491,7 @@ namespace GeometryFriendsAgents
 
             try
             {
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + INDEX_FILE_PATH, false))
+                using (StreamWriter sw = new StreamWriter(INDEX_FILE_PATH, false))
                 {
                     sw.Write(index_id);
                 }

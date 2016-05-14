@@ -16,7 +16,6 @@ C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.pdb
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.csprojResolveAssemblyReference.cache
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.Properties.Resources.resources
-C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.SelectLevel.resources
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.csproj.GenerateResource.Cache
 C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\EvolutionGeometryFriends\obj\Release\EvolutionGeometryFriends.ApplicationForm.resources
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\EvolutionGeometryFriends\bin\Release\EvolutionGeometryFriends.exe.config

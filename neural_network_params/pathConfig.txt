@@ -1,1 +1,1 @@
-C:\Users\oscar\Documents\Projects\we-are-hyper-neat\neural_network_params
+C:/Users/Embajador/Documents/IT-University/second-semester/alife-robotics/group-project/project/we-are-hyper-neat/neural_network_params

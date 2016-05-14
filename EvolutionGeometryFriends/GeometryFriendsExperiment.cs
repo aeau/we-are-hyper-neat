@@ -18,7 +18,6 @@ using SharpNeat.SpeciationStrategies;
 
 using SharpNeat.Domains;
 using System.Threading.Tasks;
-using SharpNeat.Core;
 using SharpNeat.Decoders.Neat;
 using System.Xml;
 

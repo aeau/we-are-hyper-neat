@@ -13,7 +13,18 @@ using EvolutionGeometryFriends.Properties;
 
 namespace EvolutionGeometryFriends {
     public partial class ApplicationForm : Form {
-        
+
+        private static volatile ApplicationForm instance;
+        public static ApplicationForm Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new ApplicationForm();
+                return instance;
+            }
+        }
+
         public enum State
         {
             Stopped,
@@ -64,11 +75,18 @@ namespace EvolutionGeometryFriends {
         private string selectedProjectPath = "";
         private List<string[]> tableData = new List<string[]>();
 
+        private Thread evolutionThread;
+
+        public void ChangeState()
+        {
+            CurrentState = State.Stopped;
+        }
+
         [STAThread]
         public static void Main()
         {
             Application.EnableVisualStyles();
-            Application.Run(new ApplicationForm());
+            Application.Run(Instance);
         }
 
         public ApplicationForm() {
@@ -96,16 +114,23 @@ namespace EvolutionGeometryFriends {
 
         private void button_StartEvolution_Click(object sender, EventArgs e) {
             CurrentState = State.Starting;
-            (new Thread(() => {
+            evolutionThread = new Thread(() => {
                 Program.SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");
                 Program.RunEvolution((int)runSpeed.Value, (int)nGenerations.Value);
-            })).Start();
+            });
+            evolutionThread.Start();
             CurrentState = State.Running;
         }
 
         private void button_StopEvolution_Click(object sender, EventArgs e) {
             Program.StopEvolution();
             CurrentState = State.Stopping;
+            label_status.Update();
+            while (evolutionThread.IsAlive)
+            {
+
+            }
+            CurrentState = State.Stopped;
         }
 
         private void button_LoadProject_Click(object sender, EventArgs e) {
