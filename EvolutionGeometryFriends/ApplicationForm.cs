@@ -13,32 +13,7 @@ using EvolutionGeometryFriends.Properties;
 
 namespace EvolutionGeometryFriends {
     public partial class ApplicationForm : Form {
-
-        private int levelIndex = 0;
-        public int LevelIndex {
-            get { return levelIndex; }  
-            set {
-                levelIndex = value;
-                switch (value) {
-                    case 1:
-                        SelectedLevelImage.Image = Resources.Level0;
-                        break;
-                    case 2:
-                        SelectedLevelImage.Image = Resources.Level1;
-                        break;
-                    case 3:
-                        SelectedLevelImage.Image = Resources.Level2;
-                        break;
-                    case 4:
-                        SelectedLevelImage.Image = Resources.Level3;
-                        break;
-                    case 5:
-                        SelectedLevelImage.Image = Resources.Level4;
-                        break;
-                }
-            }
-        }
-
+        
         public enum State
         {
             Stopped,
@@ -87,6 +62,7 @@ namespace EvolutionGeometryFriends {
         }
 
         private string selectedProjectPath = "";
+        private Dictionary<int, float> tableData = new Dictionary<int, float>();
 
         public ApplicationForm() {
             InitializeComponent();
@@ -99,7 +75,6 @@ namespace EvolutionGeometryFriends {
 
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
-            LevelIndex = 3;
             CurrentState = State.Stopped;
         }
 
@@ -138,6 +113,16 @@ namespace EvolutionGeometryFriends {
 
         private void button_RunIndividual_Click(object sender, EventArgs e) {
 
+        }
+
+        public void UpdateTable(Dictionary<int, float> tableData)
+        {
+            individualTable.Controls.Clear();
+            this.tableData = tableData;
+            foreach (KeyValuePair<int, float> pair in tableData)
+            {
+                AddRow(pair.Key, pair.Value);
+            }
         }
 
     }

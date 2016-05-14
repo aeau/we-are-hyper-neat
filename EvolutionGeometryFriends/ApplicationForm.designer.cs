@@ -26,8 +26,6 @@
             this.individualTable = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.button_RunIndividual = new System.Windows.Forms.Button();
-            this.button_SelectLevel = new System.Windows.Forms.Button();
-            this.SelectedLevelImage = new System.Windows.Forms.PictureBox();
             this.button_StopEvolution = new System.Windows.Forms.Button();
             this.button_StartEvolution = new System.Windows.Forms.Button();
             this.button_LoadProject = new System.Windows.Forms.Button();
@@ -41,9 +39,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectedLevelImage)).BeginInit();
+            this.runSpeed = new System.Windows.Forms.NumericUpDown();
+            this.simulationCount = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.runSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simulationCount)).BeginInit();
             this.SuspendLayout();
             // 
             // individualTable
@@ -81,26 +84,6 @@
             this.button_RunIndividual.Text = "Run";
             this.button_RunIndividual.UseVisualStyleBackColor = true;
             this.button_RunIndividual.Click += new System.EventHandler(this.button_RunIndividual_Click);
-            // 
-            // button_SelectLevel
-            // 
-            this.button_SelectLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button_SelectLevel.Location = new System.Drawing.Point(410, 191);
-            this.button_SelectLevel.Name = "button_SelectLevel";
-            this.button_SelectLevel.Size = new System.Drawing.Size(130, 32);
-            this.button_SelectLevel.TabIndex = 5;
-            this.button_SelectLevel.Text = "Select Level";
-            this.button_SelectLevel.UseVisualStyleBackColor = true;
-            this.button_SelectLevel.Click += new System.EventHandler(this.button_SelectLevel_Click);
-            // 
-            // SelectedLevelImage
-            // 
-            this.SelectedLevelImage.Location = new System.Drawing.Point(410, 106);
-            this.SelectedLevelImage.Name = "SelectedLevelImage";
-            this.SelectedLevelImage.Size = new System.Drawing.Size(130, 79);
-            this.SelectedLevelImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.SelectedLevelImage.TabIndex = 6;
-            this.SelectedLevelImage.TabStop = false;
             // 
             // button_StopEvolution
             // 
@@ -237,11 +220,81 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Fitness";
             // 
+            // runSpeed
+            // 
+            this.runSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.runSpeed.Location = new System.Drawing.Point(331, 248);
+            this.runSpeed.Maximum = new decimal(new int[] {
+            75,
+            0,
+            0,
+            0});
+            this.runSpeed.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.runSpeed.Name = "runSpeed";
+            this.runSpeed.Size = new System.Drawing.Size(56, 27);
+            this.runSpeed.TabIndex = 21;
+            this.runSpeed.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // simulationCount
+            // 
+            this.simulationCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.simulationCount.Location = new System.Drawing.Point(480, 248);
+            this.simulationCount.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.simulationCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.simulationCount.Name = "simulationCount";
+            this.simulationCount.Size = new System.Drawing.Size(56, 27);
+            this.simulationCount.TabIndex = 22;
+            this.simulationCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(333, 229);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Speed";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(413, 229);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(123, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "# Of Generations";
+            // 
             // ApplicationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 342);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.simulationCount);
+            this.Controls.Add(this.runSpeed);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -254,17 +307,16 @@
             this.Controls.Add(this.button_LoadProject);
             this.Controls.Add(this.button_StartEvolution);
             this.Controls.Add(this.button_StopEvolution);
-            this.Controls.Add(this.SelectedLevelImage);
-            this.Controls.Add(this.button_SelectLevel);
             this.Controls.Add(this.button_RunIndividual);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.individualTable);
             this.Name = "ApplicationForm";
             this.Text = "ApplicationForm";
             this.Load += new System.EventHandler(this.ApplicationForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.SelectedLevelImage)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.runSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simulationCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,8 +326,6 @@
         private System.Windows.Forms.TableLayoutPanel individualTable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_RunIndividual;
-        private System.Windows.Forms.Button button_SelectLevel;
-        private System.Windows.Forms.PictureBox SelectedLevelImage;
         private System.Windows.Forms.Button button_StopEvolution;
         private System.Windows.Forms.Button button_StartEvolution;
         private System.Windows.Forms.Button button_LoadProject;
@@ -289,5 +339,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown runSpeed;
+        private System.Windows.Forms.NumericUpDown simulationCount;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
