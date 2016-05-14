@@ -24,12 +24,6 @@ namespace EvolutionGeometryFriends
         private ulong _evalCount;
         private bool _stopConditionSatisfied;
 
-        string filename = Environment.CurrentDirectory +
-                                    "/../../../GeometryFriendsGame/Release/gflink";
-
-        const string FITNESS_FILE = "/../../../GeometryFriendsGame/Release/fitness.txt";
-        const string ACTUAL_NETWORK_FILE = "/../../../GeometryFriendsGame/Release/Agents/neural_network_params/current_circle_network.xml";
-
         #region IPhenomeEvaluator<IBlackBox> Members
 
         /// <summary>
@@ -68,65 +62,9 @@ namespace EvolutionGeometryFriends
         /// </summary>
         public FitnessInfo Evaluate(IBlackBox box)
         {
-            double fitness;
-            //SaveNeuralNetwork(box);
-
-            //We run the game with the neural network
-            Process firstProc = new Process();
-            firstProc.StartInfo.FileName = filename;
-            firstProc.Start();
-            firstProc.WaitForExit();
-
-            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + FITNESS_FILE))
-            {
-                fitness = Double.Parse(sr.ReadLine());
-            }
-
-            Console.WriteLine("fitness is: " + fitness);
-            return new FitnessInfo(fitness, fitness);
-
-
-            /*
-            if( Program.fitness_counter >= Program.fitness_values.Count)
-            {
-                _evalCount++;
-                return new FitnessInfo(0.0, 0.0);                
-            }
-
-            FitnessInfo fi = new FitnessInfo(Program.fitness_values[Program.fitness_counter], Program.fitness_values[Program.fitness_counter]);
-            _evalCount++;
-            Program.fitness_counter++;
-
-            return fi;
-            */
+            throw new NotImplementedException();
         }
 
-        public void SaveNeuralNetwork(IBlackBox brain)
-        {
-            string filename = Environment.CurrentDirectory + ACTUAL_NETWORK_FILE;
-            var doc = NeatGenomeXmlIO.SaveComplete(
-                                     new List<NeatGenome>() { (NeatGenome)brain},
-                                     false);
-
-            doc.Save(filename);
-        }
-
-        /*
-
-        /// <summary>
-        /// Returns the score for a game. Scoring is 10 for a win, 1 for a draw
-        /// and 0 for a loss. Note that scores cannot be smaller than 0 because
-        /// NEAT requires the fitness score to be positive.
-        /// </summary>
-        private int getScore(SquareTypes winner, SquareTypes neatSquareType)
-        {
-            if (winner == neatSquareType)
-                return 10;
-            if (winner == SquareTypes.N)
-                return 1;
-            return 0;
-        }
-        */
         /// <summary>
         /// Reset the internal state of the evaluation scheme if any exists.
         /// Note. The TicTacToe problem domain has no internal state. This method does nothing.
