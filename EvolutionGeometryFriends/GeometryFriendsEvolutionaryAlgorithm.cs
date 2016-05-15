@@ -313,6 +313,7 @@ namespace EvolutionGeometryFriends
         public IList<TGenome> GenomeList
         {
             get { return _genomeList; }
+            set { _genomeList = value as List<TGenome>; }
         }
 
         /// <summary>

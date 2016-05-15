@@ -200,6 +200,11 @@ namespace EvolutionGeometryFriends {
         private void LoadNeuralNetworkFile()
         {
             var NEURAL_NETWORK_FILE = selectedProjectPath + "/circle_neural_network.xml";
+            if (!File.Exists(NEURAL_NETWORK_FILE))
+            {
+                individualTable.Controls.Clear();
+                return;
+            }
             List<string[]> individuals = new List<string[]>();
             using (var reader = new XmlTextReader(NEURAL_NETWORK_FILE))
             {

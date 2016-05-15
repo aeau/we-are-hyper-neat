@@ -79,7 +79,6 @@ namespace EvolutionGeometryFriends
                 geometry_friends_process.StartInfo.UseShellExecute = false;
                 geometry_friends_process.EnableRaisingEvents = true;
                 geometry_friends_process.StartInfo.Arguments = "--log-to-file --disable-fixed-time-step --speed " + speed_value + " -st 0 3 -a Agents/GeometryFriendsAgent.dll";
-                geometry_friends_process.Exited += new EventHandler(myProcess_Exited);
 
                 // Redirect the error output of the net command. 
                 geometry_friends_process.StartInfo.RedirectStandardError = true;
@@ -126,7 +125,22 @@ namespace EvolutionGeometryFriends
 
             _gfea = experiment.CreateGFEvolutionAlgorithm();
             _gfea.UpdateEvent += new EventHandler(ea_UpdateEvent);
-            SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
+
+            
+
+            if (!File.Exists(NEURAL_NETWORK_FILE))
+            {
+                File.Create(NEURAL_NETWORK_FILE);
+                File.Create(TOTAL_FITNESS_FILE);
+                File.Create(CIRCLE_CHAMPION_FILE);
+
+                SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
+            }
+            else
+            {
+                // Load population from existing files
+                _gfea.GenomeList = LoadNeuralNetwork(experiment.CreateGenomeFactory() as NeatGenomeFactory);
+            }
 
             RunSimulation(speed, experiment.DefaultPopulationSize);
             _gfea.FirstEvaluation();
@@ -177,7 +191,6 @@ namespace EvolutionGeometryFriends
                 geometry_friends_process.StartInfo.UseShellExecute = false;
                 geometry_friends_process.EnableRaisingEvents = true;
                 geometry_friends_process.StartInfo.Arguments = "--log-to-file --no-rendering --disable-fixed-time-step --speed " + speed + " --simulations " + populationSize + " -st 0 3 -a Agents/GeometryFriendsAgent.dll";
-                geometry_friends_process.Exited += new EventHandler(myProcess_Exited);
 
                 // Redirect the error output of the net command. 
                 geometry_friends_process.StartInfo.RedirectStandardError = true;
@@ -231,15 +244,6 @@ namespace EvolutionGeometryFriends
             NEURAL_NETWORK_FILE = folderPath + "/circle_neural_network.xml";
             CIRCLE_CHAMPION_FILE = folderPath + "/circle_champion.xml";
             TOTAL_FITNESS_FILE = folderPath + "/full_fitness.txt";
-            
-
-            if (!File.Exists(NEURAL_NETWORK_FILE)) {
-                File.Create(NEURAL_NETWORK_FILE);
-                File.Create(TOTAL_FITNESS_FILE);
-                File.Create(CIRCLE_CHAMPION_FILE);
-                
-            }
-
         }
         #endregion
         #region private
@@ -277,6 +281,22 @@ namespace EvolutionGeometryFriends
             {
                 MessageBox.Show("Problem when saving the complete list of genomes" + e1.Message);
                 throw new Exception("Problem when saving the complete list of genomes", e1);
+            }
+        }
+
+        private static List<NeatGenome> LoadNeuralNetwork(NeatGenomeFactory factory)
+        {
+            try
+            {
+                List<NeatGenome> gl;
+                using (XmlReader xr = XmlReader.Create(NEURAL_NETWORK_FILE))
+                    gl = NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, factory);
+                return gl;
+
+            }
+            catch (Exception e1) {
+                MessageBox.Show("Problem when loading the complete list of genomes" + e1.Message);
+                throw new Exception("Problem when loading the complete list of genomes", e1);
             }
         }
 
@@ -352,12 +372,6 @@ namespace EvolutionGeometryFriends
                     streamError.Flush();
                 }
             }
-        }
-
-        // Handle Exited event and display process information.
-        public static void myProcess_Exited(object sender, System.EventArgs e)
-        {
-            Console.WriteLine(e.ToString());
         }
 
         static void MyHandler(object sender, UnhandledExceptionEventArgs args)
