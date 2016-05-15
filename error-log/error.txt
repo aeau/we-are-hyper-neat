@@ -253,3 +253,62 @@ Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produj
    en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    en System.Threading.ThreadHelper.ThreadStart()
+
+15-May-16 11:34:57 AM
+Geoemtry Friends error output:
+Unhandled Exception: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Exception: Problem when reading index value ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\neural_network_params\index_file.txt'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path)
+   at GeometryFriendsAgents.CircleAgent..ctor() in c:\Workspaces\Git\ALifeProject\CircleAgent.cs:line 131
+   --- End of inner exception stack trace ---
+   at GeometryFriendsAgents.CircleAgent..ctor() in c:\Workspaces\Git\ALifeProject\CircleAgent.cs:line 139
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at GeometryFriends.AI.AgentsManager.LoadAgents()
+   at GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent()
+   at GeometryFriends.Levels.Level.LoadContent()
+   at GeometryFriends.ScreenSystem.ScreenManager.AddScreen(GameScreen screen)
+   at GeometryFriends.ScreenSystem.SimulationScreen.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen)
+   at GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime)
+   at GeometryFriends.XNAStub.Game.Update(GameTime gameTime)
+   at GeometryFriends.Engine.Update(GameTime gameTime)
+   at GeometryFriends.XNAStub.Game.Tick()
+   at GeometryFriends.XNAStub.Game.Run()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+
+15-May-16 2:43:44 PM
+Geoemtry Friends error output:
+Unhandled Exception: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Exception: Problem when reading the network from the list ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at GeometryFriendsAgents.CircleAgent..ctor() in c:\Workspaces\Git\ALifeProject\CircleAgent.cs:line 54
+   --- End of inner exception stack trace ---
+   at GeometryFriendsAgents.CircleAgent..ctor() in c:\Workspaces\Git\ALifeProject\CircleAgent.cs:line 161
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at GeometryFriends.AI.AgentsManager.LoadAgents()
+   at GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent()
+   at GeometryFriends.Levels.Level.LoadContent()
+   at GeometryFriends.ScreenSystem.ScreenManager.AddScreen(GameScreen screen)
+   at GeometryFriends.ScreenSystem.SimulationScreen.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen)
+   at GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime)
+   at GeometryFriends.XNAStub.Game.Update(GameTime gameTime)
+   at GeometryFriends.Engine.Update(GameTime gameTime)
+   at GeometryFriends.XNAStub.Game.Tick()
+   at GeometryFriends.XNAStub.Game.Run()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()

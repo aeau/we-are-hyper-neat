@@ -402,6 +402,7 @@ namespace EvolutionGeometryFriends
 
             // Store ref to best genome.
             UpdateBestGenome();
+            UpdateStats();
         }
 
         public void PerformGeneration()

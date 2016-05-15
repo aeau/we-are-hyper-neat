@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryFriendsAgents", "GeometryFriendsAgents.csproj", "{6F45AB29-7874-4B3D-8073-B2D5F0C1A35F}"
 EndProject
@@ -41,12 +41,12 @@ Global
 		{6F45AB29-7874-4B3D-8073-B2D5F0C1A35F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{6F45AB29-7874-4B3D-8073-B2D5F0C1A35F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6F45AB29-7874-4B3D-8073-B2D5F0C1A35F}.Release|x86.ActiveCfg = Release|Any CPU
-		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|x86.ActiveCfg = Debug|Any CPU
+		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Debug|Any CPU.ActiveCfg = Debug
+		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Debug|x86.ActiveCfg = Debug
+		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|Any CPU.ActiveCfg = Debug
+		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|Mixed Platforms.ActiveCfg = Debug
+		{CCBB2A05-5B93-44F0-AB94-3336B53472EB}.Release|x86.ActiveCfg = Debug
 		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60F225A4-18FC-4037-A060-79F4B5B8C338}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

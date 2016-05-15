@@ -24,3 +24,16 @@ C:\Users\oscar\Documents\Projects\we-are-hyper-neat\GeometryFriendsGame\Release\
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\obj\Release\GeometryFriendsAgents.csprojResolveAssemblyReference.cache
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\obj\Release\GeometryFriendsAgents.dll
 C:\Users\oscar\Documents\Projects\we-are-hyper-neat\obj\Release\GeometryFriendsAgents.pdb
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\GeometryFriendsAgents.dll
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\GeometryFriendsAgents.pdb
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\EvolutionGeometryFriends.exe
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\log4net.dll
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\SharpNeatDomains.dll
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\SharpNeatLib.dll
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\Redzen.dll
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\EvolutionGeometryFriends.pdb
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\log4net.xml
+C:\Workspaces\Git\ALifeProject\GeometryFriendsGame\Release\Agents\SharpNeatLib.xml
+C:\Workspaces\Git\ALifeProject\obj\Release\GeometryFriendsAgents.csprojResolveAssemblyReference.cache
+C:\Workspaces\Git\ALifeProject\obj\Release\GeometryFriendsAgents.dll
+C:\Workspaces\Git\ALifeProject\obj\Release\GeometryFriendsAgents.pdb

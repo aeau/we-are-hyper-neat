@@ -2763,3 +2763,5 @@ Generation;MaxFitness;MeanFitness
 Generation;MaxFitness;MeanFitness
 0;0,000000;0,000000
 Generation;MaxFitness;MeanFitness
+Generation;MaxFitness;MeanFitness
+0;0.000000;0.000000

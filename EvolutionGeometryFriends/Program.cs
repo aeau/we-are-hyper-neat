@@ -37,15 +37,15 @@ namespace EvolutionGeometryFriends
         private static bool errorsWritten = false;
 
         private static Process geometry_friends_process;
-        private static bool stop = false;
+        public static volatile bool stop = false;
         #endregion
 
         #region filePaths
         static string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
         static string CIRCLE_CHAMPION_FILE = "/../../../neural_network_params/circle_champion.xml";       
         static string TOTAL_FITNESS_FILE = "/../../../neural_network_params/full_fitness.txt";
-        static string EA_CONFIG_FILE = "/../../../neural_network_params/geometryfriends.config.xml";
 
+        static string EA_CONFIG_FILE = Environment.CurrentDirectory + "/../../../neural_network_params/geometryfriends.config.xml";
         static string ERROR_FILE = Environment.CurrentDirectory + "/../../../error-log/error.txt";
         static string SIMULATION_EXECUTABLE_FILENAME = Environment.CurrentDirectory + "/../../../GeometryFriendsGame/Release/GeometryFriends.exe";
         static string INDEX_FILE_PATH = Environment.CurrentDirectory + "/../../../neural_network_params/index_file.txt";
@@ -100,7 +100,7 @@ namespace EvolutionGeometryFriends
             
         }
 
-        public static void RunEvolution(int speed, int nGenerations)
+        public static void RunEvolution(int speed, int nGenerations, ApplicationForm form)
         {            
             // Initialise log4net (log to console).
             XmlConfigurator.Configure(new FileInfo(LOG4NET_FILE));
@@ -135,11 +135,7 @@ namespace EvolutionGeometryFriends
 
             for (int i = 0; i < nGenerations; i++)
             {
-                // Stop the evolution if the flag is set
-                if (stop)
-                {
-                    break;
-                }
+                
                 // Create offspring based on fitness
                 try
                 {
@@ -153,10 +149,14 @@ namespace EvolutionGeometryFriends
                 // Update neural network configurations in xml
                 SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
                 // Run game to get fitness for new population
-                RunSimulation(speed, experiment.DefaultPopulationSize);                
+                RunSimulation(speed, experiment.DefaultPopulationSize);
+
+                // Stop the evolution if the flag is set
+                if (stop) {
+                    break;
+                }
             }
 
-         //   ApplicationForm.Instance.ChangeState();
         }
 
         public static void RunSimulation(int speed, int populationSize)
@@ -231,7 +231,15 @@ namespace EvolutionGeometryFriends
             NEURAL_NETWORK_FILE = folderPath + "/circle_neural_network.xml";
             CIRCLE_CHAMPION_FILE = folderPath + "/circle_champion.xml";
             TOTAL_FITNESS_FILE = folderPath + "/full_fitness.txt";
-            EA_CONFIG_FILE = folderPath + "/geometryfriends.config.xml";
+            
+
+            if (!File.Exists(NEURAL_NETWORK_FILE)) {
+                File.Create(NEURAL_NETWORK_FILE);
+                File.Create(TOTAL_FITNESS_FILE);
+                File.Create(CIRCLE_CHAMPION_FILE);
+                
+            }
+
         }
         #endregion
         #region private

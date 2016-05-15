@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using EvolutionGeometryFriends.Properties;
+using SharpNeat.Genomes.Neat;
 
 namespace EvolutionGeometryFriends {
     public partial class ApplicationForm : Form {
@@ -69,10 +71,11 @@ namespace EvolutionGeometryFriends {
 
                 button_StopEvolution.Enabled = (curretState == State.Running);
                 button_StartEvolution.Enabled = (curretState == State.Stopped);
+                button_RunIndividual.Enabled = (curretState == State.Stopped);
             }
         }
 
-        private string selectedProjectPath = "";
+        private string selectedProjectPath = "None";
         private List<string[]> tableData = new List<string[]>();
 
         private Thread evolutionThread;
@@ -96,6 +99,8 @@ namespace EvolutionGeometryFriends {
         private void LoadProject(string path) {
             selectedProjectPath = path;
             label_loadedProject.Text = Path.GetFileName(path);
+            Program.SetProjectPath(path);
+            LoadNeuralNetworkFile();
         }
 
         private void ApplicationForm_Load(object sender, EventArgs e)
@@ -113,42 +118,71 @@ namespace EvolutionGeometryFriends {
         }
 
         private void button_StartEvolution_Click(object sender, EventArgs e) {
+            if (selectedProjectPath == "None")
+            {
+                MessageBox.Show("Please select a project folder.");
+                return;
+            }
             CurrentState = State.Starting;
-            evolutionThread = new Thread(() => {
-                Program.SetProjectPath(Environment.CurrentDirectory + "/../../../neural_network_params");
-                Program.RunEvolution((int)runSpeed.Value, (int)nGenerations.Value);
+
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.DoWork += new DoWorkEventHandler(
+            delegate(object o, DoWorkEventArgs args) {
+                BackgroundWorker b = o as BackgroundWorker;
+
+                Program.SetProjectPath(selectedProjectPath);
+                Program.RunEvolution((int)runSpeed.Value, (int)nGenerations.Value - 1, this);
             });
-            evolutionThread.Start();
+
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+            delegate(object o, RunWorkerCompletedEventArgs args) {
+                OnStop();
+            });
+            bw.RunWorkerAsync();
             CurrentState = State.Running;
         }
 
         private void button_StopEvolution_Click(object sender, EventArgs e) {
             Program.StopEvolution();
             CurrentState = State.Stopping;
-            label_status.Update();
-            while (evolutionThread.IsAlive)
-            {
+        }
 
-            }
+        public void OnStop()
+        {
+            LoadNeuralNetworkFile();
             CurrentState = State.Stopped;
         }
 
         private void button_LoadProject_Click(object sender, EventArgs e) {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-            if (folderBrowser.ShowDialog() == DialogResult.OK) {
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
                 LoadProject(folderBrowser.SelectedPath);
+            }
+            else
+            {
+                Console.WriteLine(":;(");
             }
         }
 
         private void button_RunIndividual_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(individualNumber.Value.ToString());
+            if (selectedProjectPath == "None") {
+                MessageBox.Show("Please select a project folder.");
+                return;
+            }
+            if (tableData.Count == 0)
+            {
+                MessageBox.Show("There is currently not project data to run individual from.\nSelect another project path or run evolution first.");
+                return;
+            }
             for (int i = 0; i < tableData.Count; i++)
             {
                 if (tableData[i][0] == individualNumber.Value.ToString())
                 {
-                    //Program.RunIndividual(i);
-                    return;
+                    Program.RunIndividual(i, (int)runSpeed.Value);
+                    break;
                 }
             }
         }
@@ -163,5 +197,37 @@ namespace EvolutionGeometryFriends {
             }
         }
 
+        private void LoadNeuralNetworkFile()
+        {
+            var NEURAL_NETWORK_FILE = selectedProjectPath + "/circle_neural_network.xml";
+            List<string[]> individuals = new List<string[]>();
+            using (var reader = new XmlTextReader(NEURAL_NETWORK_FILE))
+            {
+                try
+                {
+                    while (reader.Read())
+                    {
+                        switch (reader.NodeType)
+                        {
+                            case XmlNodeType.Element: // The node is an element.
+                                if (reader.Name == "Network")
+                                {
+                                    individuals.Add(new string[]
+                                    {reader.GetAttribute("id"), reader.GetAttribute("fitness")});
+                                }
+                                break;
+
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    individualTable.Controls.Clear();
+                    return;
+                }
+            }
+
+            UpdateTable(individuals);
+        }
     }
 }

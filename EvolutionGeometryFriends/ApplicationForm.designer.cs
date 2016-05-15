@@ -204,11 +204,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 36);
+            this.label6.Location = new System.Drawing.Point(12, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.Size = new System.Drawing.Size(21, 16);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Index";
+            this.label6.Text = "Id";
             // 
             // label7
             // 
@@ -253,7 +253,7 @@
             0,
             0});
             this.nGenerations.Minimum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -261,7 +261,7 @@
             this.nGenerations.Size = new System.Drawing.Size(56, 27);
             this.nGenerations.TabIndex = 22;
             this.nGenerations.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -323,16 +323,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel individualTable;
+        private volatile System.Windows.Forms.TableLayoutPanel individualTable;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button_RunIndividual;
-        private System.Windows.Forms.Button button_StopEvolution;
-        private System.Windows.Forms.Button button_StartEvolution;
-        private System.Windows.Forms.Button button_LoadProject;
+        private volatile System.Windows.Forms.Button button_RunIndividual;
+        private volatile System.Windows.Forms.Button button_StopEvolution;
+        private volatile System.Windows.Forms.Button button_StartEvolution;
+        private volatile System.Windows.Forms.Button button_LoadProject;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_loadedProject;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label_status;
+        private volatile System.Windows.Forms.Label label_status;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.NumericUpDown individualNumber;
         private System.Windows.Forms.Label label2;
