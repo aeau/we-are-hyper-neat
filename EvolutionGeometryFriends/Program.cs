@@ -64,8 +64,7 @@ namespace EvolutionGeometryFriends
 
         public static void RunIndividual(int index, int speed_value)
         {
-            for (int i = 0; i < 50; i++)
-            {
+            
             //We clean the data that will be written and read by the agent.
             //ClearFiles(index);
 
@@ -109,8 +108,6 @@ namespace EvolutionGeometryFriends
                 throw new Exception("An error executing the GeometryFriends.exe", ex);
             }
 
-            }
-            
         }
 
         public static void RunEvolution(int speed, int nGenerations, ApplicationForm form)

@@ -1,5 +1,5 @@
 <Config>
-  <PopulationSize>20</PopulationSize>
+  <PopulationSize>50</PopulationSize>
   <SpecieCount>10</SpecieCount>
   <Activation>
 	<Scheme>Acyclic</Scheme>
