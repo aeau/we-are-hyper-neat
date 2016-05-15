@@ -64,8 +64,20 @@ namespace EvolutionGeometryFriends
 
         public static void RunIndividual(int index, int speed_value)
         {
+            for (int i = 0; i < 50; i++)
+            {
             //We clean the data that will be written and read by the agent.
-            ClearFiles(index);
+            //ClearFiles(index);
+
+            try {
+                using (StreamWriter sw = new StreamWriter(INDEX_FILE_PATH, false)) {
+                    sw.Write(index.ToString());
+                }
+            }
+            catch (Exception e) {
+                MessageBox.Show("Problem when initializing index value" + e.Message);
+                throw new Exception("Problem when initializing index value", e);
+            }
 
             //We start the Game
             try
@@ -96,6 +108,8 @@ namespace EvolutionGeometryFriends
                 MessageBox.Show("An error executing the GeometryFriends.exe" + ex.Message);
                 throw new Exception("An error executing the GeometryFriends.exe", ex);
             }
+
+            }
             
         }
 
@@ -105,11 +119,6 @@ namespace EvolutionGeometryFriends
             XmlConfigurator.Configure(new FileInfo(LOG4NET_FILE));
 
 
-            // Write first header for Total fitness file
-            using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true))
-            {
-                sw.WriteLine("Generation;MaxFitness;MeanFitness");
-            }
 
             //We set up the experiment & the evolutionary algorithm.
             GeometryFriendsExperiment experiment = new GeometryFriendsExperiment();
@@ -130,9 +139,9 @@ namespace EvolutionGeometryFriends
 
             if (!File.Exists(NEURAL_NETWORK_FILE))
             {
-                File.Create(NEURAL_NETWORK_FILE);
-                File.Create(TOTAL_FITNESS_FILE);
-                File.Create(CIRCLE_CHAMPION_FILE);
+                File.Create(NEURAL_NETWORK_FILE).Close();
+                File.Create(TOTAL_FITNESS_FILE).Close();
+                File.Create(CIRCLE_CHAMPION_FILE).Close();
 
                 SaveNeuralNetwork((List<NeatGenome>)_gfea.GenomeList);
             }
@@ -142,6 +151,10 @@ namespace EvolutionGeometryFriends
                 _gfea.GenomeList = LoadNeuralNetwork(experiment.CreateGenomeFactory() as NeatGenomeFactory);
             }
 
+            // Write first header for Total fitness file
+            using (StreamWriter sw = new StreamWriter(TOTAL_FITNESS_FILE, true)) {
+                sw.WriteLine("Generation;MaxFitness;MeanFitness");
+            }
             RunSimulation(speed, experiment.DefaultPopulationSize);
             _gfea.FirstEvaluation();
 
