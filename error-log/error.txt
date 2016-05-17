@@ -357,3 +357,33 @@ Unhandled Exception: System.ArgumentException: Parameter is not valid.
    at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    at System.Threading.ThreadHelper.ThreadStart()
+
+17/05/2016 4:37:03
+Geoemtry Friends error output:
+Excepci¾n no controlada: System.Reflection.TargetInvocationException: Se produjo una excepci¾n en el destino de la invocaci¾n. ---> System.Exception: Problem when reading index value ---> System.IO.FileNotFoundException: No se pudo encontrar el archivo 'C:\Users\Embajador\Desktop\otherrONE\index_file.txt'.
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   en System.IO.StreamReader..ctor(String path)
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\CircleAgent.cs:lÝnea 131
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en GeometryFriendsAgents.CircleAgent..ctor() en c:\Users\Embajador\Documents\IT-University\second-semester\alife-robotics\group-project\project\we-are-hyper-neat\CircleAgent.cs:lÝnea 139
+   --- Fin del seguimiento de la pila de la excepci¾n interna ---
+   en System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   en System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   en System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   en System.Activator.CreateInstance(Type type)
+   en GeometryFriends.AI.AgentsManager.LoadAgents() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\AI\AgentsManager.cs:lÝnea 459
+   en GeometryFriends.Levels.SinglePlayerLevel.LoadLevelContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 98
+   en GeometryFriends.Levels.Level.LoadContent() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\Shared\Level.cs:lÝnea 312
+   en GeometryFriends.Levels.SinglePlayerLevel.Update(GameTime gameTime, Boolean otherScreenHasFocus, Boolean coveredByOtherScreen) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Levels\SinglePlayerLevel.cs:lÝnea 155
+   en GeometryFriends.ScreenSystem.ScreenManager.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\ScreenSystem\ScreenManager.cs:lÝnea 278
+   en GeometryFriends.XNAStub.Game.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 171
+   en GeometryFriends.Engine.Update(GameTime gameTime) en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\Engine.cs:lÝnea 293
+   en GeometryFriends.XNAStub.Game.Tick() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 345
+   en GeometryFriends.XNAStub.Game.Run() en d:\Work\Geometry-Friends-Game-Cross-Platform\GeometryFriends\XNAStub\Game.cs:lÝnea 257
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Threading.ThreadHelper.ThreadStart()

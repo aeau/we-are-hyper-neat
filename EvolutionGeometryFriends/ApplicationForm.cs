@@ -16,6 +16,7 @@ using SharpNeat.Genomes.Neat;
 namespace EvolutionGeometryFriends {
     public partial class ApplicationForm : Form {
 
+        public static String PATH_CONFIG = Environment.CurrentDirectory + "/../../../neural_network_params/pathConfig.txt";
         private static volatile ApplicationForm instance;
         public static ApplicationForm Instance
         {
@@ -99,6 +100,10 @@ namespace EvolutionGeometryFriends {
         private void LoadProject(string path) {
             selectedProjectPath = path;
             label_loadedProject.Text = Path.GetFileName(path);
+            using (StreamWriter sw = new StreamWriter(PATH_CONFIG, false))
+            {
+                sw.Write(path);
+            }
             Program.SetProjectPath(path);
             LoadNeuralNetworkFile();
         }

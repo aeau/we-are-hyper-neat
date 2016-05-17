@@ -98,8 +98,8 @@ namespace GeometryFriendsAgents
         static string PATH_CONFIG_FILE = Environment.CurrentDirectory + "/../../../neural_network_params/pathConfig.txt";
 
         static string NEURAL_NETWORK_FILE = "/../../../neural_network_params/circle_neural_network.xml";
-        static string INDEX_FILE_PATH = "/../../../neural_network_params/index_file.txt";
-        static string FITNESS_FILE = "/../../../neural_network_params/fitness.txt";
+        static string INDEX_FILE_PATH = Environment.CurrentDirectory + "/../../../neural_network_params/index_file.txt";
+        static string FITNESS_FILE = Environment.CurrentDirectory + "/../../../neural_network_params/fitness.txt";
 
         System.IO.StreamWriter writer;
         int index_id;
@@ -202,8 +202,8 @@ namespace GeometryFriendsAgents
                 {
                     basePath = sr.ReadLine();
                     NEURAL_NETWORK_FILE = basePath + "/circle_neural_network.xml";
-                    INDEX_FILE_PATH = basePath + "/index_file.txt";
-                    FITNESS_FILE = basePath + "/fitness.txt";
+                    //INDEX_FILE_PATH = basePath + "/index_file.txt";
+                    //FITNESS_FILE = basePath + "/fitness.txt";
                 }
             }
             catch (Exception e)
@@ -211,8 +211,6 @@ namespace GeometryFriendsAgents
                 MessageBox.Show("2Problem when reading index value" + e.Message);
                 throw new Exception("Problem when reading index value", e);
             }
-
-            
         }
 
         //implements abstract circle interface: used to setup the initial information so that the agent has basic knowledge about the level

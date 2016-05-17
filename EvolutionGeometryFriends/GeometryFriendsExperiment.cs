@@ -136,9 +136,8 @@ namespace EvolutionGeometryFriends
             //
             _neatGenomeParams = new NeatGenomeParameters();
            // _neatGenomeParams.ActivationFn = 
-            _neatGenomeParams.AddNodeMutationProbability = 0.1;
-            _neatGenomeParams.AddConnectionMutationProbability = 0.25;
-            _neatGenomeParams.DeleteConnectionMutationProbability = 0.2;
+            _neatGenomeParams.AddConnectionMutationProbability = 0.2;
+            //_neatGenomeParams.DeleteConnectionMutationProbability = 0.2;
 
             //_neatGenomeParams.ActivationFn = 
         }
